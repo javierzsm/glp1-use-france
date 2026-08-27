@@ -2,7 +2,7 @@
 
 An open and reproducible drug-utilisation study developed by **Maradian Labs**, an independent research initiative exploring pharmacoepidemiology, real-world evidence and the secondary use of health data.
 
-> **Project status:** Protocol development and technical setup. No analytical results are currently available.
+> **Project status:** Protocol version 1.0 frozen; data preparation and technical implementation. No analytical results are currently available.
 
 ## Overview
 
@@ -157,10 +157,10 @@ Regional or demographic differences will be interpreted as descriptive aggregate
 * [x] Git version control configured.
 * [x] Isolated Python environment created.
 * [x] R and Python integration verified.
-- [x] Repository documentation completed.
-- [x] Reproducible dependency environments frozen.
-* [ ] Protocol version 1.0 frozen.
-* [ ] Data-source files selected.
+* [x] Repository documentation completed.
+* [x] Reproducible dependency environments frozen.
+* [x] Protocol version 1.0 frozen.
+* [x] Data-source files selected.
 * [ ] Pilot ingestion completed.
 * [ ] Primary analysis completed.
 * [ ] White paper released.

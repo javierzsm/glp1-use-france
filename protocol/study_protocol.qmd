@@ -3,7 +3,7 @@ title: "Study Protocol"
 subtitle: "Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025"
 author: "Maradian Labs"
 date: "2026-08-27"
-version: "0.1.0-draft"
+version: "1.0"
 format:
   html:
     toc: true
@@ -19,7 +19,7 @@ execute:
 
 | Field                              | Value                                                |
 | ---------------------------------- | ---------------------------------------------------- |
-| Protocol version                   | 0.1.0-draft                                          |
+| Protocol version                   | 1.0                                          |
 | Protocol date                      | 27 August 2026                                       |
 | Study status                       | Protocol development; no analytical results examined |
 | Study lead                         | Javier Zorrilla de San Martin                        |
@@ -27,9 +27,9 @@ execute:
 | Primary data source                | Open Medic complementary databases                   |
 | Planned study period               | 2019–2025                                            |
 | Primary pharmacological definition | ATC4 `A10BJ`                                         |
-| Protocol status                    | Not frozen                                           |
+| Protocol status                    | Frozen before analysis                                           |
 
-This document is a draft protocol. Version 1.0 will be frozen after verification of source-file structure, variable coding, geographical compatibility and age-group mapping, but before examination of substantive utilisation results.
+This protocol was frozen as version 1.0 after verification of source-file structure, variable coding, geographical compatibility and age-group mapping, and before examination of substantive utilisation results.
 
 # Background and rationale
 
@@ -134,7 +134,7 @@ This calculation will be performed within each compatible region, age and sex st
 
 The January 2026 INSEE release provides the required regional series through 1 January 2026, allowing calculation of the average 2025 population.
 
-INSEE estimates identified as provisional will remain eligible but will be labelled accordingly. The exact downloaded version and checksum will be frozen.
+INSEE estimates identified as provisional will remain eligible but will be labelled accordingly. The downloaded workbook, source URL, file size and SHA-256 checksum are recorded in `data/metadata/reference_manifest.csv`.
 
 Official source: [INSEE — Population estimates by region, sex and age, 1975–2026](https://www.insee.fr/fr/statistiques/8721456).
 
@@ -235,28 +235,71 @@ Expenditure will initially be reported in nominal euros. Any inflation-adjusted 
 
 # Demographic analyses
 
-Class-level utilisation will be described by the age and sex categories available in Open Medic.
+Class-level utilisation will be described using the official Open Medic age and sex categories.
 
-The exact mapping between Open Medic age categories and INSEE five-year age groups will be documented after structural inspection of the files.
+The age categories are:
 
-Age categories will not be inferred or recoded until their official definitions have been verified.
+* `0`: 0–19 years;
+* `20`: 20–59 years;
+* `60`: 60 years or older;
+* `99`: age unknown.
 
-Sex-specific rates will use sex-specific denominators. Age-specific rates will use corresponding age-specific denominators.
+INSEE five-year age groups will be aggregated as follows:
 
-Unknown or disclosure-controlled age and sex categories will be retained for accounting and quality-control purposes but excluded from strata requiring a population denominator.
+* 0–19 years: 0–4, 5–9, 10–14 and 15–19 years;
+* 20–59 years: 20–24 through 55–59 years;
+* 60 years or older: 60–64 years through 95 years or older.
+
+The Open Medic sex categories are:
+
+* `1`: male;
+* `2`: female;
+* `9`: sex unknown.
+
+Age-specific rates will use the corresponding aggregated INSEE age denominators. Sex-specific rates will use the corresponding sex-specific denominators.
+
+The primary age-sex analyses will use the six combinations of the three known age groups and two known sex categories.
+
+Unknown age (`99`) and unknown sex (`9`) categories will be retained in raw and harmonised data and quantified for quality-control purposes. They will be excluded from analyses requiring a population denominator and will not be redistributed or imputed.
 
 # Regional analyses
 
-Regional analyses will use beneficiary region of residence.
+Regional analyses will use the beneficiary region of residence recorded in `BEN_REG`.
 
-For each region and year, the following will be reported:
+The known Open Medic regional codes will be interpreted as follows:
+
+* `5`: overseas regions and departments combined;
+* `11`: Île-de-France;
+* `24`: Centre-Val de Loire;
+* `27`: Bourgogne-Franche-Comté;
+* `28`: Normandie;
+* `32`: Hauts-de-France;
+* `44`: Grand Est;
+* `52`: Pays de la Loire;
+* `53`: Bretagne;
+* `75`: Nouvelle-Aquitaine;
+* `76`: Occitanie;
+* `84`: Auvergne-Rhône-Alpes;
+* `93`: Provence-Alpes-Côte d’Azur and Corse combined.
+
+Codes `0` and `99` represent an unknown or unspecified beneficiary region. They will be retained for quality control but excluded from region-specific rates and maps.
+
+The primary regional analysis will therefore comprise 13 geographical units: 12 metropolitan groupings and one combined overseas grouping.
+
+Regional population denominators will be constructed from the corresponding INSEE regions. In particular:
+
+* the denominator for code `93` will be the sum of Provence-Alpes-Côte d’Azur and Corse;
+* the denominator for code `5` will be the INSEE `DOM` aggregate;
+* the national denominator will be the INSEE `France métropolitaine et DOM` aggregate.
+
+For each regional unit and year, the following will be reported:
 
 * beneficiary count;
 * crude beneficiary rate per 100,000 residents;
-* age-sex-standardised beneficiary rate;
+* age-sex-standardised beneficiary rate per 100,000 residents;
 * absolute and relative change over time;
-* rank based on standardised rates;
-* deviation from the national standardised rate.
+* rank based on the standardised rate;
+* absolute and relative deviation from the national standardised rate.
 
 Regional heterogeneity will be summarised using:
 
@@ -265,17 +308,23 @@ Regional heterogeneity will be summarised using:
 * maximum-to-minimum ratio;
 * coefficient of variation.
 
-Metrics that are unstable in the presence of very small or disclosure-controlled values will not be reported without an explicit sensitivity analysis.
+Metrics that are unstable because of very small or disclosure-controlled values will not be reported without an explicit sensitivity analysis.
 
-Maps will be used to display regional variation but will not be treated as evidence of spatial dependence.
+The primary cartographic outputs will show:
 
-No spatial autocorrelation or spatial regression model is prespecified in the primary analysis.
+1. the crude regional beneficiary rate in 2025;
+2. the age-sex-standardised regional beneficiary rate in 2025;
+3. the percentage change in the crude regional beneficiary rate between 2019 and 2025.
+
+Official administrative geometries will be used. Provence-Alpes-Côte d’Azur and Corse will receive the same value corresponding to Open Medic code `93`. The overseas regions included in code `5` will likewise receive the same combined value and will be clearly identified as an aggregated Open Medic unit. Unknown regional categories will not be mapped.
+
+Maps will display descriptive regional variation and will not be treated as evidence of spatial dependence. No spatial autocorrelation or spatial regression model is prespecified in the primary analysis.
 
 # Direct standardisation
 
-Regional rates will be standardised directly using common age-sex strata.
+Regional beneficiary rates will be standardised directly using six common age-sex strata defined by the three Open Medic age groups and two known sex categories.
 
-The provisional standard population will be the average French population in 2025, constructed from the 1 January 2025 and 1 January 2026 INSEE estimates.
+The standard population will be the estimated average population of France entière in 2025, calculated as the mean of the INSEE populations at 1 January 2025 and 1 January 2026. The six standard-population weights will sum to one.
 
 For region $r$, year $y$, and age-sex stratum $s$:
 
@@ -293,12 +342,12 @@ $$
 where:
 
 * $U_{rys}$ is the regional beneficiary count;
-* $N_{rys}$ is the corresponding regional population;
-* $w_s$ is the proportion of the standard population in stratum $s$.
+* $N_{rys}$ is the corresponding estimated average regional population;
+* $w_s$ is the proportion of the 2025 standard population in stratum $s$.
 
-The final set of standardisation strata will be frozen after verification of the Open Medic age coding.
+Records with unknown age or sex will not contribute to stratum-specific rates. The proportion excluded for this reason will be reported for each region and year whenever it can be calculated validly.
 
-Crude and standardised results will be reported together.
+Crude and age-sex-standardised rates will be reported together. Standardised rates will be interpreted as comparative summary measures and not as observed population rates.
 
 # Active-substance analysis
 
@@ -357,7 +406,7 @@ Quality control will include:
 2. Verification of expected filenames and archive contents.
 3. Comparison of schemas across years.
 4. Verification of column types and coding systems.
-5. Verification that count and expenditure measures are non-negative.
+5. Verification of the sign, range and numerical type of beneficiary, box and expenditure measures.
 6. Verification of uniqueness for expected aggregation keys.
 7. Detection of duplicated rows.
 8. Verification of study years and ATC codes.
@@ -367,7 +416,14 @@ Quality control will include:
 12. Independent reproduction of selected totals in Python and R.
 13. Confirmation that corrected 2023–2025 source files are used where applicable.
 
-Quality-control failures will stop the analytical pipeline unless explicitly classified as expected and documented.
+Negative beneficiary counts (`nbc`) are not expected and will be classified as a critical quality-control failure.
+
+Negative values in reimbursed boxes (`BOITES`), reimbursement base (`BSE`) or reimbursed expenditure (`REM`) may reflect reversals, corrections or other accounting adjustments in the source data. They will therefore be retained unchanged and classified as quality-control warnings rather than automatically treated as errors.
+
+Negative values will not be converted to absolute values, truncated to zero or imputed. Their frequency and magnitude will be documented by year, file and measure. Their presence in records contributing to the study population will be assessed, and a sensitivity analysis excluding affected records will be conducted if their influence on a reported estimate is material.
+
+Critical quality-control failures will stop the analytical pipeline. Documented warnings, including permissible negative accounting measures, will not stop the pipeline unless they materially compromise a planned analysis.
+
 
 # Sensitivity analyses
 
@@ -457,22 +513,28 @@ will require a dated protocol amendment containing:
 4. whether results had been examined;
 5. the expected analytical impact.
 
-# Decisions required before protocol version 1.0
+# Pre-analysis decisions resolved
 
-The following items remain to be confirmed through source documentation and structural inspection:
+The following pre-analysis decisions were resolved using official source documentation and structural inspection conducted before examination of substantive utilisation results:
 
-* exact Open Medic variable names and types;
-* exact age-category definitions;
-* exact unknown-category codes;
-* region-code mapping and included territories;
-* archive filenames and direct download URLs;
-* compatibility of annual schemas;
-* exact standardisation strata;
-* final INSEE workbook and worksheet selection;
-* handling of any irreconcilable ATC4–ATC5 differences;
-* final table and figure specifications.
+* Open Medic source column names, canonical column names and inferred data types are documented in the annual column inventories.
+* Historical differences in column-name capitalisation are harmonised without modifying the source files.
+* Official age, sex and unknown-category definitions are specified in this protocol.
+* The mapping between Open Medic age categories and INSEE five-year age groups is specified.
+* The `BEN_REG` regional mapping, included territories and required INSEE aggregations are specified.
+* Annual Open Medic archive names, source URLs, download dates, file sizes and SHA-256 checksums are recorded in machine-readable manifests.
+* Compatibility of the 2019–2025 schemas has been verified after canonicalisation.
+* The primary direct-standardisation procedure uses six age-sex strata and the estimated average population of France entière in 2025 as the standard population.
+* The selected INSEE workbook and annual worksheets for 2019–2026 are recorded in the reference-data manifest.
+* ATC4 data provide the primary class-level beneficiary estimates. ATC5 data provide substance-specific estimates and will not be summed to estimate unique class beneficiaries.
+* Additive ATC5 measures, including boxes and expenditure, will be compared with corresponding ATC4 totals as quality-control checks.
+* Negative beneficiary counts are classified as critical failures. Negative box or monetary measures are retained unchanged and treated as documented accounting warnings unless they materially compromise an analysis.
+* The principal national, demographic, regional, active-substance and cartographic outputs are prespecified in this protocol. Detailed presentation layouts may be refined in the statistical analysis plan without changing the estimands or analytical methods.
 
-No substantive utilisation results will be examined before these decisions are resolved and protocol version 1.0 is frozen.
+No substantive GLP-1 RA utilisation results were examined while resolving these decisions.
+
+Implementation metadata, including downloaded geometry versions, checksums, software versions and presentation formatting, may be recorded or updated without a protocol amendment provided that the study population, estimands, definitions and analytical methods remain unchanged.
+
 
 # Planned outputs
 
