@@ -1,0 +1,55 @@
+---
+title: "Computational Environment Check"
+author: "Maradian Labs"
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## R environment
+
+This document verifies that Quarto can execute R code inside the project-specific `renv` environment.
+
+```{r}
+environment <- data.frame(
+  component = c("R", "knitr", "rmarkdown"),
+  version = c(
+    R.version.string,
+    as.character(packageVersion("knitr")),
+    as.character(packageVersion("rmarkdown"))
+  )
+)
+
+knitr::kable(
+  environment,
+  caption = "Detected R environment"
+)
+```
+
+## Minimal computation
+
+```{r}
+test_data <- data.frame(
+  year = 2019:2025,
+  value = seq(100, 700, by = 100)
+)
+
+test_data
+```
+
+## Minimal figure
+
+```{r}
+plot(
+  test_data$year,
+  test_data$value,
+  type = "b",
+  xlab = "Year",
+  ylab = "Test value",
+  main = "Quarto and R rendering check"
+)
+```

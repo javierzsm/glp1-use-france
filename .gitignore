@@ -24,3 +24,9 @@ data/processed/*
 # Temporary files
 *.tmp
 *.log
+
+# Quarto generated files
+.quarto/
+_site/
+*_files/
+report/*.html
