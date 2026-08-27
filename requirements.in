@@ -1,0 +1,8 @@
+# Direct Python dependencies
+
+duckdb
+pandas
+pip-tools
+pyarrow
+pytest
+requests
