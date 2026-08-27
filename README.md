@@ -32,7 +32,9 @@ The planned design is a repeated annual cross-sectional drug-utilisation study u
 
 The primary study period is 2019–2025. The geographical scope is France, with regional analyses where compatible data and denominators are available.
 
-The primary pharmacological definition will use ATC class `A10BJ`. Dual agonists classified outside this group, including tirzepatide (`A10BX16`), will not be included in the primary GLP-1 RA definition. Any broader analysis of incretin-based therapies will be prespecified and reported separately.
+The primary exposure definition will follow WHO ATC class `A10BJ`, which provides an operationally reproducible definition of GLP-1 analogues and allows class-level beneficiary counts to be obtained directly from Open Medic. Tirzepatide activates both the GIP and GLP-1 receptors but is classified separately as `A10BX16`; it will therefore not be included in the primary `A10BJ` estimates.
+
+If tirzepatide is represented in the reimbursement data, its utilisation will be described separately as a dual GIP/GLP-1 receptor agonist. Beneficiary counts for `A10BJ` and tirzepatide will not be summed because Open Medic does not allow individuals appearing in both categories to be deduplicated. Any expanded analysis of GLP-1 receptor-activating medicines will be prespecified, clearly labelled and limited to measures that can be validly combined.
 
 ## Data sources
 
@@ -174,4 +176,3 @@ Code, documentation and report licensing will be defined before the first public
 Maradian Labs is an independent research initiative exploring pharmacoepidemiology, real-world evidence and the secondary use of health data through open and reproducible studies.
 
 This repository is currently maintained by [Javier Zorrilla de San Martin](https://github.com/javierzsm).
-
