@@ -9,23 +9,25 @@ format:
     toc: true
     number-sections: true
     code-fold: true
+    html-math-method: mathjax
 execute:
   echo: false
 ---
 
+
 # Document control
 
-| Field | Value |
-|---|---|
-| Protocol version | 0.1.0-draft |
-| Protocol date | 27 August 2026 |
-| Study status | Protocol development; no analytical results examined |
-| Study lead | Javier Zorrilla de San Martin |
-| Research initiative | Maradian Labs |
-| Primary data source | Open Medic complementary databases |
-| Planned study period | 2019–2025 |
-| Primary pharmacological definition | ATC4 `A10BJ` |
-| Protocol status | Not frozen |
+| Field                              | Value                                                |
+| ---------------------------------- | ---------------------------------------------------- |
+| Protocol version                   | 0.1.0-draft                                          |
+| Protocol date                      | 27 August 2026                                       |
+| Study status                       | Protocol development; no analytical results examined |
+| Study lead                         | Javier Zorrilla de San Martin                        |
+| Research initiative                | Maradian Labs                                        |
+| Primary data source                | Open Medic complementary databases                   |
+| Planned study period               | 2019–2025                                            |
+| Primary pharmacological definition | ATC4 `A10BJ`                                         |
+| Protocol status                    | Not frozen                                           |
 
 This document is a draft protocol. Version 1.0 will be frozen after verification of source-file structure, variable coding, geographical compatibility and age-group mapping, but before examination of substantive utilisation results.
 
@@ -87,43 +89,46 @@ These databases contain aggregated information on medicines dispensed in communi
 
 The following annual archives will be used for 2019–2025:
 
-- Open Medic ATC4 complementary archives;
-- Open Medic ATC5 complementary archives.
+* Open Medic ATC4 complementary archives;
+* Open Medic ATC5 complementary archives.
 
 The anticipated analytical files are:
 
-- `NB_YYYY_ATC4`;
-- `NB_YYYY_ATC4_AGE_SEXE`;
-- `NB_YYYY_ATC4_REG`;
-- `NB_YYYY_ATC4_AGE_SEXE_REG`;
-- `NB_YYYY_ATC5`.
+* `NB_YYYY_ATC4`;
+* `NB_YYYY_ATC4_AGE_SEXE`;
+* `NB_YYYY_ATC4_REG`;
+* `NB_YYYY_ATC4_AGE_SEXE_REG`;
+* `NB_YYYY_ATC5`.
 
 ATC5 demographic or regional files will only be incorporated if explicitly added to the statistical analysis plan before substantive results are examined.
 
 Open Medic reports:
 
-- beneficiary counts;
-- reimbursed box counts;
-- reimbursement base;
-- reimbursed expenditure.
+* beneficiary counts;
+* reimbursed box counts;
+* reimbursement base;
+* reimbursed expenditure.
 
 The source archives and extracted files will be preserved as immutable raw data. Download dates, release dates, URLs, file sizes and SHA-256 checksums will be recorded in a machine-readable manifest.
 
 The corrected version of the 2025 regional data released after 10 July 2026 will be used. Corrected ATC4 files for 2023 and 2024 will also be verified through recorded checksums and download dates.
 
-Official source:
-
-<https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments>
+Official source: [Assurance Maladie — Open Medic complementary databases, 2014–2025](https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments).
 
 ## INSEE population estimates
 
 Population denominators will be obtained from INSEE regional population estimates by sex and five-year age group.
 
-For calendar year \(y\), the preferred denominator will be the estimated average population:
+For calendar year $y$, the preferred denominator will be the estimated average population:
 
-\[
-N_y = \frac{N_{1\ January\ y} + N_{1\ January\ y+1}}{2}
-\]
+$$
+N_y =
+\frac{
+  N_{\text{1 January } y}
+  +
+  N_{\text{1 January } (y+1)}
+}{2}
+$$
 
 This calculation will be performed within each compatible region, age and sex stratum. It approximates the population exposed during the calendar year more closely than a single beginning-of-year estimate.
 
@@ -131,9 +136,7 @@ The January 2026 INSEE release provides the required regional series through 1 J
 
 INSEE estimates identified as provisional will remain eligible but will be labelled accordingly. The exact downloaded version and checksum will be frozen.
 
-Official source:
-
-<https://www.insee.fr/fr/statistiques/8721456>
+Official source: [INSEE — Population estimates by region, sex and age, 1975–2026](https://www.insee.fr/fr/statistiques/8721456).
 
 # Study population
 
@@ -151,7 +154,7 @@ Potential differences between the health-insurance beneficiary population and th
 
 The primary GLP-1 RA definition will be the ATC4 class:
 
-- `A10BJ`: glucagon-like peptide-1 analogues.
+* `A10BJ`: glucagon-like peptide-1 analogues.
 
 Class-level beneficiary counts will be obtained directly from ATC4 files.
 
@@ -161,13 +164,13 @@ Beneficiary counts from individual ATC5 substances will never be summed to estim
 
 The ATC5 substances within `A10BJ` are:
 
-- `A10BJ01`: exenatide;
-- `A10BJ02`: liraglutide;
-- `A10BJ03`: lixisenatide;
-- `A10BJ04`: albiglutide;
-- `A10BJ05`: dulaglutide;
-- `A10BJ06`: semaglutide;
-- `A10BJ07`: beinaglutide.
+* `A10BJ01`: exenatide;
+* `A10BJ02`: liraglutide;
+* `A10BJ03`: lixisenatide;
+* `A10BJ04`: albiglutide;
+* `A10BJ05`: dulaglutide;
+* `A10BJ06`: semaglutide;
+* `A10BJ07`: beinaglutide.
 
 All codes belonging to `A10BJ` will remain in the prespecified code list, regardless of whether they are observed in French reimbursement data during the study period. Absence from Open Medic will be reported as not observed rather than treated as a retrospective exclusion.
 
@@ -175,12 +178,324 @@ All codes belonging to `A10BJ` will remain in the prespecified code list, regard
 
 The following will not be included in the primary definition:
 
-- `A10BX16`: tirzepatide;
-- `A10AE54`: insulin glargine and lixisenatide;
-- `A10AE56`: insulin degludec and liraglutide.
+* `A10BX16`: tirzepatide;
+* `A10AE54`: insulin glargine and lixisenatide;
+* `A10AE56`: insulin degludec and liraglutide.
 
 Tirzepatide is a dual GIP and GLP-1 receptor agonist classified outside `A10BJ`. Fixed combinations of insulin and a GLP-1 RA are also classified outside `A10BJ`.
 
 Any broader analysis of incretin-based therapies will be prespecified, analysed and reported separately. It will not replace or be merged with the primary `A10BJ` analysis.
 
 The authoritative machine-readable definition is maintained in:
+
+```text
+data/metadata/atc_codes.csv
+```
+
+# Measures
+
+## Primary measure
+
+The primary measure will be the annual class-level beneficiary rate per 100,000 residents:
+
+$$
+R_y =
+\frac{U_y}{N_y}
+\times 100{,}000
+$$
+
+where:
+
+* $U_y$ is the ATC4 beneficiary count for calendar year $y$;
+* $N_y$ is the estimated average resident population for year $y$.
+
+The corresponding annual beneficiary count will also be reported.
+
+## Secondary measures
+
+Secondary measures will include:
+
+* annual number of reimbursed boxes;
+* reimbursed boxes per 100,000 residents;
+* reimbursed boxes per beneficiary;
+* reimbursement base in nominal euros;
+* reimbursed expenditure in nominal euros;
+* reimbursed expenditure per beneficiary;
+* percentage change from the previous year;
+* cumulative percentage change between 2019 and 2025;
+* compound annual growth rate over 2019–2025;
+* active-substance-specific beneficiary counts;
+* active-substance shares of boxes and expenditure.
+
+Active-substance beneficiary counts will be presented independently. They will not be expressed as mutually exclusive shares expected to sum to 100%.
+
+Box counts will not be interpreted as equivalent treatment quantities because package sizes, doses and dosing schedules can differ between products and over time.
+
+Expenditure will initially be reported in nominal euros. Any inflation-adjusted analysis will require a prespecified price index and will be labelled as a secondary analysis.
+
+# Demographic analyses
+
+Class-level utilisation will be described by the age and sex categories available in Open Medic.
+
+The exact mapping between Open Medic age categories and INSEE five-year age groups will be documented after structural inspection of the files.
+
+Age categories will not be inferred or recoded until their official definitions have been verified.
+
+Sex-specific rates will use sex-specific denominators. Age-specific rates will use corresponding age-specific denominators.
+
+Unknown or disclosure-controlled age and sex categories will be retained for accounting and quality-control purposes but excluded from strata requiring a population denominator.
+
+# Regional analyses
+
+Regional analyses will use beneficiary region of residence.
+
+For each region and year, the following will be reported:
+
+* beneficiary count;
+* crude beneficiary rate per 100,000 residents;
+* age-sex-standardised beneficiary rate;
+* absolute and relative change over time;
+* rank based on standardised rates;
+* deviation from the national standardised rate.
+
+Regional heterogeneity will be summarised using:
+
+* minimum and maximum;
+* median and interquartile range;
+* maximum-to-minimum ratio;
+* coefficient of variation.
+
+Metrics that are unstable in the presence of very small or disclosure-controlled values will not be reported without an explicit sensitivity analysis.
+
+Maps will be used to display regional variation but will not be treated as evidence of spatial dependence.
+
+No spatial autocorrelation or spatial regression model is prespecified in the primary analysis.
+
+# Direct standardisation
+
+Regional rates will be standardised directly using common age-sex strata.
+
+The provisional standard population will be the average French population in 2025, constructed from the 1 January 2025 and 1 January 2026 INSEE estimates.
+
+For region $r$, year $y$, and age-sex stratum $s$:
+
+$$
+R^{\mathrm{std}}_{ry}
+=
+\sum_s
+w_s
+\left(
+\frac{U_{rys}}{N_{rys}}
+\right)
+\times 100{,}000
+$$
+
+where:
+
+* $U_{rys}$ is the regional beneficiary count;
+* $N_{rys}$ is the corresponding regional population;
+* $w_s$ is the proportion of the standard population in stratum $s$.
+
+The final set of standardisation strata will be frozen after verification of the Open Medic age coding.
+
+Crude and standardised results will be reported together.
+
+# Active-substance analysis
+
+ATC5 files will be used to describe substance-specific utilisation.
+
+For each substance and year, the study will report, where available:
+
+* beneficiary count;
+* reimbursed boxes;
+* reimbursement base;
+* reimbursed expenditure;
+* boxes per beneficiary;
+* expenditure per beneficiary.
+
+The sum of substance-level beneficiary counts will not be compared with the ATC4 beneficiary count as if the two estimands were equivalent.
+
+For additive measures such as boxes and expenditure, the sum across included ATC5 codes will be compared with the corresponding ATC4 total as a quality-control check.
+
+Differences will be investigated in relation to coding, unknown categories, file corrections or classification changes.
+
+# Statistical analysis
+
+The primary analysis will be descriptive.
+
+Annual national and regional estimates will be presented using tables and figures. Because Open Medic represents aggregated administrative counts rather than a probability sample, conventional sampling-based confidence intervals will not be used as the primary expression of uncertainty.
+
+Trend summaries will include absolute change, percentage change and compound annual growth rate.
+
+No causal effect, treatment effect or individual-level association will be estimated.
+
+No null-hypothesis significance testing is planned for the primary analysis.
+
+Any regression model added for descriptive trend summarisation must be specified in the statistical analysis plan before it is fitted.
+
+# Disclosure control and unknown categories
+
+Open Medic applies disclosure control when the critical threshold of ten beneficiaries is not met. Certain affected dimensions may be represented using unknown codes such as `9`, `99` or `999`.
+
+These categories will:
+
+* be identified using official documentation;
+* never be interpreted as ordinary substantive categories;
+* be retained in raw and harmonised data;
+* be quantified in quality-control reports;
+* not be redistributed or imputed in the primary analysis.
+
+National totals will be obtained from the appropriate national aggregation file rather than reconstructed by summing lower-level files.
+
+Regional and demographic analyses will disclose the proportion of beneficiaries assigned to unknown categories whenever it can be calculated validly.
+
+# Quality-control procedures
+
+Quality control will include:
+
+1. Verification of archive integrity and SHA-256 checksums.
+2. Verification of expected filenames and archive contents.
+3. Comparison of schemas across years.
+4. Verification of column types and coding systems.
+5. Verification that count and expenditure measures are non-negative.
+6. Verification of uniqueness for expected aggregation keys.
+7. Detection of duplicated rows.
+8. Verification of study years and ATC codes.
+9. Identification of unknown and disclosure-controlled categories.
+10. Comparison of national totals across compatible aggregation files.
+11. Comparison of additive ATC5 measures with corresponding ATC4 totals.
+12. Independent reproduction of selected totals in Python and R.
+13. Confirmation that corrected 2023–2025 source files are used where applicable.
+
+Quality-control failures will stop the analytical pipeline unless explicitly classified as expected and documented.
+
+# Sensitivity analyses
+
+Planned sensitivity analyses include:
+
+1. Using the population at 1 January of each study year instead of the average annual population.
+2. Restricting geographical analyses to metropolitan France.
+3. Comparing crude and age-sex-standardised regional rates.
+4. Excluding unknown demographic or geographical categories from stratified analyses while retaining national direct totals.
+5. Reporting tirzepatide separately as an expanded incretin analysis if observable and relevant.
+6. Assessing the impact of provisional INSEE population estimates.
+7. Comparing estimates reconstructed from stratified files with directly reported national estimates.
+
+Sensitivity analyses will not be used to redefine the primary estimand retrospectively.
+
+# External comparison
+
+Aggregate trends will be compared descriptively with previously published French studies based on individual-level SNDS data.
+
+This comparison will be described as external triangulation or reproducibility assessment, not validation.
+
+Differences in estimands will be made explicit. In particular, individual-level studies may identify incident users, treatment indications, switching or clinical characteristics, whereas Open Medic provides annual aggregated beneficiary and dispensing measures.
+
+# Interpretation boundaries
+
+Open Medic does not directly measure:
+
+* prescriptions written;
+* medicines actually taken;
+* clinical indication;
+* treatment initiation;
+* switching;
+* persistence;
+* adherence;
+* clinical effectiveness;
+* safety outcomes;
+* non-reimbursed use.
+
+Regional and demographic findings will be interpreted as aggregate descriptive variation. They will not be interpreted as individual-level effects or causal relationships.
+
+The study will avoid ecological inference from regional characteristics to individual beneficiaries.
+
+# Data governance and ethics
+
+Only open, aggregated and disclosure-controlled data will be used.
+
+No individual-level records, personal identifiers or personal health data will be accessed or processed.
+
+The study is not intended to make decisions concerning individual patients.
+
+Applicable source licences and attribution requirements will be documented. Third-party data will not be relicensed by the project.
+
+# Reproducibility
+
+The project will use:
+
+* Git for version control;
+* Python for acquisition, extraction, harmonisation and initial quality control;
+* Parquet for shared analysis-ready datasets;
+* R for epidemiological analysis, standardisation and visualisation;
+* Quarto for protocol, white paper and portfolio publication;
+* `pip-tools` for Python dependency locking;
+* `renv` for R dependency locking.
+
+Raw source data will not be committed to Git. Their provenance and reconstruction procedures will be documented through manifests, checksums and executable code.
+
+# Protocol amendments
+
+Changes made before version 1.0 is frozen will be incorporated into the protocol and version history.
+
+After version 1.0 is frozen, any change affecting:
+
+* the research question;
+* primary pharmacological definition;
+* study period;
+* primary measure;
+* denominator;
+* standard population;
+* inclusion or exclusion rules;
+* principal statistical analysis;
+
+will require a dated protocol amendment containing:
+
+1. the original specification;
+2. the revised specification;
+3. the reason for the change;
+4. whether results had been examined;
+5. the expected analytical impact.
+
+# Decisions required before protocol version 1.0
+
+The following items remain to be confirmed through source documentation and structural inspection:
+
+* exact Open Medic variable names and types;
+* exact age-category definitions;
+* exact unknown-category codes;
+* region-code mapping and included territories;
+* archive filenames and direct download URLs;
+* compatibility of annual schemas;
+* exact standardisation strata;
+* final INSEE workbook and worksheet selection;
+* handling of any irreconcilable ATC4–ATC5 differences;
+* final table and figure specifications.
+
+No substantive utilisation results will be examined before these decisions are resolved and protocol version 1.0 is frozen.
+
+# Planned outputs
+
+The study will produce:
+
+* frozen protocol version 1.0;
+* statistical analysis plan;
+* ATC code list;
+* source-data manifest;
+* data dictionary;
+* reproducible Python and R code;
+* quality-control report;
+* scientific white paper in English;
+* executive summary in French;
+* public portfolio page.
+
+
+# References and official sources
+
+- [Assurance Maladie. *Open Medic complementary databases, 2014–2025.*](https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments)
+
+- [INSEE. *Population estimates by region, sex and age, 1975–2026.*](https://www.insee.fr/fr/statistiques/8721456)
+
+- [WHO Collaborating Centre for Drug Statistics Methodology. *ATC/DDD Index: A10BJ.*](https://atcddd.fhi.no/atc_ddd_index/?code=A10BJ&showdescription=no)
+
+- [WHO Collaborating Centre for Drug Statistics Methodology. *ATC/DDD Index: A10BX16.*](https://atcddd.fhi.no/atc_ddd_index/?code=A10BX16&showdescription=no)

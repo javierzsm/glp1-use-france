@@ -30,3 +30,5 @@ data/processed/*
 _site/
 *_files/
 report/*.html
+protocol/*.html
+protocol/*_files/

@@ -157,8 +157,8 @@ Regional or demographic differences will be interpreted as descriptive aggregate
 * [x] Git version control configured.
 * [x] Isolated Python environment created.
 * [x] R and Python integration verified.
-* [ ] Repository documentation completed.
-* [ ] Reproducible dependency environments frozen.
+- [x] Repository documentation completed.
+- [x] Reproducible dependency environments frozen.
 * [ ] Protocol version 1.0 frozen.
 * [ ] Data-source files selected.
 * [ ] Pilot ingestion completed.
