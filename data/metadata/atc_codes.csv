@@ -1,0 +1,12 @@
+atc_level,atc_code,name,analysis_role,primary_inclusion,rationale,atc_source_date
+ATC4,A10BJ,Glucagon-like peptide-1 (GLP-1) analogues,primary_class,TRUE,Primary class-level definition,2026-01-20
+ATC5,A10BJ01,Exenatide,primary_substance,TRUE,Member of A10BJ,2026-01-20
+ATC5,A10BJ02,Liraglutide,primary_substance,TRUE,Member of A10BJ,2026-01-20
+ATC5,A10BJ03,Lixisenatide,primary_substance,TRUE,Member of A10BJ,2026-01-20
+ATC5,A10BJ04,Albiglutide,primary_substance,TRUE,Member of A10BJ,2026-01-20
+ATC5,A10BJ05,Dulaglutide,primary_substance,TRUE,Member of A10BJ,2026-01-20
+ATC5,A10BJ06,Semaglutide,primary_substance,TRUE,Member of A10BJ,2026-01-20
+ATC5,A10BJ07,Beinaglutide,primary_substance,TRUE,Member of A10BJ; inclusion does not imply availability or reimbursement in France,2026-01-20
+ATC5,A10BX16,Tirzepatide,separate_incretin_analysis,FALSE,Dual GIP and GLP-1 receptor agonist classified outside A10BJ,2026-01-20
+ATC5,A10AE54,Insulin glargine and lixisenatide,excluded_fixed_combination,FALSE,Fixed insulin and GLP-1 RA combination classified outside A10BJ,2026-01-20
+ATC5,A10AE56,Insulin degludec and liraglutide,excluded_fixed_combination,FALSE,Fixed insulin and GLP-1 RA combination classified outside A10BJ,2026-01-20
