@@ -1,0 +1,186 @@
+---
+title: "Study Protocol"
+subtitle: "Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025"
+author: "Maradian Labs"
+date: "2026-08-27"
+version: "0.1.0-draft"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+execute:
+  echo: false
+---
+
+# Document control
+
+| Field | Value |
+|---|---|
+| Protocol version | 0.1.0-draft |
+| Protocol date | 27 August 2026 |
+| Study status | Protocol development; no analytical results examined |
+| Study lead | Javier Zorrilla de San Martin |
+| Research initiative | Maradian Labs |
+| Primary data source | Open Medic complementary databases |
+| Planned study period | 2019–2025 |
+| Primary pharmacological definition | ATC4 `A10BJ` |
+| Protocol status | Not frozen |
+
+This document is a draft protocol. Version 1.0 will be frozen after verification of source-file structure, variable coding, geographical compatibility and age-group mapping, but before examination of substantive utilisation results.
+
+# Background and rationale
+
+Glucagon-like peptide-1 receptor agonists (GLP-1 RAs) have become an increasingly important therapeutic class in diabetes and weight management. Their uptake has changed rapidly following the introduction of newer active substances, particularly semaglutide.
+
+French individual-level studies using the Système national des données de santé (SNDS) have previously characterised initiation, indications and potential misuse of GLP-1 RAs. However, access to individual-level SNDS data is restricted.
+
+Open Medic provides annual, aggregated and openly accessible data derived from the SNDS. These data permit transparent and reproducible analyses of reimbursed medicines dispensed in community pharmacies, including beneficiary counts, reimbursed boxes and expenditure measures.
+
+This study is intended as an open and reproducible drug-utilisation analysis. It will extend existing French evidence through 2025 and examine national, demographic and regional patterns while documenting the analytical capabilities and limitations of aggregated reimbursement data.
+
+# Research question
+
+How did reimbursed community use of GLP-1 receptor agonists evolve in France from 2019 through 2025, nationally and according to age, sex and region of residence?
+
+# Objectives
+
+## Primary objective
+
+To describe annual numbers and population rates of beneficiaries with at least one reimbursed community dispensing of a GLP-1 RA in France between 2019 and 2025.
+
+## Secondary objectives
+
+1. Describe annual reimbursed box counts, reimbursement base and reimbursed expenditure.
+2. Characterise class-level utilisation according to age and sex.
+3. Characterise crude and age-sex-standardised regional utilisation rates.
+4. Describe changes in utilisation by active substance.
+5. Quantify regional variation and its evolution over time.
+6. Compare aggregate trends with previously published French studies using individual-level SNDS data.
+7. Document the strengths and limitations of Open Medic for pharmacoepidemiological research.
+
+# Study design
+
+This will be a repeated annual cross-sectional drug-utilisation study using aggregated administrative reimbursement data.
+
+Each calendar year will constitute a separate cross-sectional observation period. Individuals cannot be linked between years, between active substances or between geographical units.
+
+The study is descriptive and population-level. It will not estimate causal effects or comparative effectiveness and will not evaluate safety, treatment adherence or persistence.
+
+# Study setting and period
+
+The primary study period will be 1 January 2019 through 31 December 2025.
+
+The primary geographical scope will be France entière, including metropolitan and overseas regions where Open Medic categories can be matched reliably to INSEE denominators.
+
+A sensitivity analysis restricted to metropolitan France will be conducted if overseas data present material denominator, coding or comparability limitations.
+
+Open Medic records are dated according to reimbursement date rather than prescription or dispensing date.
+
+# Data sources
+
+## Open Medic complementary databases
+
+The primary source will be the annual Open Medic complementary databases enriched with beneficiary counts, produced by the Caisse nationale de l’Assurance Maladie.
+
+These databases contain aggregated information on medicines dispensed in community pharmacies and reimbursed by French mandatory health-insurance schemes. They cover the general scheme, the agricultural scheme and special schemes.
+
+The following annual archives will be used for 2019–2025:
+
+- Open Medic ATC4 complementary archives;
+- Open Medic ATC5 complementary archives.
+
+The anticipated analytical files are:
+
+- `NB_YYYY_ATC4`;
+- `NB_YYYY_ATC4_AGE_SEXE`;
+- `NB_YYYY_ATC4_REG`;
+- `NB_YYYY_ATC4_AGE_SEXE_REG`;
+- `NB_YYYY_ATC5`.
+
+ATC5 demographic or regional files will only be incorporated if explicitly added to the statistical analysis plan before substantive results are examined.
+
+Open Medic reports:
+
+- beneficiary counts;
+- reimbursed box counts;
+- reimbursement base;
+- reimbursed expenditure.
+
+The source archives and extracted files will be preserved as immutable raw data. Download dates, release dates, URLs, file sizes and SHA-256 checksums will be recorded in a machine-readable manifest.
+
+The corrected version of the 2025 regional data released after 10 July 2026 will be used. Corrected ATC4 files for 2023 and 2024 will also be verified through recorded checksums and download dates.
+
+Official source:
+
+<https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments>
+
+## INSEE population estimates
+
+Population denominators will be obtained from INSEE regional population estimates by sex and five-year age group.
+
+For calendar year \(y\), the preferred denominator will be the estimated average population:
+
+\[
+N_y = \frac{N_{1\ January\ y} + N_{1\ January\ y+1}}{2}
+\]
+
+This calculation will be performed within each compatible region, age and sex stratum. It approximates the population exposed during the calendar year more closely than a single beginning-of-year estimate.
+
+The January 2026 INSEE release provides the required regional series through 1 January 2026, allowing calculation of the average 2025 population.
+
+INSEE estimates identified as provisional will remain eligible but will be labelled accordingly. The exact downloaded version and checksum will be frozen.
+
+Official source:
+
+<https://www.insee.fr/fr/statistiques/8721456>
+
+# Study population
+
+The numerator population will consist of beneficiaries represented in Open Medic with at least one reimbursed community dispensing during the relevant calendar year and aggregation level.
+
+The denominator population will consist of residents represented in the corresponding INSEE population estimate.
+
+The resulting measures will be interpreted as population-based rates of reimbursed dispensing beneficiaries. They will not be described as disease prevalence or treatment prevalence without qualification.
+
+Potential differences between the health-insurance beneficiary population and the resident population will be acknowledged as a numerator–denominator limitation.
+
+# Pharmacological definition
+
+## Primary definition
+
+The primary GLP-1 RA definition will be the ATC4 class:
+
+- `A10BJ`: glucagon-like peptide-1 analogues.
+
+Class-level beneficiary counts will be obtained directly from ATC4 files.
+
+Beneficiary counts from individual ATC5 substances will never be summed to estimate unique GLP-1 RA users because one beneficiary may receive more than one active substance during the same year.
+
+## Included active substances
+
+The ATC5 substances within `A10BJ` are:
+
+- `A10BJ01`: exenatide;
+- `A10BJ02`: liraglutide;
+- `A10BJ03`: lixisenatide;
+- `A10BJ04`: albiglutide;
+- `A10BJ05`: dulaglutide;
+- `A10BJ06`: semaglutide;
+- `A10BJ07`: beinaglutide.
+
+All codes belonging to `A10BJ` will remain in the prespecified code list, regardless of whether they are observed in French reimbursement data during the study period. Absence from Open Medic will be reported as not observed rather than treated as a retrospective exclusion.
+
+## Excluded treatments
+
+The following will not be included in the primary definition:
+
+- `A10BX16`: tirzepatide;
+- `A10AE54`: insulin glargine and lixisenatide;
+- `A10AE56`: insulin degludec and liraglutide.
+
+Tirzepatide is a dual GIP and GLP-1 receptor agonist classified outside `A10BJ`. Fixed combinations of insulin and a GLP-1 RA are also classified outside `A10BJ`.
+
+Any broader analysis of incretin-based therapies will be prespecified, analysed and reported separately. It will not replace or be merged with the primary `A10BJ` analysis.
+
+The authoritative machine-readable definition is maintained in:
