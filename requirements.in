@@ -1,8 +1,10 @@
 # Direct Python dependencies
 
 duckdb
+openpyxl
 pandas
 pip-tools
 pyarrow
 pytest
 requests
+xlrd

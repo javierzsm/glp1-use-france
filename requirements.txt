@@ -14,12 +14,16 @@ click==8.5.0
     # via pip-tools
 duckdb==1.5.5
     # via -r requirements.in
+et-xmlfile==2.0.0
+    # via openpyxl
 idna==3.19
     # via requests
 iniconfig==2.3.0
     # via pytest
 numpy==2.5.2
     # via pandas
+openpyxl==3.1.5
+    # via -r requirements.in
 packaging==26.3
     # via
     #   build
@@ -51,6 +55,8 @@ urllib3==2.7.0
     # via requests
 wheel==0.48.0
     # via pip-tools
+xlrd==2.0.2
+    # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
