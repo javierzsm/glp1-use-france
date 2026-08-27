@@ -167,12 +167,17 @@ def write_manifest(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f"{path.name}.part")
     rows.sort(key=lambda row: (int(row["year"]), row["atc_level"], row["variant"]))
+
     with temporary.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=MANIFEST_FIELDS)
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=MANIFEST_FIELDS,
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(rows)
-    temporary.replace(path)
 
+    temporary.replace(path)
 
 def main() -> None:
     args = parse_args()
