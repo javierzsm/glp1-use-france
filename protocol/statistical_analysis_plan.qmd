@@ -1,0 +1,425 @@
+---
+title: "Statistical Analysis Plan"
+subtitle: "Reimbursed Use of Glucagon-Like Peptide-1 (GLP-1) Receptor Agonists in France, 2019–2025"
+author: "Maradian Labs"
+date: "2026-08-27"
+version: "1.0"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    html-math-method: mathjax
+execute:
+  echo: false
+---
+
+
+# Document control
+
+| Field | Value |
+|---|---|
+| Statistical analysis plan (SAP) version | 1.0 |
+| SAP date | 27 August 2026 |
+| Related protocol | Study Protocol version 1.0 |
+| Study period | 2019–2025 |
+| Study lead | Javier Zorrilla de San Martin |
+| Research initiative | Maradian Labs |
+| Primary pharmacological definition | Anatomical Therapeutic Chemical (ATC) level 4 code `A10BJ` |
+| SAP status | Frozen before analysis |
+
+This statistical analysis plan (SAP) operationalises the estimands and methods prespecified in Study Protocol version 1.0. It defines the analytical datasets, calculations, quality-control rules, presentation conventions and planned outputs before examination of substantive utilisation results.
+
+# Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ATC | Anatomical Therapeutic Chemical classification |
+| ATC4 | Anatomical Therapeutic Chemical classification, level 4 |
+| ATC5 | Anatomical Therapeutic Chemical classification, level 5 |
+| CAGR | Compound annual growth rate: the constant annual rate that would produce the observed change between the initial and final values over a specified period |
+| GLP-1 | Glucagon-like peptide-1 |
+| INSEE | Institut national de la statistique et des études économiques |
+| SAP | Statistical analysis plan |
+
+# Analytical principles
+
+The analysis will be descriptive. It will characterise annual reimbursed community dispensing of GLP-1 receptor agonists in France using aggregated Open Medic data and INSEE population estimates.
+
+The analysis will not estimate causal effects, treatment effects, individual-level associations, treatment initiation, adherence, persistence, effectiveness or safety.
+
+No null-hypothesis significance testing is planned. Conventional sampling-based confidence intervals will not be used as the primary expression of uncertainty because the source consists of aggregated administrative counts rather than a probability sample.
+
+All calculations will be performed using unrounded values. Rounding will be applied only to presentation outputs.
+
+# Input datasets
+
+## Open Medic
+
+The Open Medic inputs contain Anatomical Therapeutic Chemical level 4 (ATC4) and level 5 (ATC5) aggregations.
+
+The following harmonised Parquet files will be used:
+
+```text
+data/interim/open_medic/full/open_medic_atc4_national.parquet
+data/interim/open_medic/full/open_medic_atc4_age_sex.parquet
+data/interim/open_medic/full/open_medic_atc4_region.parquet
+data/interim/open_medic/full/open_medic_atc4_age_sex_region.parquet
+data/interim/open_medic/full/open_medic_atc5_national.parquet
+```
+
+Their provenance and source-level quality-control information are recorded in:
+
+```text
+data/metadata/open_medic_inventory.csv
+data/metadata/atc_codes.csv
+```
+
+## Institut national de la statistique et des études économiques (INSEE)
+
+The following harmonised population files will be used:
+
+```text
+data/interim/insee/full/insee_population_january1.parquet
+data/interim/insee/full/insee_annual_denominators.parquet
+data/interim/insee/full/insee_standard_population_2025.parquet
+```
+
+Their provenance and geographical mappings are recorded in:
+
+```text
+data/metadata/insee_inventory.csv
+data/metadata/insee_region_crosswalk.csv
+```
+
+# Analysis populations and classifications
+
+## Primary pharmacological population
+
+The primary analysis will include ATC4 class `A10BJ`. Annual class-level beneficiary counts will be obtained directly from the ATC4 files.
+
+ATC5 records with the Boolean field `primary_inclusion` equal to `TRUE` in the frozen ATC code list will be used for active-substance analyses. Substance-level beneficiary counts will be presented independently and will not be summed to estimate unique class-level users.
+
+Tirzepatide (`A10BX16`) and fixed insulin–GLP-1 receptor agonist combinations will not be included in the primary analysis. Any expanded incretin analysis will be reported separately and identified as a sensitivity or supplementary analysis.
+
+## Age and sex
+
+The six primary demographic strata will be:
+
+| Age code | Age group | Sex code | Sex |
+|---|---|---|---|
+| `0` | 0–19 years | `1` | Male |
+| `0` | 0–19 years | `2` | Female |
+| `20` | 20–59 years | `1` | Male |
+| `20` | 20–59 years | `2` | Female |
+| `60` | 60 years or older | `1` | Male |
+| `60` | 60 years or older | `2` | Female |
+
+Unknown age (`99`) and unknown sex (`9`) will be retained for quality control but excluded from analyses requiring population denominators. They will not be redistributed or imputed.
+
+Age-specific rates will be calculated from records with known sex. Sex-specific rates will be calculated from records with known age. Six-stratum results will require both known age and known sex.
+
+## Geography
+
+The primary regional analysis will use the 13 prespecified Open Medic geographical units with codes `5`, `11`, `24`, `27`, `28`, `32`, `44`, `52`, `53`, `75`, `76`, `84` and `93`.
+
+Unknown or unspecified regional codes `0` and `99` will be retained for quality control and excluded from regional rates, rankings and maps.
+
+The national population denominator will use analysis code `FR`, representing France entière. Metropolitan sensitivity analyses will use analysis code `METRO`, representing metropolitan France.
+
+# Population denominators
+
+For study year $y$, the primary annual denominator will be:
+
+$$
+N_y = \frac{P_{1\,Jan\,y} + P_{1\,Jan\,(y+1)}}{2}.
+$$
+
+The same calculation will be used within each compatible regional, age and sex stratum.
+
+National totals will be obtained by summing the six age-sex strata for analysis region `FR`. Regional totals will be obtained by summing the corresponding six strata for each regional unit.
+
+Population at 1 January of each study year will be used only in the prespecified denominator sensitivity analysis.
+
+# National analysis
+
+## Primary outcome
+
+For each year $y$, the class-level beneficiary rate per 100,000 residents will be:
+
+$$
+R_y = \frac{U_y}{N_y} \times 100{,}000,
+$$
+
+where $U_y$ is the directly reported national ATC4 beneficiary count and $N_y$ is the estimated average population of France entière.
+
+The annual beneficiary count and rate will be reported together.
+
+## Secondary outcomes
+
+The following annual measures will be calculated from the national ATC4 file:
+
+* reimbursed boxes;
+* reimbursed boxes per 100,000 residents;
+* reimbursed boxes per beneficiary;
+* reimbursement base in nominal euros;
+* reimbursed expenditure in nominal euros;
+* reimbursed expenditure per beneficiary.
+
+Ratios with beneficiary count as denominator will be reported only when the beneficiary count is positive.
+
+## Change measures
+
+For a positive measure $X_y$, year-on-year percentage change will be:
+
+$$
+\Delta^{\%}_y = \left(\frac{X_y}{X_{y-1}} - 1\right) \times 100.
+$$
+
+Absolute change will be $X_y-X_{y-1}$. Cumulative change will compare 2025 with 2019.
+
+The compound annual growth rate (CAGR)—the constant annual rate that would produce the observed change between the initial and final values—will be calculated over the six-year interval between 2019 and 2025 as:
+
+$$
+CAGR = \left(\frac{X_{2025}}{X_{2019}}\right)^{1/6} - 1.
+$$
+
+Percentage change and CAGR will be set to missing when their required starting value is zero or missing. No arbitrary continuity correction will be applied.
+
+# Demographic analysis
+
+For each known age-sex stratum $s$ and year $y$:
+
+$$
+R_{ys} = \frac{U_{ys}}{N_{ys}} \times 100{,}000.
+$$
+
+The primary demographic output will present beneficiary counts, denominators and rates for all six strata and seven study years.
+
+Age-specific results will aggregate the two known sex categories within each age group. Sex-specific results will aggregate the three known age categories within each sex.
+
+The proportion of beneficiaries excluded because of unknown age or sex will be calculated only when the mutually exclusive stratified counts can be reconciled validly with the directly reported national total. Any discrepancy will be reported as a quality-control finding rather than resolved through imputation.
+
+# Regional analysis
+
+## Crude regional rates
+
+For each regional unit $r$ and year $y$:
+
+$$
+R^{crude}_{ry} = \frac{U_{ry}}{N_{ry}} \times 100{,}000.
+$$
+
+The numerator will be taken directly from the ATC4 regional file. Regional totals will not be reconstructed from age-sex strata for the primary crude rate.
+
+## Direct age-sex standardisation
+
+The standard population will be the estimated average population of France entière in 2025. Its six stratum weights $w_s$ will sum to one.
+
+For each region and year:
+
+$$
+R^{std}_{ry} = \sum_s w_s \left(\frac{U_{rys}}{N_{rys}}\right) \times 100{,}000.
+$$
+
+All six known age-sex strata must have a valid positive denominator. Missing, unknown or disclosure-controlled categories will not be imputed.
+
+The national standardised rate will be calculated using the national age-sex file and the same six weights. It will be used solely as a common comparative reference.
+
+## Ranking and national comparison
+
+Regions will be ranked in descending order of the unrounded standardised rate. Tied values will receive the same minimum rank.
+
+For each region and year, the following comparisons with the national standardised rate will be calculated:
+
+$$
+D^{abs}_{ry}=R^{std}_{ry}-R^{std}_{national,y}
+$$
+
+and
+
+$$
+D^{rel}_{ry}=\left(\frac{R^{std}_{ry}}{R^{std}_{national,y}}-1\right)\times100.
+$$
+
+## Regional heterogeneity
+
+Across the 13 unweighted regional units, each year will be summarised using:
+
+* minimum and maximum;
+* median and interquartile range;
+* maximum-to-minimum ratio when the minimum is positive;
+* coefficient of variation, defined as the sample standard deviation divided by the arithmetic mean and multiplied by 100.
+
+Heterogeneity measures will be calculated separately for crude and standardised rates. Metrics rendered unstable by very small or disclosure-controlled values will be flagged and omitted from primary presentation pending sensitivity analysis.
+
+# Active-substance analysis
+
+For each included ATC5 substance and year, the following will be reported when available:
+
+* beneficiary count;
+* reimbursed boxes;
+* reimbursement base;
+* reimbursed expenditure;
+* boxes per beneficiary;
+* expenditure per beneficiary;
+* share of class boxes;
+* share of class reimbursed expenditure.
+
+Substance shares will be calculated only for additive measures:
+
+$$
+Share_{ky} = \frac{X_{ky}}{X_{A10BJ,y}} \times 100.
+$$
+
+Beneficiary counts will not be expressed as mutually exclusive shares and will not be expected to sum to the ATC4 beneficiary count.
+
+The annual sum of included ATC5 boxes, reimbursement base and reimbursed expenditure will be compared with the corresponding ATC4 value. Absolute and relative differences will be recorded as quality-control measures.
+
+# Missing, unknown and disclosure-controlled values
+
+Missing values will not be imputed in the primary analysis.
+
+Unknown categories will be retained in quality-control outputs and excluded only from analyses for which no compatible denominator exists. Direct national totals will retain the full directly reported numerator.
+
+Rates will not be calculated when the denominator is zero, negative or missing. Ratios will not be calculated when their denominator is zero or missing.
+
+Open Medic disclosure-controlled or unknown codes will never be interpreted as substantive categories.
+
+# Negative accounting values
+
+Negative beneficiary counts constitute a critical failure and will stop the pipeline.
+
+Negative boxes, reimbursement base or expenditure values will be retained unchanged and documented as warnings. They will not be converted to absolute values, truncated or imputed.
+
+If negative accounting records contribute materially to a reported estimate, a sensitivity analysis excluding those records will be produced and clearly labelled.
+
+# Quality-control rules
+
+The analytical pipeline will stop if any of the following occurs:
+
+* an expected input file is absent;
+* study years differ from 2019–2025;
+* the primary ATC4 code differs from `A10BJ`;
+* an expected analytical key is duplicated;
+* a beneficiary count is negative or missing;
+* an expected denominator is absent, non-positive or duplicated;
+* the six standard weights are absent or do not sum to one within a tolerance of $10^{-12}$;
+* a planned join is not one-to-one or many-to-one as specified;
+* a required regional or demographic code is unmapped.
+
+Warnings that will be recorded without automatically stopping the pipeline include:
+
+* permissible negative accounting measures;
+* unreconciled direct and reconstructed totals;
+* unknown or disclosure-controlled categories;
+* provisional or early INSEE population estimates;
+* differences between additive ATC5 sums and ATC4 totals.
+
+# Sensitivity analyses
+
+The following analyses are prespecified:
+
+1. Replace the average annual denominator with population at 1 January of the study year.
+2. Restrict national and regional analyses to metropolitan France where compatible.
+3. Compare crude and age-sex-standardised regional rates.
+4. Quantify the effect of excluding unknown demographic or geographical categories.
+5. Report tirzepatide separately if observable and relevant, without merging it into the primary `A10BJ` definition.
+6. Assess the influence of provisional INSEE population estimates.
+7. Compare estimates reconstructed from stratified files with directly reported national estimates.
+
+Sensitivity analyses will not be used to redefine the primary estimand retrospectively.
+
+# Presentation conventions
+
+## Rounding
+
+| Measure | Presentation rule |
+|---|---|
+| Beneficiary and box counts | Integer, with thousands separators |
+| Population | Integer, with thousands separators |
+| Rates per 100,000 | One decimal place |
+| Percentages and percentage changes | One decimal place |
+| Maximum-to-minimum ratio | Two decimal places |
+| Coefficient of variation | One decimal place |
+| Euros per beneficiary | Two decimal places |
+| Total reimbursement measures | Nominal euros; millions of euros with one decimal place in figures |
+
+Unrounded values will be retained in analytical datasets and used in all derived calculations.
+
+## Labels
+
+Figures and tables will use plain-language labels. Unknown categories will be explicitly labelled as unknown and will not be combined with known categories.
+
+Rates will always state the denominator scale. Standardised rates will be labelled as age-sex-standardised rates and will not be described as observed rates.
+
+# Planned analytical datasets
+
+The following analysis-ready outputs will be written to `data/processed/`:
+
+```text
+national_annual.parquet
+demographic_rates.parquet
+regional_rates.parquet
+regional_heterogeneity.parquet
+active_substance_annual.parquet
+analysis_quality_control.parquet
+```
+
+Each dataset will include the study year, relevant classification variables, unrounded measures and sufficient provenance fields to identify its source inputs and analysis version.
+
+# Planned tables
+
+1. Annual national beneficiary counts, rates and trend measures.
+2. Annual national boxes and reimbursement measures.
+3. Age-specific, sex-specific and six-stratum beneficiary rates.
+4. Regional crude and standardised rates, ranks and national deviations.
+5. Annual regional heterogeneity summaries.
+6. Active-substance-specific utilisation and additive-measure shares.
+7. Quality-control summary, including unknown categories and reconciliation checks.
+
+# Planned figures
+
+1. National annual beneficiary count and rate, shown as aligned panels without a dual axis.
+2. National boxes, reimbursement base and reimbursed expenditure trends.
+3. Age-sex-specific beneficiary rates over time.
+4. Regional crude and standardised rate distributions over time.
+5. Regional standardised rates in 2019 and 2025.
+6. Active-substance composition of reimbursed boxes.
+7. Active-substance composition of reimbursed expenditure.
+
+# Planned maps
+
+The primary maps will show:
+
+1. crude regional beneficiary rate in 2025;
+2. age-sex-standardised regional beneficiary rate in 2025;
+3. percentage change in the crude regional beneficiary rate between 2019 and 2025.
+
+Maps will use official administrative geometries. Provence-Alpes-Côte d’Azur and Corse will display the shared value for Open Medic code `93`. Overseas regions represented by code `5` will display their shared combined value and be identified as an aggregated Open Medic unit.
+
+No spatial autocorrelation or spatial regression analysis is planned.
+
+# Software and reproducibility
+
+Primary analysis, standardisation, tabulation and visualisation will be performed in R. Parquet files will be read using `arrow`; data manipulation will use `dplyr` and `tidyr`; figures will use `ggplot2` and `scales`; delimited metadata files will use `readr` where appropriate.
+
+Selected totals and derived measures will be independently reproduced in Python. Package versions will be recorded in `renv.lock` and the Python dependency lock files.
+
+All scripts will run from the repository root without interactive input. Generated analytical data, tables and figures will be excluded from version control but will be reproducible from tracked code, metadata and documented source files.
+
+# Deviations and amendments
+
+Any deviation from this SAP after freezing will be recorded with:
+
+* date;
+* affected analysis;
+* reason;
+* classification as editorial, clarification or substantive amendment;
+* expected influence on interpretation.
+
+Exploratory analyses not prespecified here will be clearly labelled as exploratory and will not replace the primary analysis.
+
+# Freeze statement
+
+SAP version 1.0 was frozen after final review and successful rendering, and before execution of scripts that display or summarise substantive utilisation results.
