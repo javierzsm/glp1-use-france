@@ -48,13 +48,32 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument(
+        "--mode",
+        choices=("pilot", "full"),
+        default="pilot",
+        help=(
+            "Build pilot outputs for 2019 and 2025 "
+            "or full outputs for 2019 through 2025."
+        ),
+    )
+    parser.add_argument(
         "--years",
         nargs="+",
         type=int,
-        default=[2019, 2025],
-        help="Years to process; defaults to the pilot years 2019 and 2025.",
+        default=None,
+        help=(
+            "Years to process in pilot mode; defaults "
+            "to 2019 and 2025."
+        ),
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if args.mode == "full" and args.years is not None:
+        parser.error(
+            "--years cannot be combined with --mode full"
+        )
+
+    return args
 
 
 def relative_path(path: Path) -> str:
@@ -304,13 +323,21 @@ def transform_file(
 
 def main() -> None:
     args = parse_args()
-    years = sorted(set(args.years))
+    if args.mode == "full":
+        years = list(range(2019, 2026))
+    else:
+        years = sorted(set(args.years or [2019, 2025]))
+
     codebook = load_codebook()
 
     output_dir = (
-        ROOT / "data/interim/open_medic/pilot"
+        ROOT / "data/interim/open_medic" / args.mode
     )
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    filename_suffix = (
+        "_pilot" if args.mode == "pilot" else ""
+    )
 
     datasets: dict[str, list[pd.DataFrame]] = {}
     inventory_rows: list[dict[str, object]] = []
@@ -365,7 +392,7 @@ def main() -> None:
 
         output_path = (
             output_dir
-            / f"open_medic_{dataset_id}_pilot.parquet"
+            / f"open_medic_{dataset_id}{filename_suffix}.parquet"
         )
         combined.to_parquet(
             output_path,
@@ -391,9 +418,13 @@ def main() -> None:
         ["year", "atc_level", "aggregation"]
     )
 
+    inventory_name = (
+        "open_medic_pilot_inventory.csv"
+        if args.mode == "pilot"
+        else "open_medic_inventory.csv"
+    )
     inventory_path = (
-        ROOT
-        / "data/metadata/open_medic_pilot_inventory.csv"
+        ROOT / "data/metadata" / inventory_name
     )
     inventory.to_csv(
         inventory_path,
@@ -405,7 +436,8 @@ def main() -> None:
         f"Inventory: {relative_path(inventory_path)}"
     )
     print(
-        f"Pilot years: {', '.join(map(str, years))}"
+        f"{args.mode.capitalize()} years: "
+        f"{', '.join(map(str, years))}"
     )
 
 

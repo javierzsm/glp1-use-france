@@ -41,16 +41,32 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument(
+        "--mode",
+        choices=("pilot", "full"),
+        default="pilot",
+        help=(
+            "Build pilot outputs for 2019 and 2025 "
+            "or full outputs for 2019 through 2025."
+        ),
+    )
+    parser.add_argument(
         "--years",
         nargs="+",
         type=int,
-        default=[2019, 2025],
+        default=None,
         help=(
-            "Study years to process; defaults to the "
-            "pilot years 2019 and 2025."
+            "Study years to process in pilot mode; "
+            "defaults to 2019 and 2025."
         ),
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if args.mode == "full" and args.years is not None:
+        parser.error(
+            "--years cannot be combined with --mode full"
+        )
+
+    return args
 
 
 def relative_path(path: Path) -> str:
@@ -586,7 +602,13 @@ def build_annual_denominators(
 
 def main() -> None:
     args = parse_args()
-    study_years = sorted(set(args.years))
+    if args.mode == "full":
+        study_years = list(range(2019, 2026))
+    else:
+        study_years = sorted(
+            set(args.years or [2019, 2025])
+        )
+
     reference_years = sorted(
         {
             year
@@ -656,16 +678,22 @@ def main() -> None:
         study_years,
     )
 
-    output_dir = ROOT / "data/interim/insee/pilot"
+    output_dir = (
+        ROOT / "data/interim/insee" / args.mode
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    filename_suffix = (
+        "_pilot" if args.mode == "pilot" else ""
+    )
 
     january_path = (
         output_dir
-        / "insee_population_january1_pilot.parquet"
+        / f"insee_population_january1{filename_suffix}.parquet"
     )
     annual_path = (
         output_dir
-        / "insee_annual_denominators_pilot.parquet"
+        / f"insee_annual_denominators{filename_suffix}.parquet"
     )
 
     january_population.to_parquet(
@@ -706,7 +734,7 @@ def main() -> None:
 
         standard_path = (
             output_dir
-            / "insee_standard_population_2025_pilot.parquet"
+            / f"insee_standard_population_2025{filename_suffix}.parquet"
         )
         standard.to_parquet(
             standard_path,
@@ -728,9 +756,13 @@ def main() -> None:
         relative_path(annual_path)
     )
 
+    inventory_name = (
+        "insee_pilot_inventory.csv"
+        if args.mode == "pilot"
+        else "insee_inventory.csv"
+    )
     inventory_path = (
-        ROOT
-        / "data/metadata/insee_pilot_inventory.csv"
+        ROOT / "data/metadata" / inventory_name
     )
     inventory.to_csv(
         inventory_path,
