@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# R
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+renv/library/
+renv/staging/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Raw and derived data
+data/raw/*
+data/interim/*
+data/processed/*
+
+# Temporary files
+*.tmp
+*.log
