@@ -161,7 +161,7 @@ Regional or demographic differences will be interpreted as descriptive aggregate
 * [x] Reproducible dependency environments frozen.
 * [x] Protocol version 1.0 frozen.
 * [x] Data-source files selected.
-* [ ] Pilot ingestion completed.
+* [x] Pilot ingestion completed.
 * [ ] Primary analysis completed.
 * [ ] White paper released.
 

@@ -1,0 +1,17 @@
+insee_region_name,analysis_region_code,analysis_region_name,analysis_scope,aggregation_rule
+Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,regional,direct
+Bourgogne-Franche-Comté,27,Bourgogne-Franche-Comté,regional,direct
+Bretagne,53,Bretagne,regional,direct
+Centre-Val-de-Loire,24,Centre-Val de Loire,regional,direct
+Corse,93,Provence-Alpes-Côte d'Azur and Corse,regional,sum
+Grand Est,44,Grand Est,regional,direct
+Hauts-de-France,32,Hauts-de-France,regional,direct
+Île-de-France,11,Île-de-France,regional,direct
+Normandie,28,Normandie,regional,direct
+Nouvelle-Aquitaine,75,Nouvelle-Aquitaine,regional,direct
+Occitanie,76,Occitanie,regional,direct
+Pays de la Loire,52,Pays de la Loire,regional,direct
+Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,regional,sum
+DOM,5,Overseas regions and departments,regional,direct_aggregate
+France métropolitaine,METRO,Metropolitan France,sensitivity,direct_aggregate
+France métropolitaine et DOM,FR,France entière,national,direct_aggregate
