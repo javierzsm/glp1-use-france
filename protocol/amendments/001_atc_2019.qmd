@@ -1,0 +1,175 @@
+---
+title: "Protocol and Statistical Analysis Plan Amendment 1"
+subtitle: "Historical ATC coding discontinuity in the 2019 Open Medic data"
+author: "Maradian Labs"
+date: "2026-08-27"
+version: "1.0"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+execute:
+  echo: false
+---
+
+# Document control
+
+| Field | Value |
+|---|---|
+| Amendment identifier | 001 |
+| Amendment date | 27 August 2026 |
+| Related protocol | Study Protocol version 1.0 |
+| Related statistical analysis plan | Statistical Analysis Plan version 1.0 |
+| Classification | Substantive amendment prompted by a source-data classification discontinuity |
+| Study lead | Javier Zorrilla de San Martin |
+| Research initiative | Maradian Labs |
+| Status | Approved before continuation of the affected analyses |
+
+# Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ATC | Anatomical Therapeutic Chemical classification |
+| ATC4 | Anatomical Therapeutic Chemical classification, level 4 |
+| ATC5 | Anatomical Therapeutic Chemical classification, level 5 |
+| GLP-1 | Glucagon-like peptide-1 |
+| SAP | Statistical Analysis Plan |
+
+# Reason for the amendment
+
+During quality control of the first national analytical dataset, an abrupt and clinically implausible discontinuity was identified between 2019 and 2020 in the directly reported ATC4 beneficiary count, reimbursed boxes and reimbursement measures for class `A10BJ`.
+
+Inspection of the source files showed that the 2019 ATC4 record for `A10BJ` contained 40,743 beneficiaries and 168,797 boxes. These values were identical to the 2019 ATC5 record for semaglutide (`A10BJ06`). Other GLP-1 receptor agonists were present in the same 2019 source under historical `A10BX` codes:
+
+| Substance | Historical 2019 code | Current harmonised code |
+|---|---|---|
+| Exenatide | `A10BX04` | `A10BJ01` |
+| Liraglutide | `A10BX07` | `A10BJ02` |
+| Lixisenatide | `A10BX10` | `A10BJ03` |
+| Albiglutide | `A10BX13` | `A10BJ04` |
+| Dulaglutide | `A10BX14` | `A10BJ05` |
+| Semaglutide | `A10BJ06` | `A10BJ06` |
+
+Consequently, the directly reported 2019 ATC4 record for `A10BJ` represents semaglutide rather than the complete pharmacological class as defined for the study. It is not comparable with the 2020–2025 ATC4 records.
+
+This finding reflects a historical coding discontinuity in the source data. It is not evidence of a tenfold increase in class-level use between 2019 and 2020 and is not attributable to the analytical aggregation code.
+
+# Evidence supporting the decision
+
+The following source-level observations were reproduced independently:
+
+| 2019 source record | Beneficiaries | Reimbursed boxes |
+|---|---:|---:|
+| ATC4 `A10BJ` | 40,743 | 168,797 |
+| ATC5 semaglutide `A10BJ06` | 40,743 | 168,797 |
+
+The 2019 ATC5 records under the historical and current codes contained:
+
+| Substance | Beneficiaries | Reimbursed boxes | Reimbursed expenditure (EUR) | Reimbursement base (EUR) |
+|---|---:|---:|---:|---:|
+| Exenatide | 16,097 | 140,950 | 11,561,008.00 | 11,705,368.00 |
+| Liraglutide | 141,039 | 1,654,371 | 150,545,790.63 | 152,662,396.25 |
+| Dulaglutide | 174,589 | 1,526,933 | 123,186,786.68 | 125,286,681.94 |
+| Semaglutide | 40,743 | 168,797 | 13,377,020.60 | 13,696,830.72 |
+| Reconstructed additive total | Not applicable | 3,491,051 | 298,670,605.91 | 303,351,276.91 |
+
+Substance-specific beneficiary counts are not additive because the same person may receive more than one active substance during a calendar year.
+
+# Amendments to the protocol
+
+## Analytical windows
+
+The overall study period remains 2019–2025. Measure-specific analytical windows will be used:
+
+| Analysis | Amended analytical window |
+|---|---|
+| National reimbursed boxes | 2019–2025 |
+| National reimbursement base | 2019–2025 |
+| National reimbursed expenditure | 2019–2025 |
+| Active-substance composition using additive measures | 2019–2025 |
+| Class-level beneficiary count | 2020–2025 |
+| Class-level beneficiary population rate | 2020–2025 |
+| Ratios using class-level beneficiaries as denominator | 2020–2025 |
+| Demographic beneficiary counts and rates | 2020–2025 |
+| Regional beneficiary counts, rates and standardisation | 2020–2025 |
+
+The research question and descriptive study design remain unchanged. Results will state the applicable analytical window for every measure.
+
+## Pharmacological harmonisation
+
+For 2019 additive measures, the historical ATC5 codes will be mapped to their current harmonised ATC5 codes before aggregation. Semaglutide will retain `A10BJ06`.
+
+The historical 2019 ATC4 group `A10BX` will not be treated as the GLP-1 receptor agonist class because it contains substances outside the study definition.
+
+## Beneficiary counts
+
+The 2019 ATC4 `A10BJ` beneficiary count will not be interpreted as the unique beneficiary count for the complete class. It will be set to missing in class-level analytical datasets and assigned the status `not_estimable_from_aggregated_source`.
+
+ATC5 beneficiary counts will not be summed to estimate unique class-level beneficiaries. For descriptive quality control only, the 2019 unique class-level count is bounded by the largest substance-specific count and the sum of the substance-specific counts observed in the source. This bound will not replace the primary estimand.
+
+# Amendments to the Statistical Analysis Plan
+
+## National analyses
+
+Class-level beneficiary counts, beneficiary rates and beneficiary-denominated ratios will be reported for 2020–2025. Their endpoint change and compound annual growth rate will compare 2020 with 2025 over five annual intervals.
+
+Reimbursed boxes, reimbursement base and reimbursed expenditure will be reported for 2019–2025. Their endpoint change and compound annual growth rate will compare 2019 with 2025 over six annual intervals.
+
+The reconstructed 2019 additive measures are:
+
+* reimbursed boxes: 3,491,051;
+* reimbursement base: EUR 303,351,276.91;
+* reimbursed expenditure: EUR 298,670,605.91.
+
+Boxes per beneficiary and reimbursed expenditure per beneficiary will be missing for 2019 because the class-level beneficiary denominator is not estimable.
+
+## Demographic and regional analyses
+
+Analyses requiring class-level beneficiary counts will use 2020–2025. Regional change maps and endpoint comparisons will compare 2020 with 2025 rather than 2019 with 2025.
+
+The standard population remains the prespecified average population of France entière in 2025.
+
+## Active-substance analyses
+
+Historical 2019 ATC5 codes will be harmonised before producing active-substance results. Shares of boxes, reimbursement base and reimbursed expenditure will use the reconstructed additive class totals for 2019.
+
+Substance-specific beneficiary counts will be shown independently and will not be expressed as mutually exclusive shares of class beneficiaries.
+
+## Presentation
+
+Every table and figure will state its applicable analytical window. Figures combining measures with different windows will identify the unavailable 2019 beneficiary value as missing and will not connect it to the 2020 observation.
+
+The 2019 value of 40,743 will not appear as the complete class-level beneficiary count in analytical outputs.
+
+# Data-processing changes
+
+The following changes will be implemented:
+
+1. Add a version-controlled historical ATC crosswalk for the 2019 source codes.
+2. Reconstruct the 2019 additive national totals from ATC5 records after code harmonisation.
+3. Set the 2019 class-level beneficiary count and beneficiary-derived measures to missing.
+4. Add provenance and quality-status fields identifying reconstructed and non-estimable measures.
+5. Recalculate change measures separately within their valid analytical windows.
+6. Update tables and figures so beneficiary analyses start in 2020.
+7. Add automated tests for the reconstructed 2019 totals and the missing beneficiary-derived measures.
+8. Independently reproduce the corrected national results in Python.
+
+# Expected influence on interpretation
+
+The amendment removes an artefactual discontinuity and prevents the semaglutide-only 2019 record from being interpreted as the complete class.
+
+The corrected additive measures are expected to show a substantially smaller and clinically plausible increase between 2019 and 2020. Beneficiary trends will have one fewer observation and will begin in 2020. No causal interpretation is introduced.
+
+# Deviation classification
+
+This is a substantive amendment because it changes the valid analytical window for the primary beneficiary estimand and the derivation of 2019 additive measures. It was prompted by a documented incompatibility in the source classification discovered through prespecified quality-control procedures.
+
+The amendment was made after initial inspection of the national analytical output but before continuation of the affected demographic, regional and active-substance analyses. The original frozen protocol and SAP remain unchanged and retain their version history.
+
+# Approval
+
+| Role | Name | Decision | Date |
+|---|---|---|---|
+| Study lead | Javier Zorrilla de San Martin | Approved | 27 August 2026 |
+

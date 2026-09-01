@@ -124,6 +124,116 @@ def load_codebook() -> pd.DataFrame:
     return primary
 
 
+def load_historical_crosswalk(
+    codebook: pd.DataFrame,
+) -> pd.DataFrame:
+    path = (
+        ROOT
+        / "data/metadata/atc_historical_crosswalk.csv"
+    )
+    crosswalk = pd.read_csv(
+        path,
+        dtype=str,
+        keep_default_na=False,
+    )
+
+    required = {
+        "source_year",
+        "source_atc_code",
+        "canonical_atc_code",
+        "substance_name",
+        "mapping_status",
+        "primary_inclusion",
+    }
+    missing = required.difference(crosswalk.columns)
+
+    if missing:
+        raise ValueError(
+            "Missing historical ATC crosswalk columns: "
+            f"{sorted(missing)}"
+        )
+
+    crosswalk["source_year"] = pd.to_numeric(
+        crosswalk["source_year"],
+        errors="raise",
+    )
+    if (
+        crosswalk["source_year"].isna().any()
+        or not crosswalk["source_year"].mod(1).eq(0).all()
+    ):
+        raise ValueError(
+            "Historical ATC source years must be integers."
+        )
+    crosswalk["source_year"] = crosswalk[
+        "source_year"
+    ].astype("int64")
+
+    for column in (
+        "source_atc_code",
+        "canonical_atc_code",
+        "primary_inclusion",
+    ):
+        crosswalk[column] = (
+            crosswalk[column].str.strip().str.upper()
+        )
+
+    primary = crosswalk.loc[
+        crosswalk["primary_inclusion"].eq("TRUE")
+    ].copy()
+
+    if primary.duplicated(
+        ["source_year", "source_atc_code"]
+    ).any():
+        raise ValueError(
+            "Duplicate year and source code in the "
+            "historical ATC crosswalk."
+        )
+
+    primary_atc5_codes = set(
+        codebook.loc[
+            codebook["atc_level"].eq("ATC5"),
+            "atc_code",
+        ]
+    )
+    unmapped = set(primary["canonical_atc_code"]).difference(
+        primary_atc5_codes
+    )
+    if unmapped:
+        raise ValueError(
+            "Historical ATC crosswalk contains non-primary "
+            f"canonical codes: {sorted(unmapped)}"
+        )
+
+    return primary
+
+
+def build_atc_code_mapping(
+    year: int,
+    atc_level: str,
+    codebook: pd.DataFrame,
+    historical_crosswalk: pd.DataFrame,
+) -> dict[str, str]:
+    current_codes = codebook.loc[
+        codebook["atc_level"].eq(atc_level),
+        "atc_code",
+    ]
+    mapping = {code: code for code in current_codes}
+
+    if atc_level == "ATC5":
+        historical = historical_crosswalk.loc[
+            historical_crosswalk["source_year"].eq(year)
+        ]
+        mapping.update(
+            zip(
+                historical["source_atc_code"],
+                historical["canonical_atc_code"],
+                strict=True,
+            )
+        )
+
+    return mapping
+
+
 def normalize_code_dimension(
     values: pd.Series,
     column: str,
@@ -164,6 +274,7 @@ def transform_file(
     atc_level: str,
     aggregation: str,
     codebook: pd.DataFrame,
+    historical_crosswalk: pd.DataFrame,
 ) -> tuple[pd.DataFrame, dict[str, object]]:
     raw, encoding = read_open_medic(path)
     data, source_columns = canonicalize_columns(raw)
@@ -188,13 +299,15 @@ def transform_file(
         .str.upper()
     )
 
-    selected_codes = codebook.loc[
-        codebook["atc_level"].eq(atc_level),
-        "atc_code",
-    ]
+    code_mapping = build_atc_code_mapping(
+        year=year,
+        atc_level=atc_level,
+        codebook=codebook,
+        historical_crosswalk=historical_crosswalk,
+    )
 
     selected = data.loc[
-        data[code_column].isin(selected_codes)
+        data[code_column].isin(code_mapping)
     ].copy()
 
     if selected.empty:
@@ -202,8 +315,28 @@ def transform_file(
             f"No primary {atc_level} codes found in {path}"
         )
 
+    selected["_canonical_atc_code"] = selected[
+        code_column
+    ].map(code_mapping)
+
+    if selected["_canonical_atc_code"].isna().any():
+        raise ValueError(
+            f"Unmapped selected ATC codes in {path}"
+        )
+
+    canonical_key = [
+        (
+            "_canonical_atc_code"
+            if column == code_column
+            else column
+        )
+        for column in source_key
+    ]
     duplicate_key_rows = int(
-        selected.duplicated(source_key, keep=False).sum()
+        selected.duplicated(
+            canonical_key,
+            keep=False,
+        ).sum()
     )
 
     if duplicate_key_rows:
@@ -253,7 +386,9 @@ def transform_file(
     harmonised["year"] = year
     harmonised["atc_level"] = atc_level
     harmonised["aggregation"] = aggregation
-    harmonised["atc_code"] = selected[code_column]
+    harmonised["atc_code"] = selected[
+        "_canonical_atc_code"
+    ]
     harmonised["atc_label"] = (
         selected[label_column].astype("string").str.strip()
     )
@@ -310,6 +445,17 @@ def transform_file(
         "input_rows": len(data),
         "target_rows": len(harmonised),
         "duplicate_target_key_rows": duplicate_key_rows,
+        "source_atc_codes": "|".join(
+            sorted(selected[code_column].unique())
+        ),
+        "canonical_atc_codes": "|".join(
+            sorted(harmonised["atc_code"].unique())
+        ),
+        "historical_code_rows_mapped": int(
+            selected[code_column]
+            .ne(selected["_canonical_atc_code"])
+            .sum()
+        ),
         "negative_beneficiary_cells": negative_counts["nbc"],
         "negative_expenditure_cells": negative_counts["REM"],
         "negative_reimbursement_base_cells": negative_counts[
@@ -329,6 +475,9 @@ def main() -> None:
         years = sorted(set(args.years or [2019, 2025]))
 
     codebook = load_codebook()
+    historical_crosswalk = load_historical_crosswalk(
+        codebook
+    )
 
     output_dir = (
         ROOT / "data/interim/open_medic" / args.mode
@@ -362,6 +511,7 @@ def main() -> None:
                 atc_level=atc_level,
                 aggregation=aggregation,
                 codebook=codebook,
+                historical_crosswalk=historical_crosswalk,
             )
 
             dataset_id = (
