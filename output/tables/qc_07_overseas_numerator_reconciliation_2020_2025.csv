@@ -1,0 +1,7 @@
+year,region_code,direct_beneficiaries,direct_boxes,direct_expenditure_eur,source_file,stratified_beneficiaries,stratified_boxes,stratified_expenditure_eur,stratified_rows,beneficiary_difference,boxes_difference,expenditure_difference_eur
+2020,5,20671,199356,20962508.16,data/raw/open_medic/2020/atc4/NB_2020_atc4_reg.CSV.gz,20671,199356,20962508.15,4,0,0,-0.010000001639127731
+2021,5,25822,244170,25162746.44,data/raw/open_medic/2021/atc4/NB_2021_atc4_reg.CSV.gz,25822,244170,25162746.45,5,0,0,0.009999997913837433
+2022,5,31549,294056,29968352.73,data/raw/open_medic/2022/atc4/NB_2022_atc4_reg.CSV.gz,31549,294056,29968352.729999997,5,0,0,-3.725290298461914e-09
+2023,5,38538,350517,35163943.3,data/raw/open_medic/2023/atc4/NB_2023_atc4_reg.CSV.gz,38538,350517,35163943.29,6,0,0,-0.009999997913837433
+2024,5,43125,397684,39347428.77,data/raw/open_medic/2024/atc4/NB_2024_atc4_reg.CSV.gz,43125,397684,39347428.76,6,0,0,-0.01000000536441803
+2025,5,48053,435921,42258993.58,data/raw/open_medic/2025/atc4/NB_2025_atc4_reg.CSV.gz,48053,435921,42258993.58,6,0,0,0.0
