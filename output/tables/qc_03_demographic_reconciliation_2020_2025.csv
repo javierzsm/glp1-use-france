@@ -1,0 +1,7 @@
+year,national_beneficiaries,national_boxes,stratified_beneficiaries,stratified_boxes,known_beneficiaries,known_boxes,unknown_beneficiaries,unknown_boxes,unknown_rows,beneficiary_difference,boxes_difference,exact_beneficiary_reconciliation,unknown_beneficiary_share_pct,reconciliation_status,amendment_id,analysis_version
+2020,411769,4282253,411769,4282253,411381,4279010,388,3243,2,0,0,TRUE,0.0942275887694314,exact,001,sap-v1.0-amendment-001
+2021,509236,5111827,509248,5111827,508789,5108165,459,3662,4,12,0,FALSE,,small_nonadditivity_reviewed,001,sap-v1.0-amendment-001
+2022,624721,6243787,624732,6243787,624240,6239874,492,3913,3,11,0,FALSE,,small_nonadditivity_reviewed,001,sap-v1.0-amendment-001
+2023,751016,7477882,751016,7477882,750482,7473839,534,4043,2,0,0,TRUE,0.0711036782172417,exact,001,sap-v1.0-amendment-001
+2024,778285,7485218,778285,7485218,777756,7481853,529,3365,2,0,0,TRUE,0.0679699595906384,exact,001,sap-v1.0-amendment-001
+2025,925644,8829921,925644,8829921,924886,8824746,758,5175,2,0,0,TRUE,0.08188893354248501,exact,001,sap-v1.0-amendment-001

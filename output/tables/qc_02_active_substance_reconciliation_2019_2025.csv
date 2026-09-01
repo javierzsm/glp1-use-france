@@ -1,0 +1,8 @@
+year,class_beneficiaries,class_boxes,class_reimbursement_base_eur,class_reimbursed_expenditure_eur,maximum_substance_beneficiaries,summed_substance_beneficiaries,atc5_boxes,atc5_reimbursement_base_eur,atc5_reimbursed_expenditure_eur,boxes_difference,reimbursement_base_difference_eur,reimbursed_expenditure_difference_eur,beneficiary_lower_bound_valid,beneficiary_upper_bound_valid,additive_reconciliation_status
+2019,,3491051,303351276.91,298670605.91,174589,372468,3491051,303351276.91,298670605.91,0,0,0,,,within_rounding_tolerance
+2020,411769,4282253,358015174.21,352440684.63,207688,441436,4282253,358015174.21,352440684.63,0,0,0,TRUE,TRUE,within_rounding_tolerance
+2021,509236,5111827,420907420.5,413916113.9,260575,543235,5111827,420907420.5,413916113.9,0,0,0,TRUE,TRUE,within_rounding_tolerance
+2022,624721,6243787,512681902.46,500119167.41,329821,661142,6243492,512656742.07,500094218.8,295,25160.389999985695,24948.610000014305,TRUE,TRUE,residual_difference_reviewed
+2023,751016,7477882,606467575.26,589059790.92,387927,830523,7477882,606467575.26,589059790.92,0,0,0,TRUE,TRUE,within_rounding_tolerance
+2024,778285,7485218,599251730.85,582112459.44,445242,893210,7485218,599251730.85,582112459.45,0,0,-0.009999990463256836,TRUE,TRUE,within_rounding_tolerance
+2025,925644,8829921,695571673.67,674561996.61,534332,967476,8829921,695571673.6600001,674561996.61,0,0.009999871253967285,0,TRUE,TRUE,within_rounding_tolerance
