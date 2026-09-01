@@ -32,3 +32,10 @@ _site/
 report/*.html
 protocol/*.html
 protocol/*_files/
+
+# Exploratory figure candidates
+output/figures/candidates/
+
+# Rendered protocol amendments
+protocol/amendments/*.html
+protocol/amendments/*_files/
