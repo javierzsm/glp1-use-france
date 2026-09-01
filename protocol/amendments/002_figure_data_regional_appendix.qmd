@@ -1,0 +1,140 @@
+---
+title: "Protocol amendment 002"
+subtitle: "Figure-linked data tables and extended regional appendix"
+date: "2026-08-28"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+## Administrative information
+
+- Amendment identifier: `002`
+- Applies to: protocol version 1.0 and statistical analysis plan version 1.0
+- Status: prospective, before production of the extended regional outputs
+- Previous amendment: `001`
+
+## Rationale
+
+The initial analysis plan prespecified national, demographic and regional
+descriptions. During development of the analytical figures, two additions were
+identified as necessary for transparent reporting:
+
+1. every figure should have an exact, machine-readable table containing the
+   values used to construct it; and
+2. national analyses should be reproduced at regional level whenever the
+   source structure and compatible population denominators permit this.
+
+These additions increase reproducibility and provide interested readers with
+detailed supplementary results. They do not change the primary study question,
+the primary pharmacological definition or the interpretation boundaries of the
+study.
+
+## Figure-data contract
+
+Each generated figure will be linked to a figure-specific comma-separated
+values file produced from the exact plotting dataset before graphical
+rendering. Figure-data files will:
+
+- retain unrounded analytical values whenever those values are available;
+- contain the variables needed to reconstruct the plotted marks, grouping and
+  facets;
+- use stable filenames derived from the corresponding figure identifier;
+- be listed in `output/tables/figure_data_manifest.csv`; and
+- be made available as machine-readable supplementary material.
+
+The report appendix will contain formatted versions of these tables or a clear
+index to the machine-readable files when a table is too large for practical
+page display. Formatting for publication may round displayed values, but the
+linked comma-separated values files will remain the reconstruction source.
+
+## Extended regional analyses
+
+The extended regional appendix will reproduce national analyses at regional
+level only where compatible numerators and denominators exist. Beneficiary
+analyses remain restricted to 2020–2025 under amendment 001.
+
+### Analyses to be produced
+
+Subject to quality-control checks, the following will be produced for each
+analysis region:
+
+- annual class-level beneficiary counts and crude population rates;
+- annual reimbursed boxes, reimbursement base and reimbursed expenditure;
+- annual percentage and absolute changes;
+- beneficiary counts and rates by sex and age group;
+- age-sex-standardised regional rates using the prespecified standard
+  population;
+- regional ranks and summary measures of between-region variation;
+- regional small multiples, heatmaps and maps where they improve
+  interpretation; and
+- figure-linked tables for every regional figure.
+
+The main report will retain a limited set of regional headline results. The
+full region-by-year and region-by-age-by-sex outputs will be placed in an
+appendix or machine-readable supplement.
+
+### Current feasibility limits
+
+The following are not currently estimable from the ingested sources and will
+not be inferred:
+
+- regional class-level beneficiary measures for 2019;
+- regional 2019 additive measures reconstructed from active-substance data;
+  and
+- regional active-substance composition unless a compatible official regional
+  ATC5 source is added and validated.
+
+Unknown or masked age, sex and region categories will remain excluded without
+redistribution or imputation and will be reported in quality-control tables.
+
+### Incomplete age-sex cells
+
+Inspection before regional analysis showed that all absent primary age-sex
+cells occurred in the 0–19-year age group. The following prospective rules
+will be used:
+
+- an observed primary cell will be analysed directly;
+- an absent cell with no compatible unknown-age row for the same region, year
+  and sex may be represented as a structural zero only when additive measures
+  reconcile exactly with the direct regional source;
+- an absent cell accompanied by a compatible unknown-age row will not be
+  assigned a point estimate;
+- point age-sex standardisation will require all six cells to be observed or
+  supported structural zeros; and
+- where an ambiguous cell prevents point standardisation, a conservative
+  interval will be calculated by assigning between zero and all beneficiaries
+  in the compatible unknown-age row to that cell.
+
+These intervals describe uncertainty caused by disclosure control and are not
+sampling confidence intervals. Unknown-age beneficiaries will not otherwise be
+redistributed or imputed.
+
+## Verification of 2025 regional data
+
+Assurance Maladie reported an anomaly in the 2025 region-of-beneficiary data on
+25 June 2026 and stated that it was corrected on 10 July 2026. Before any 2025
+regional result is generated, the regional source files will be verified
+against the corrected release using download metadata and SHA-256 checksums or
+will be downloaded again from the official source.
+
+Official notice:
+[Assurance Maladie — Open Medic complete databases](https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-base-complete-depenses-medicaments)
+
+## Interpretation
+
+Regional and demographic comparisons remain descriptive aggregate analyses.
+They will not be interpreted as individual-level effects or causal estimates.
+The large number of supplementary regional outputs is intended for transparent
+description and hypothesis generation, not for confirmatory multiple testing.
+
+## Consequences for versioning
+
+Outputs created under this amendment will record:
+
+- `amendment_id = "002"`; and
+- an analysis version that identifies amendment 002.
+
+Amendment 001 remains applicable to the historical ATC discontinuity and the
+resulting analytical windows.

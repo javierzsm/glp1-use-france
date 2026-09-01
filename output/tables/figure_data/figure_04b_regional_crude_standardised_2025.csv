@@ -1,0 +1,14 @@
+study_year,region_code,region_name,region_display,crude_rate_per_100000,standardised_rate_per_100000,crude_standardised_difference,standardisation_status
+2025,53,Bretagne,Bretagne,915.033053258107,868.1991852659177,-46.83386799218931,point_with_structural_zero
+2025,52,Pays de la Loire,Pays de la Loire,1101.1322171495533,1093.1302387671137,-8.001978382439574,point_complete_observed
+2025,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,1149.9715898103204,1160.7348288101084,10.763238999787973,point_complete_observed
+2025,76,Occitanie,Occitanie,1279.4635128527357,1209.0609808021532,-70.40253205058252,point_complete_observed
+2025,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,1339.2519792817948,1229.8964567024368,-109.35552257935797,point_complete_observed
+2025,28,Normandie,Normandie,1342.310507780503,1296.9113895831088,-45.39911819739427,point_with_structural_zero
+2025,11,Île-de-France,Île-de-France,1188.3013658640962,1323.1813907544588,134.88002489036262,point_complete_observed
+2025,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,1469.7586808460467,1379.9660513528881,-89.79262949315853,point_complete_observed
+2025,24,Centre-Val de Loire,Centre-Val de Loire,1451.4469274519893,1395.3654435173,-56.08148393468923,point_complete_observed
+2025,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,1561.1023657819526,1464.2744017024504,-96.82796407950218,point_with_structural_zero
+2025,44,Grand Est,Grand Est,1604.156898247823,1568.1796923756413,-35.977205872181685,point_complete_observed
+2025,32,Hauts-de-France,Hauts-de-France,1675.3137779558501,1747.1649451613903,71.85116720554015,point_complete_observed
+2025,5,Overseas regions and departments,Overseas regions/departments,2106.386709332398,2435.865767444098,329.47905811169994,point_complete_observed

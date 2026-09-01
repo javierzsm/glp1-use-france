@@ -1,0 +1,79 @@
+study_year,region_code,region_name,region_display,beneficiaries,population_average,beneficiary_rate_per_100000
+2020,11,Île-de-France,Île-de-France,62118,12294536.5,505.24881519526986
+2021,11,Île-de-France,Île-de-France,77978,12349121.5,631.4457267263911
+2022,11,Île-de-France,Île-de-France,97399,12422015.5,784.0837100871432
+2023,11,Île-de-France,Île-de-France,119000,12485304.5,953.1205266159108
+2024,11,Île-de-France,Île-de-France,126910,12528415,1012.9773000016363
+2025,11,Île-de-France,Île-de-France,149392,12571895,1188.3013658640962
+2020,24,Centre-Val de Loire,Centre-Val de Loire,15827,2574083,614.8597384000437
+2021,24,Centre-Val de Loire,Centre-Val de Loire,20302,2577450,787.6777435061787
+2022,24,Centre-Val de Loire,Centre-Val de Loire,25632,2584314,991.8299401698092
+2023,24,Centre-Val de Loire,Centre-Val de Loire,31124,2587518.5,1202.8513032853677
+2024,24,Centre-Val de Loire,Centre-Val de Loire,31415,2588156,1213.798550010123
+2025,24,Centre-Val de Loire,Centre-Val de Loire,37575,2588796,1451.4469274519893
+2020,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,21258,2800944.5,758.9582728254701
+2021,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,25743,2802085.5,918.7085833034002
+2022,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,31261,2803323.5,1115.1406535849321
+2023,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,37330,2801425,1332.5361200103519
+2024,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,37212,2798529,1329.6985666398311
+2025,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,43640,2795460.5,1561.1023657819526
+2020,28,Normandie,Normandie,21405,3326744,643.4219164444274
+2021,28,Normandie,Normandie,26238,3333520,787.0959226283327
+2022,28,Normandie,Normandie,31603,3342458,945.5017834180713
+2023,28,Normandie,Normandie,37185,3347401,1110.8618298196122
+2024,28,Normandie,Normandie,37692,3349971,1125.1440684113386
+2025,28,Normandie,Normandie,44999,3352354,1342.310507780503
+2020,32,Hauts-de-France,Hauts-de-France,49326,5996513,822.5780549462663
+2021,32,Hauts-de-France,Hauts-de-France,60157,5997104,1003.1008300006135
+2022,32,Hauts-de-France,Hauts-de-France,72771,5995555,1213.7491858551878
+2023,32,Hauts-de-France,Hauts-de-France,86239,5988017,1440.1929720640405
+2024,32,Hauts-de-France,Hauts-de-France,86611,5979143.5,1448.551953971334
+2025,32,Hauts-de-France,Hauts-de-France,100018,5970105.5,1675.3137779558501
+2020,44,Grand Est,Grand Est,39556,5561969,711.1869915132573
+2021,44,Grand Est,Grand Est,49551,5560683,891.0955722525453
+2022,44,Grand Est,Grand Est,61187,5561728.5,1100.1435974445715
+2023,44,Grand Est,Grand Est,73672,5560417.5,1324.9364818379195
+2024,44,Grand Est,Grand Est,74732,5553806,1345.5997562752461
+2025,44,Grand Est,Grand Est,88986,5547213,1604.156898247823
+2020,5,Overseas regions and departments,Overseas regions/departments,20671,2182287,947.2173000159925
+2021,5,Overseas regions and departments,Overseas regions/departments,25822,2202915,1172.174141989137
+2022,5,Overseas regions and departments,Overseas regions/departments,31549,2226490,1416.9836828371112
+2023,5,Overseas regions and departments,Overseas regions/departments,38538,2248777,1713.7315082820573
+2024,5,Overseas regions and departments,Overseas regions/departments,43125,2265987.5,1903.1437728584115
+2025,5,Overseas regions and departments,Overseas regions/departments,48053,2281300,2106.386709332398
+2020,52,Pays de la Loire,Pays de la Loire,19118,3843059.5,497.4682281135642
+2021,52,Pays de la Loire,Pays de la Loire,23969,3866607.5,619.8974165337444
+2022,52,Pays de la Loire,Pays de la Loire,29749,3893186,764.1299439584957
+2023,52,Pays de la Loire,Pays de la Loire,35335,3917013.5,902.090329788243
+2024,52,Pays de la Loire,Pays de la Loire,36293,3936115,922.0513120170524
+2025,52,Pays de la Loire,Pays de la Loire,43553,3955292.5,1101.1322171495533
+2020,53,Bretagne,Bretagne,12477,3384201,368.6837749885423
+2021,53,Bretagne,Bretagne,15784,3408706,463.0496147218328
+2022,53,Bretagne,Bretagne,19865,3436107.5,578.1251023141738
+2023,53,Bretagne,Bretagne,24058,3459540.5,695.4102719710897
+2024,53,Bretagne,Bretagne,25649,3479481.5,737.150061007653
+2025,53,Bretagne,Bretagne,32023,3499655,915.033053258107
+2020,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,36848,6051652,608.8915886108455
+2021,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,45465,6091368,746.3840634813067
+2022,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,55283,6131917.5,901.561379454306
+2023,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,65821,6166168,1067.453887081896
+2024,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,68460,6196362,1104.8418410673876
+2025,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,83386,6226311.5,1339.2519792817948
+2020,76,Occitanie,Occitanie,35009,5998072.5,583.6708375899091
+2021,76,Occitanie,Occitanie,43373,6051453.5,716.736896350604
+2022,76,Occitanie,Occitanie,52734,6102692,864.110461416044
+2023,76,Occitanie,Occitanie,63281,6145261,1029.752845322599
+2024,76,Occitanie,Occitanie,65549,6185722,1059.68228122764
+2025,76,Occitanie,Occitanie,79663,6226281.5,1279.4635128527357
+2020,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,44221,8096506.5,546.1738343568303
+2021,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,53656,8139122.5,659.2356854194048
+2022,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,64874,8184720.5,792.6232789500876
+2023,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,77425,8221946,941.6870409997828
+2024,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,78266,8254211.5,948.1947488260994
+2025,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,95294,8286639.5,1149.9715898103204
+2020,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,35345,5458902,647.4745287605457
+2021,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,43413,5498512.5,789.5408076275176
+2022,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,53553,5548017,965.2638050676485
+2023,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,64860,5592820.5,1159.7010846316273
+2024,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,69310,5629286.5,1231.2395185428918
+2025,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,83272,5665692,1469.7586808460467

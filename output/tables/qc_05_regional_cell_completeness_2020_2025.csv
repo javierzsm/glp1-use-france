@@ -1,0 +1,235 @@
+study_year,region_code,region_name,cell_status,cells
+2020,11,Île-de-France,ambiguous_due_to_unknown_age,0
+2020,11,Île-de-France,observed,6
+2020,11,Île-de-France,structural_zero_supported,0
+2020,24,Centre-Val de Loire,ambiguous_due_to_unknown_age,0
+2020,24,Centre-Val de Loire,observed,4
+2020,24,Centre-Val de Loire,structural_zero_supported,2
+2020,27,Bourgogne-Franche-Comté,ambiguous_due_to_unknown_age,0
+2020,27,Bourgogne-Franche-Comté,observed,4
+2020,27,Bourgogne-Franche-Comté,structural_zero_supported,2
+2020,28,Normandie,ambiguous_due_to_unknown_age,0
+2020,28,Normandie,observed,4
+2020,28,Normandie,structural_zero_supported,2
+2020,32,Hauts-de-France,ambiguous_due_to_unknown_age,0
+2020,32,Hauts-de-France,observed,4
+2020,32,Hauts-de-France,structural_zero_supported,2
+2020,44,Grand Est,ambiguous_due_to_unknown_age,0
+2020,44,Grand Est,observed,4
+2020,44,Grand Est,structural_zero_supported,2
+2020,5,Overseas regions and departments,ambiguous_due_to_unknown_age,0
+2020,5,Overseas regions and departments,observed,4
+2020,5,Overseas regions and departments,structural_zero_supported,2
+2020,52,Pays de la Loire,ambiguous_due_to_unknown_age,0
+2020,52,Pays de la Loire,observed,4
+2020,52,Pays de la Loire,structural_zero_supported,2
+2020,53,Bretagne,ambiguous_due_to_unknown_age,0
+2020,53,Bretagne,observed,4
+2020,53,Bretagne,structural_zero_supported,2
+2020,75,Nouvelle-Aquitaine,ambiguous_due_to_unknown_age,1
+2020,75,Nouvelle-Aquitaine,observed,4
+2020,75,Nouvelle-Aquitaine,structural_zero_supported,1
+2020,76,Occitanie,ambiguous_due_to_unknown_age,2
+2020,76,Occitanie,observed,4
+2020,76,Occitanie,structural_zero_supported,0
+2020,84,Auvergne-Rhône-Alpes,ambiguous_due_to_unknown_age,0
+2020,84,Auvergne-Rhône-Alpes,observed,4
+2020,84,Auvergne-Rhône-Alpes,structural_zero_supported,2
+2020,93,Provence-Alpes-Côte d'Azur and Corse,ambiguous_due_to_unknown_age,1
+2020,93,Provence-Alpes-Côte d'Azur and Corse,observed,5
+2020,93,Provence-Alpes-Côte d'Azur and Corse,structural_zero_supported,0
+2021,11,Île-de-France,ambiguous_due_to_unknown_age,0
+2021,11,Île-de-France,observed,6
+2021,11,Île-de-France,structural_zero_supported,0
+2021,24,Centre-Val de Loire,ambiguous_due_to_unknown_age,0
+2021,24,Centre-Val de Loire,observed,4
+2021,24,Centre-Val de Loire,structural_zero_supported,2
+2021,27,Bourgogne-Franche-Comté,ambiguous_due_to_unknown_age,0
+2021,27,Bourgogne-Franche-Comté,observed,4
+2021,27,Bourgogne-Franche-Comté,structural_zero_supported,2
+2021,28,Normandie,ambiguous_due_to_unknown_age,0
+2021,28,Normandie,observed,4
+2021,28,Normandie,structural_zero_supported,2
+2021,32,Hauts-de-France,ambiguous_due_to_unknown_age,0
+2021,32,Hauts-de-France,observed,5
+2021,32,Hauts-de-France,structural_zero_supported,1
+2021,44,Grand Est,ambiguous_due_to_unknown_age,0
+2021,44,Grand Est,observed,5
+2021,44,Grand Est,structural_zero_supported,1
+2021,5,Overseas regions and departments,ambiguous_due_to_unknown_age,0
+2021,5,Overseas regions and departments,observed,5
+2021,5,Overseas regions and departments,structural_zero_supported,1
+2021,52,Pays de la Loire,ambiguous_due_to_unknown_age,0
+2021,52,Pays de la Loire,observed,6
+2021,52,Pays de la Loire,structural_zero_supported,0
+2021,53,Bretagne,ambiguous_due_to_unknown_age,0
+2021,53,Bretagne,observed,4
+2021,53,Bretagne,structural_zero_supported,2
+2021,75,Nouvelle-Aquitaine,ambiguous_due_to_unknown_age,2
+2021,75,Nouvelle-Aquitaine,observed,4
+2021,75,Nouvelle-Aquitaine,structural_zero_supported,0
+2021,76,Occitanie,ambiguous_due_to_unknown_age,0
+2021,76,Occitanie,observed,6
+2021,76,Occitanie,structural_zero_supported,0
+2021,84,Auvergne-Rhône-Alpes,ambiguous_due_to_unknown_age,0
+2021,84,Auvergne-Rhône-Alpes,observed,6
+2021,84,Auvergne-Rhône-Alpes,structural_zero_supported,0
+2021,93,Provence-Alpes-Côte d'Azur and Corse,ambiguous_due_to_unknown_age,0
+2021,93,Provence-Alpes-Côte d'Azur and Corse,observed,6
+2021,93,Provence-Alpes-Côte d'Azur and Corse,structural_zero_supported,0
+2022,11,Île-de-France,ambiguous_due_to_unknown_age,0
+2022,11,Île-de-France,observed,6
+2022,11,Île-de-France,structural_zero_supported,0
+2022,24,Centre-Val de Loire,ambiguous_due_to_unknown_age,0
+2022,24,Centre-Val de Loire,observed,4
+2022,24,Centre-Val de Loire,structural_zero_supported,2
+2022,27,Bourgogne-Franche-Comté,ambiguous_due_to_unknown_age,0
+2022,27,Bourgogne-Franche-Comté,observed,5
+2022,27,Bourgogne-Franche-Comté,structural_zero_supported,1
+2022,28,Normandie,ambiguous_due_to_unknown_age,0
+2022,28,Normandie,observed,5
+2022,28,Normandie,structural_zero_supported,1
+2022,32,Hauts-de-France,ambiguous_due_to_unknown_age,0
+2022,32,Hauts-de-France,observed,6
+2022,32,Hauts-de-France,structural_zero_supported,0
+2022,44,Grand Est,ambiguous_due_to_unknown_age,0
+2022,44,Grand Est,observed,6
+2022,44,Grand Est,structural_zero_supported,0
+2022,5,Overseas regions and departments,ambiguous_due_to_unknown_age,0
+2022,5,Overseas regions and departments,observed,5
+2022,5,Overseas regions and departments,structural_zero_supported,1
+2022,52,Pays de la Loire,ambiguous_due_to_unknown_age,0
+2022,52,Pays de la Loire,observed,5
+2022,52,Pays de la Loire,structural_zero_supported,1
+2022,53,Bretagne,ambiguous_due_to_unknown_age,0
+2022,53,Bretagne,observed,4
+2022,53,Bretagne,structural_zero_supported,2
+2022,75,Nouvelle-Aquitaine,ambiguous_due_to_unknown_age,0
+2022,75,Nouvelle-Aquitaine,observed,6
+2022,75,Nouvelle-Aquitaine,structural_zero_supported,0
+2022,76,Occitanie,ambiguous_due_to_unknown_age,0
+2022,76,Occitanie,observed,6
+2022,76,Occitanie,structural_zero_supported,0
+2022,84,Auvergne-Rhône-Alpes,ambiguous_due_to_unknown_age,0
+2022,84,Auvergne-Rhône-Alpes,observed,6
+2022,84,Auvergne-Rhône-Alpes,structural_zero_supported,0
+2022,93,Provence-Alpes-Côte d'Azur and Corse,ambiguous_due_to_unknown_age,0
+2022,93,Provence-Alpes-Côte d'Azur and Corse,observed,6
+2022,93,Provence-Alpes-Côte d'Azur and Corse,structural_zero_supported,0
+2023,11,Île-de-France,ambiguous_due_to_unknown_age,0
+2023,11,Île-de-France,observed,6
+2023,11,Île-de-France,structural_zero_supported,0
+2023,24,Centre-Val de Loire,ambiguous_due_to_unknown_age,0
+2023,24,Centre-Val de Loire,observed,6
+2023,24,Centre-Val de Loire,structural_zero_supported,0
+2023,27,Bourgogne-Franche-Comté,ambiguous_due_to_unknown_age,0
+2023,27,Bourgogne-Franche-Comté,observed,5
+2023,27,Bourgogne-Franche-Comté,structural_zero_supported,1
+2023,28,Normandie,ambiguous_due_to_unknown_age,0
+2023,28,Normandie,observed,5
+2023,28,Normandie,structural_zero_supported,1
+2023,32,Hauts-de-France,ambiguous_due_to_unknown_age,0
+2023,32,Hauts-de-France,observed,6
+2023,32,Hauts-de-France,structural_zero_supported,0
+2023,44,Grand Est,ambiguous_due_to_unknown_age,0
+2023,44,Grand Est,observed,6
+2023,44,Grand Est,structural_zero_supported,0
+2023,5,Overseas regions and departments,ambiguous_due_to_unknown_age,0
+2023,5,Overseas regions and departments,observed,6
+2023,5,Overseas regions and departments,structural_zero_supported,0
+2023,52,Pays de la Loire,ambiguous_due_to_unknown_age,0
+2023,52,Pays de la Loire,observed,6
+2023,52,Pays de la Loire,structural_zero_supported,0
+2023,53,Bretagne,ambiguous_due_to_unknown_age,0
+2023,53,Bretagne,observed,4
+2023,53,Bretagne,structural_zero_supported,2
+2023,75,Nouvelle-Aquitaine,ambiguous_due_to_unknown_age,0
+2023,75,Nouvelle-Aquitaine,observed,6
+2023,75,Nouvelle-Aquitaine,structural_zero_supported,0
+2023,76,Occitanie,ambiguous_due_to_unknown_age,0
+2023,76,Occitanie,observed,6
+2023,76,Occitanie,structural_zero_supported,0
+2023,84,Auvergne-Rhône-Alpes,ambiguous_due_to_unknown_age,0
+2023,84,Auvergne-Rhône-Alpes,observed,6
+2023,84,Auvergne-Rhône-Alpes,structural_zero_supported,0
+2023,93,Provence-Alpes-Côte d'Azur and Corse,ambiguous_due_to_unknown_age,0
+2023,93,Provence-Alpes-Côte d'Azur and Corse,observed,6
+2023,93,Provence-Alpes-Côte d'Azur and Corse,structural_zero_supported,0
+2024,11,Île-de-France,ambiguous_due_to_unknown_age,0
+2024,11,Île-de-France,observed,6
+2024,11,Île-de-France,structural_zero_supported,0
+2024,24,Centre-Val de Loire,ambiguous_due_to_unknown_age,0
+2024,24,Centre-Val de Loire,observed,6
+2024,24,Centre-Val de Loire,structural_zero_supported,0
+2024,27,Bourgogne-Franche-Comté,ambiguous_due_to_unknown_age,0
+2024,27,Bourgogne-Franche-Comté,observed,5
+2024,27,Bourgogne-Franche-Comté,structural_zero_supported,1
+2024,28,Normandie,ambiguous_due_to_unknown_age,0
+2024,28,Normandie,observed,4
+2024,28,Normandie,structural_zero_supported,2
+2024,32,Hauts-de-France,ambiguous_due_to_unknown_age,0
+2024,32,Hauts-de-France,observed,6
+2024,32,Hauts-de-France,structural_zero_supported,0
+2024,44,Grand Est,ambiguous_due_to_unknown_age,0
+2024,44,Grand Est,observed,6
+2024,44,Grand Est,structural_zero_supported,0
+2024,5,Overseas regions and departments,ambiguous_due_to_unknown_age,0
+2024,5,Overseas regions and departments,observed,6
+2024,5,Overseas regions and departments,structural_zero_supported,0
+2024,52,Pays de la Loire,ambiguous_due_to_unknown_age,0
+2024,52,Pays de la Loire,observed,6
+2024,52,Pays de la Loire,structural_zero_supported,0
+2024,53,Bretagne,ambiguous_due_to_unknown_age,0
+2024,53,Bretagne,observed,4
+2024,53,Bretagne,structural_zero_supported,2
+2024,75,Nouvelle-Aquitaine,ambiguous_due_to_unknown_age,0
+2024,75,Nouvelle-Aquitaine,observed,6
+2024,75,Nouvelle-Aquitaine,structural_zero_supported,0
+2024,76,Occitanie,ambiguous_due_to_unknown_age,0
+2024,76,Occitanie,observed,6
+2024,76,Occitanie,structural_zero_supported,0
+2024,84,Auvergne-Rhône-Alpes,ambiguous_due_to_unknown_age,0
+2024,84,Auvergne-Rhône-Alpes,observed,6
+2024,84,Auvergne-Rhône-Alpes,structural_zero_supported,0
+2024,93,Provence-Alpes-Côte d'Azur and Corse,ambiguous_due_to_unknown_age,0
+2024,93,Provence-Alpes-Côte d'Azur and Corse,observed,6
+2024,93,Provence-Alpes-Côte d'Azur and Corse,structural_zero_supported,0
+2025,11,Île-de-France,ambiguous_due_to_unknown_age,0
+2025,11,Île-de-France,observed,6
+2025,11,Île-de-France,structural_zero_supported,0
+2025,24,Centre-Val de Loire,ambiguous_due_to_unknown_age,0
+2025,24,Centre-Val de Loire,observed,6
+2025,24,Centre-Val de Loire,structural_zero_supported,0
+2025,27,Bourgogne-Franche-Comté,ambiguous_due_to_unknown_age,0
+2025,27,Bourgogne-Franche-Comté,observed,5
+2025,27,Bourgogne-Franche-Comté,structural_zero_supported,1
+2025,28,Normandie,ambiguous_due_to_unknown_age,0
+2025,28,Normandie,observed,5
+2025,28,Normandie,structural_zero_supported,1
+2025,32,Hauts-de-France,ambiguous_due_to_unknown_age,0
+2025,32,Hauts-de-France,observed,6
+2025,32,Hauts-de-France,structural_zero_supported,0
+2025,44,Grand Est,ambiguous_due_to_unknown_age,0
+2025,44,Grand Est,observed,6
+2025,44,Grand Est,structural_zero_supported,0
+2025,5,Overseas regions and departments,ambiguous_due_to_unknown_age,0
+2025,5,Overseas regions and departments,observed,6
+2025,5,Overseas regions and departments,structural_zero_supported,0
+2025,52,Pays de la Loire,ambiguous_due_to_unknown_age,0
+2025,52,Pays de la Loire,observed,6
+2025,52,Pays de la Loire,structural_zero_supported,0
+2025,53,Bretagne,ambiguous_due_to_unknown_age,0
+2025,53,Bretagne,observed,4
+2025,53,Bretagne,structural_zero_supported,2
+2025,75,Nouvelle-Aquitaine,ambiguous_due_to_unknown_age,0
+2025,75,Nouvelle-Aquitaine,observed,6
+2025,75,Nouvelle-Aquitaine,structural_zero_supported,0
+2025,76,Occitanie,ambiguous_due_to_unknown_age,0
+2025,76,Occitanie,observed,6
+2025,76,Occitanie,structural_zero_supported,0
+2025,84,Auvergne-Rhône-Alpes,ambiguous_due_to_unknown_age,0
+2025,84,Auvergne-Rhône-Alpes,observed,6
+2025,84,Auvergne-Rhône-Alpes,structural_zero_supported,0
+2025,93,Provence-Alpes-Côte d'Azur and Corse,ambiguous_due_to_unknown_age,0
+2025,93,Provence-Alpes-Côte d'Azur and Corse,observed,6
+2025,93,Provence-Alpes-Côte d'Azur and Corse,structural_zero_supported,0

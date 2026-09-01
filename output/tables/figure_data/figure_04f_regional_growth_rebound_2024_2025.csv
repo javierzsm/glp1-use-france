@@ -1,0 +1,14 @@
+region_code,region_name,region_display,geographic_scope,change_2024,change_2025,acceleration_percentage_points
+11,Île-de-France,Île-de-France,Metropolitan grouping,6.647058823529406,17.71491608226301,11.067857258733603
+24,Centre-Val de Loire,Centre-Val de Loire,Metropolitan grouping,0.9349697982264482,19.608467292694563,18.673497494468116
+27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,Metropolitan grouping,-0.31609965175461996,17.273997635171455,17.590097286926074
+28,Normandie,Normandie,Metropolitan grouping,1.363453005244053,19.386076621033645,18.02262361578959
+32,Hauts-de-France,Hauts-de-France,Metropolitan grouping,0.4313593617736755,15.479558023807606,15.04819866203393
+44,Grand Est,Grand Est,Metropolitan grouping,1.438809859919643,19.0734892683188,17.634679408399155
+5,Overseas regions and departments,Overseas regions/departments,Overseas aggregate,11.902537754943165,11.427246376811585,-0.47529137813157973
+52,Pays de la Loire,Pays de la Loire,Metropolitan grouping,2.7111928682609365,20.003857493180497,17.29266462491956
+53,Bretagne,Bretagne,Metropolitan grouping,6.613184803391814,24.850871379001127,18.237686575609313
+75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,Metropolitan grouping,4.009358715303635,21.802512416009346,17.793153700705712
+76,Occitanie,Occitanie,Metropolitan grouping,3.584014159068283,21.53198370684526,17.947969547776978
+84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,Metropolitan grouping,1.0862124636745296,21.756573735721773,20.670361272047245
+93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,Metropolitan grouping,6.8609312365094155,20.14427932477276,13.283348088263345

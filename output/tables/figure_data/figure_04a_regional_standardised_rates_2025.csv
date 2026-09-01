@@ -1,0 +1,14 @@
+study_year,region_code,region_name,region_display,geographic_scope,beneficiaries,crude_rate_per_100000,standardised_rate_per_100000,standardised_rank,standardisation_status
+2025,53,Bretagne,Bretagne,Metropolitan grouping,32023,915.033053258107,868.1991852659177,13,point_with_structural_zero
+2025,52,Pays de la Loire,Pays de la Loire,Metropolitan grouping,43553,1101.1322171495533,1093.1302387671137,12,point_complete_observed
+2025,84,Auvergne-Rhône-Alpes,Auvergne-Rhône-Alpes,Metropolitan grouping,95294,1149.9715898103204,1160.7348288101084,11,point_complete_observed
+2025,76,Occitanie,Occitanie,Metropolitan grouping,79663,1279.4635128527357,1209.0609808021532,10,point_complete_observed
+2025,75,Nouvelle-Aquitaine,Nouvelle-Aquitaine,Metropolitan grouping,83386,1339.2519792817948,1229.8964567024368,9,point_complete_observed
+2025,28,Normandie,Normandie,Metropolitan grouping,44999,1342.310507780503,1296.9113895831088,8,point_with_structural_zero
+2025,11,Île-de-France,Île-de-France,Metropolitan grouping,149392,1188.3013658640962,1323.1813907544588,7,point_complete_observed
+2025,93,Provence-Alpes-Côte d'Azur and Corse,Provence-Alpes-Côte d'Azur/Corse,Metropolitan grouping,83272,1469.7586808460467,1379.9660513528881,6,point_complete_observed
+2025,24,Centre-Val de Loire,Centre-Val de Loire,Metropolitan grouping,37575,1451.4469274519893,1395.3654435173,5,point_complete_observed
+2025,27,Bourgogne-Franche-Comté,Bourgogne-Franche-Comté,Metropolitan grouping,43640,1561.1023657819526,1464.2744017024504,4,point_with_structural_zero
+2025,44,Grand Est,Grand Est,Metropolitan grouping,88986,1604.156898247823,1568.1796923756413,3,point_complete_observed
+2025,32,Hauts-de-France,Hauts-de-France,Metropolitan grouping,100018,1675.3137779558501,1747.1649451613903,2,point_complete_observed
+2025,5,Overseas regions and departments,Overseas regions/departments,Overseas aggregate,48053,2106.386709332398,2435.865767444098,1,point_complete_observed
