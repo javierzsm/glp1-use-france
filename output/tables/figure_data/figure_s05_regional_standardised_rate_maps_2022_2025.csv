@@ -1,0 +1,53 @@
+study_year,geometry_code,geometry_name,analysis_region_code,analysis_region_name,standardised_rate_per_100000,standardisation_status,geography_source_id,amendment_id,analysis_version
+2022,11,Île-de-France,11,Île-de-France,901.3937104377884,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,24,Centre-Val de Loire,24,Centre-Val de Loire,969.6873647854449,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,27,Bourgogne-Franche-Comté,27,Bourgogne-Franche-Comté,1066.9454226441665,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,28,Normandie,28,Normandie,935.0288569474138,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,32,Hauts-de-France,32,Hauts-de-France,1302.8288262205665,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,44,Grand Est,44,Grand Est,1103.6044057191773,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,52,Pays de la Loire,52,Pays de la Loire,776.929300441656,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,53,Bretagne,53,Bretagne,562.4129795572426,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,75,Nouvelle-Aquitaine,75,Nouvelle-Aquitaine,844.8685263901588,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,76,Occitanie,76,Occitanie,833.6955933725839,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,84,Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,821.1060574105682,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,93,Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,925.4077800740412,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2022,94,Corse,93,Provence-Alpes-Côte d'Azur and Corse,925.4077800740412,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,11,Île-de-France,11,Île-de-France,1083.1537122053148,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,24,Centre-Val de Loire,24,Centre-Val de Loire,1169.7749163473725,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,27,Bourgogne-Franche-Comté,27,Bourgogne-Franche-Comté,1266.3697391743756,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,28,Normandie,28,Normandie,1089.4808189773555,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,32,Hauts-de-France,32,Hauts-de-France,1531.8827287057215,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,44,Grand Est,44,Grand Est,1318.0041295570072,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,52,Pays de la Loire,52,Pays de la Loire,909.73612693245,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,53,Bretagne,53,Bretagne,670.189105477155,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,75,Nouvelle-Aquitaine,75,Nouvelle-Aquitaine,993.0427061772468,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,76,Occitanie,76,Occitanie,986.5396798554398,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,84,Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,967.3420505593858,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,93,Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,1104.5892331506384,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2023,94,Corse,93,Provence-Alpes-Côte d'Azur and Corse,1104.5892331506384,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,11,Île-de-France,11,Île-de-France,1140.7597279990764,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,24,Centre-Val de Loire,24,Centre-Val de Loire,1172.587063825335,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,27,Bourgogne-Franche-Comté,27,Bourgogne-Franche-Comté,1253.574530555811,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,28,Normandie,28,Normandie,1094.0078644622342,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,32,Hauts-de-France,32,Hauts-de-France,1526.9011680338194,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,44,Grand Est,44,Grand Est,1326.5622586899915,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,52,Pays de la Loire,52,Pays de la Loire,922.3712488035748,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,53,Bretagne,53,Bretagne,704.1683573431568,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,75,Nouvelle-Aquitaine,75,Nouvelle-Aquitaine,1019.813969350434,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,76,Occitanie,76,Occitanie,1007.3411034066978,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,84,Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,965.756545306002,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,93,Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,1163.353345354302,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2024,94,Corse,93,Provence-Alpes-Côte d'Azur and Corse,1163.353345354302,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,11,Île-de-France,11,Île-de-France,1323.1813907544588,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,24,Centre-Val de Loire,24,Centre-Val de Loire,1395.3654435173,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,27,Bourgogne-Franche-Comté,27,Bourgogne-Franche-Comté,1464.2744017024504,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,28,Normandie,28,Normandie,1296.9113895831088,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,32,Hauts-de-France,32,Hauts-de-France,1747.1649451613905,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,44,Grand Est,44,Grand Est,1568.1796923756413,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,52,Pays de la Loire,52,Pays de la Loire,1093.1302387671135,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,53,Bretagne,53,Bretagne,868.1991852659177,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,75,Nouvelle-Aquitaine,75,Nouvelle-Aquitaine,1229.8964567024368,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,76,Occitanie,76,Occitanie,1209.0609808021532,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,84,Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,1160.7348288101084,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,93,Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,1379.966051352888,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+2025,94,Corse,93,Provence-Alpes-Côte d'Azur and Corse,1379.966051352888,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003

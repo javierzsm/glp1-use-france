@@ -1,0 +1,19 @@
+geometry_code,geometry_name,geometry_scope,analysis_region_code,geometry_valid_before_repair,geometry_valid_after_repair,standardised_rate_per_100000,join_status_2025,temporal_point_years,geography_source_id,geometry_sha256,amendment_id,analysis_version
+01,Guadeloupe,DROM outline,5,TRUE,TRUE,,not_joined_by_design,0,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+02,Martinique,DROM outline,5,TRUE,TRUE,,not_joined_by_design,0,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+03,Guyane,DROM outline,5,TRUE,TRUE,,not_joined_by_design,0,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+04,La Réunion,DROM outline,5,TRUE,TRUE,,not_joined_by_design,0,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+06,Mayotte,DROM outline,5,TRUE,TRUE,,not_joined_by_design,0,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+11,Île-de-France,Metropolitan geometry,11,TRUE,TRUE,1323.1813907544588,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+24,Centre-Val de Loire,Metropolitan geometry,24,TRUE,TRUE,1395.3654435173,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+27,Bourgogne-Franche-Comté,Metropolitan geometry,27,FALSE,TRUE,1464.2744017024504,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+28,Normandie,Metropolitan geometry,28,TRUE,TRUE,1296.9113895831088,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+32,Hauts-de-France,Metropolitan geometry,32,TRUE,TRUE,1747.1649451613905,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+44,Grand Est,Metropolitan geometry,44,FALSE,TRUE,1568.1796923756413,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+52,Pays de la Loire,Metropolitan geometry,52,TRUE,TRUE,1093.1302387671135,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+53,Bretagne,Metropolitan geometry,53,FALSE,TRUE,868.1991852659177,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+75,Nouvelle-Aquitaine,Metropolitan geometry,75,TRUE,TRUE,1229.8964567024368,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+76,Occitanie,Metropolitan geometry,76,TRUE,TRUE,1209.0609808021532,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+84,Auvergne-Rhône-Alpes,Metropolitan geometry,84,TRUE,TRUE,1160.7348288101084,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+93,Provence-Alpes-Côte d'Azur,Metropolitan geometry,93,TRUE,TRUE,1379.966051352888,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003
+94,Corse,Metropolitan geometry,93,TRUE,TRUE,1379.966051352888,matched,4,etalab_regions_2025_100m,af18f6cb83eaf081168d009964f8e4aa8ae1a80ef5388149201e95e015020652,003,sap-v1.0-amendments-001-002-003

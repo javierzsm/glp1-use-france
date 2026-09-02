@@ -39,3 +39,7 @@ output/figures/candidates/
 # Rendered protocol amendments
 protocol/amendments/*.html
 protocol/amendments/*_files/
+
+# Downloaded geography transport and catalogue files
+data/geography/*.gz
+data/geography/*_catalog_*.json

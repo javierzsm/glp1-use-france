@@ -1,0 +1,104 @@
+---
+title: "Protocol amendment 003"
+subtitle: "Reproducible regional choropleth visualisations"
+date: "2026-09-02"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+## Administrative information
+
+- Amendment identifier: `003`
+- Applies to: protocol version 1.0 and statistical analysis plan version 1.0
+- Status: reporting amendment after production of the regional estimates and
+  before preparation of the final report
+- Previous amendments: `001` and `002`
+
+## Rationale
+
+Amendment 002 prespecified regional maps where they improve interpretation.
+This amendment documents the exact geographic source, join rules and display
+conventions used to implement those maps reproducibly. It introduces no new
+estimand, statistical comparison or causal interpretation.
+
+## Geographic source
+
+Regional boundaries are taken from the 2025 Etalab *Contours administratifs*
+dataset at 100-metre generalisation. The dataset is derived from IGN ADMIN
+EXPRESS and distributed under the French Open Licence 2.0.
+
+The uncompressed GeoJSON snapshot is stored as
+`data/geography/france_regions_2025_100m.geojson`. Its source URL, download
+date, compressed and uncompressed SHA-256 checksums, coordinate reference
+system and licence are recorded in
+`data/metadata/geographic_sources.csv`.
+
+## Geographic join rules
+
+The Open Medic analytical geography contains 13 groupings rather than the 13
+current metropolitan administrative regions plus five individual DROM:
+
+- metropolitan codes are joined directly to their official geometries;
+- official geometry code `94` (Corse) is assigned the same analytical value as
+  code `93`, because the Open Medic grouping combines
+  Provence-Alpes-Côte d'Azur and Corse;
+- Open Medic code `5` is available only as a combined overseas grouping;
+- the five DROM geometries (`01`, `02`, `03`, `04`, `06`) are therefore shown
+  as unfilled contextual outlines and are not assigned individual estimates;
+  and
+- the combined `BEN_REG = 5` estimate is displayed separately as an aggregate
+  value.
+
+These rules prevent a combined overseas estimate from being visually
+misrepresented as five territory-specific rates.
+
+## Geometry quality control
+
+The cartographic pipeline will:
+
+1. verify the SHA-256 checksum of the stored geographic snapshot;
+2. select exactly 13 metropolitan and five DROM geometries;
+3. record geometry validity before repair;
+4. repair invalid geometries using `sf::st_make_valid()`;
+5. verify validity after repair;
+6. require all 13 metropolitan shapes to match an analytical estimate;
+7. verify that the DROM shapes remain unjoined by design; and
+8. record the complete join audit in
+   `output/tables/qc_08_geospatial_join.csv`.
+
+## Planned figures
+
+### Main figure
+
+The main choropleth will show 2025 age-sex-standardised beneficiary rates for
+the metropolitan analytical groupings. It will include a separate card for the
+combined overseas estimate and contextual, unfilled outlines of the five DROM.
+
+### Temporal supplement
+
+A common-scale panel will show metropolitan age-sex-standardised rates for
+2022–2025. It begins in 2022 because all regional groupings have complete point
+estimates from that year onward. The 2020–2021 standardisation results include
+disclosure-control bounds; selecting an arbitrary midpoint for a choropleth
+would conceal that uncertainty.
+
+The existing tabular and interval-based outputs remain the authoritative
+presentation of the 2020–2021 standardisation results.
+
+## Interpretation
+
+The maps are descriptive representations of aggregate reimbursement data.
+They do not identify individual-level exposure, treatment effectiveness,
+clinical need or causal regional effects. Geographic differences may reflect
+population structure, prescribing, access, indication mix, data construction
+and other measured or unmeasured factors.
+
+## Consequences for versioning
+
+Figure-linked data and geographic QC outputs created under this amendment will
+record:
+
+- `amendment_id = "003"`; and
+- `analysis_version = "sap-v1.0-amendments-001-002-003"`.

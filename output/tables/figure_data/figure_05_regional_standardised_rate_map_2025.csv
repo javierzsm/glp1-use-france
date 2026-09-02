@@ -1,0 +1,15 @@
+figure_component,study_year,geometry_code,geometry_name,analysis_region_code,analysis_region_name,beneficiaries,crude_rate_per_100000,standardised_rate_per_100000,standardised_rank,standardisation_status,geography_source_id,amendment_id,analysis_version
+metropolitan_choropleth,2025,11,Île-de-France,11,Île-de-France,149392,1188.3013658640962,1323.1813907544588,7,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,24,Centre-Val de Loire,24,Centre-Val de Loire,37575,1451.4469274519893,1395.3654435173,5,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,27,Bourgogne-Franche-Comté,27,Bourgogne-Franche-Comté,43640,1561.1023657819526,1464.2744017024504,4,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,28,Normandie,28,Normandie,44999,1342.310507780503,1296.9113895831088,8,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,32,Hauts-de-France,32,Hauts-de-France,100018,1675.31377795585,1747.1649451613905,2,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,44,Grand Est,44,Grand Est,88986,1604.156898247823,1568.1796923756413,3,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,52,Pays de la Loire,52,Pays de la Loire,43553,1101.1322171495533,1093.1302387671135,12,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,53,Bretagne,53,Bretagne,32023,915.033053258107,868.1991852659177,13,point_with_structural_zero,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,75,Nouvelle-Aquitaine,75,Nouvelle-Aquitaine,83386,1339.2519792817948,1229.8964567024368,9,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,76,Occitanie,76,Occitanie,79663,1279.4635128527357,1209.0609808021532,10,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,84,Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,95294,1149.9715898103204,1160.7348288101084,11,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,93,Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,83272,1469.758680846047,1379.966051352888,6,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+metropolitan_choropleth,2025,94,Corse,93,Provence-Alpes-Côte d'Azur and Corse,83272,1469.758680846047,1379.966051352888,6,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+overseas_aggregate_card,2025,,,5,Overseas regions and departments,48053,2106.386709332398,2435.865767444098,1,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
