@@ -61,6 +61,10 @@ qc_path <- file.path(
   table_directory,
   "qc_08_geospatial_join.csv"
 )
+caption_path <- file.path(
+  table_directory,
+  "figure_captions_geospatial.csv"
+)
 
 metropolitan_geometry_codes <- c(
   "11", "24", "27", "28", "32", "44", "52",
@@ -342,7 +346,12 @@ map_scale <- scale_fill_gradientn(
   limits = rate_limits,
   oob = squish,
   labels = label_number(accuracy = 1, big.mark = ","),
-  name = "Beneficiaries per 100,000"
+  name = "Beneficiaries per 100,000",
+  guide = guide_colorbar(
+    barwidth = grid::unit(16, "cm"),
+    barheight = grid::unit(0.35, "cm"),
+    title.position = "top"
+  )
 )
 
 map_theme <- theme_maradian() +
@@ -350,7 +359,13 @@ map_theme <- theme_maradian() +
     axis.title = element_blank(),
     axis.text = element_blank(),
     axis.ticks = element_blank(),
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    legend.title = element_text(
+      colour = maradian_colours[["navy"]],
+      face = "bold",
+      size = 10,
+      hjust = 0.5
+    )
   )
 
 metropolitan_map_2025 <- ggplot(metropolitan_2025) +
@@ -364,135 +379,79 @@ metropolitan_map_2025 <- ggplot(metropolitan_2025) +
   labs(fill = "Beneficiaries per 100,000") +
   map_theme
 
-overseas_card <- ggplot() +
-  annotate(
-    "text",
-    x = 0.5,
-    y = 0.72,
-    label = "Overseas aggregate",
-    colour = maradian_colours[["navy"]],
-    fontface = "bold",
-    size = 4.2
-  ) +
-  annotate(
-    "text",
-    x = 0.5,
-    y = 0.48,
-    label = label_number(
-      accuracy = 0.1,
-      big.mark = ","
-    )(overseas_2025$standardised_rate_per_100000),
-    colour = maradian_colours[["coral"]],
-    fontface = "bold",
-    size = 7
-  ) +
-  annotate(
-    "text",
-    x = 0.5,
-    y = 0.29,
-    label = "beneficiaries per 100,000",
-    colour = maradian_colours[["neutral"]],
-    size = 3.2
-  ) +
-  annotate(
-    "text",
-    x = 0.5,
-    y = 0.10,
-    label = "BEN_REG = 5; combined grouping",
-    colour = maradian_colours[["neutral"]],
-    size = 2.8
-  ) +
-  xlim(0, 1) +
-  ylim(0, 1) +
-  theme_void() +
-  theme(
-    plot.background = element_rect(
-      fill = maradian_colours[["background"]],
-      colour = maradian_colours[["grid"]],
-      linewidth = 0.5
-    )
-  )
+overseas_rate_label <- label_number(
+  accuracy = 0.1,
+  big.mark = ","
+)(overseas_2025$standardised_rate_per_100000)
 
-drom_plots <- lapply(
-  drom_geometry_codes,
-  function(current_code) {
-    current_region <- drom_regions %>%
-      filter(code == current_code)
-
-    ggplot(current_region) +
-      geom_sf(
-        fill = alpha(maradian_colours[["neutral"]], 0.18),
-        colour = maradian_colours[["navy"]],
-        linewidth = 0.45
-      ) +
-      coord_sf(datum = NA) +
-      labs(title = unique(current_region$nom)) +
-      theme_void() +
-      theme(
-        plot.background = element_rect(
-          fill = maradian_colours[["background"]],
-          colour = NA
-        ),
-        plot.title = element_text(
-          hjust = 0.5,
-          size = 8,
-          colour = maradian_colours[["navy"]]
-        )
-      )
-  }
+primary_paper_caption <- paste0(
+  "Age- and sex-standardised rates of beneficiaries with reimbursed ",
+  "GLP-1 receptor agonist dispensings per 100,000 residents across ",
+  "metropolitan regional groupings, 2025. Provence-Alpes-Côte d'Azur ",
+  "and Corsica form a single analytical grouping and therefore share ",
+  "the same estimate. Overseas territories are available only as a ",
+  "combined grouping (", overseas_rate_label,
+  " per 100,000) and are not mapped separately. Sources: Open Medic; ",
+  "INSEE population estimates; Etalab administrative boundaries ",
+  "derived from IGN ADMIN EXPRESS."
 )
 
-drom_strip <- wrap_plots(drom_plots, nrow = 1)
-top_row <- wrap_plots(
-  metropolitan_map_2025,
-  overseas_card,
-  widths = c(4, 1.45)
-)
-
-map_caption <- wrap_maradian_text(
+primary_dissemination_caption <- wrap_maradian_text(
   c(
-    "Sources: Open Medic, the French National Institute",
-    "of Statistics and Economic Studies, and Etalab administrative",
-    "contours derived from IGN ADMIN EXPRESS.",
-    "Rates are age-sex-standardised to the 2025 France-wide",
-    "population. Open Medic group 93 combines Provence-Alpes-",
-    "Côte d'Azur and Corse; both geometries share that estimate.",
-    "The five DROM outlines are unfilled because BEN_REG 5 is",
-    "available only as a combined overseas grouping.",
-    "Analyses are descriptive."
+    "Provence-Alpes-Côte d'Azur and Corsica form one analytical",
+    "grouping and share the same estimate.",
+    paste0(
+      "Overseas territories are available only as a combined grouping (",
+      overseas_rate_label, " per 100,000) and are not mapped separately."
+    ),
+    "Sources: Open Medic; INSEE; Etalab/IGN ADMIN EXPRESS."
   )
 )
 
-primary_figure <- wrap_plots(
-  top_row,
-  drom_strip,
-  ncol = 1,
-  heights = c(4.6, 1.35)
-) +
-  plot_annotation(
+primary_publication_figure <- metropolitan_map_2025 +
+  labs(
+    title = NULL,
+    subtitle = NULL,
+    caption = NULL
+  ) +
+  theme(legend.position = "bottom")
+
+primary_dissemination_figure <- metropolitan_map_2025 +
+  labs(
     title = paste(
       "Age-sex-standardised reimbursed glucagon-like",
       "peptide-1 receptor agonist use"
     ),
     subtitle = "Regional rates per 100,000 residents; France, 2025",
-    caption = map_caption,
-    theme = theme_maradian()
+    caption = primary_dissemination_caption
+  ) +
+  theme(
+    legend.position = "bottom"
   )
 
-temporal_caption <- wrap_maradian_text(
+temporal_paper_caption <- paste0(
+  "Age- and sex-standardised rates of beneficiaries with reimbursed ",
+  "GLP-1 receptor agonist dispensings per 100,000 residents across ",
+  "metropolitan regional groupings, 2022–2025. All panels use the same ",
+  "colour scale. Results for 2020–2021 are not mapped because disclosure ",
+  "control produced intervals rather than complete point estimates. ",
+  "Provence-Alpes-Côte d'Azur and Corsica form a single analytical ",
+  "grouping. Overseas territories are available only as a combined ",
+  "grouping and are not mapped separately. Sources: Open Medic; INSEE ",
+  "population estimates; Etalab administrative boundaries derived from ",
+  "IGN ADMIN EXPRESS."
+)
+
+temporal_dissemination_caption <- wrap_maradian_text(
   c(
-    "Sources: Open Medic, the French National Institute",
-    "of Statistics and Economic Studies, and Etalab administrative",
-    "contours derived from IGN ADMIN EXPRESS.",
-    "All panels use the same colour scale. The series begins in",
-    "2022 because 2020-2021 include disclosure-control intervals",
-    "rather than complete point estimates. Open Medic group 93",
-    "combines Provence-Alpes-Côte d'Azur and Corse.",
-    "The overseas aggregate is not assigned to individual DROM."
+    "All panels use the same colour scale. Provence-Alpes-Côte d'Azur",
+    "and Corsica form one analytical grouping. Overseas territories",
+    "are available only as a combined grouping and are not mapped",
+    "separately. Sources: Open Medic; INSEE; Etalab/IGN ADMIN EXPRESS."
   )
 )
 
-temporal_figure <- ggplot(metropolitan_temporal) +
+temporal_base_figure <- ggplot(metropolitan_temporal) +
   geom_sf(
     aes(fill = standardised_rate_per_100000),
     colour = maradian_colours[["background"]],
@@ -501,15 +460,24 @@ temporal_figure <- ggplot(metropolitan_temporal) +
   facet_wrap(vars(study_year), ncol = 2) +
   map_scale +
   coord_sf(datum = NA) +
-  labs(
-    title = "Regional evolution in standardised beneficiary rates",
-    subtitle = "Metropolitan analysis groupings; France, 2022-2025",
-    caption = temporal_caption
-  ) +
   map_theme +
   theme(
     strip.text = element_text(hjust = 0.5),
     legend.position = "bottom"
+  )
+
+temporal_publication_figure <- temporal_base_figure +
+  labs(
+    title = NULL,
+    subtitle = NULL,
+    caption = NULL
+  )
+
+temporal_dissemination_figure <- temporal_base_figure +
+  labs(
+    title = "Regional evolution in standardised beneficiary rates",
+    subtitle = "Metropolitan analysis groupings; France, 2022-2025",
+    caption = temporal_dissemination_caption
   )
 
 primary_figure_data <- bind_rows(
@@ -533,7 +501,7 @@ primary_figure_data <- bind_rows(
     ),
   overseas_2025 %>%
     transmute(
-      figure_component = "overseas_aggregate_card",
+      figure_component = "combined_overseas_caption_note",
       study_year,
       geometry_code = NA_character_,
       geometry_name = NA_character_,
@@ -570,6 +538,24 @@ dir.create(table_directory, recursive = TRUE, showWarnings = FALSE)
 
 write_csv(qc_geospatial, qc_path, na = "")
 
+write_csv(
+  tibble(
+    figure_id = c("05", "S05"),
+    caption = c(primary_paper_caption, temporal_paper_caption),
+    sources = c(
+      paste(
+        "Open Medic; INSEE population estimates; Etalab administrative",
+        "boundaries derived from IGN ADMIN EXPRESS."
+      ),
+      paste(
+        "Open Medic; INSEE population estimates; Etalab administrative",
+        "boundaries derived from IGN ADMIN EXPRESS."
+      )
+    )
+  ),
+  caption_path
+)
+
 primary_data_path <- save_maradian_figure_data(
   primary_figure_data,
   figure_data_directory,
@@ -600,8 +586,8 @@ manifest_entries <- data.frame(
   analytical_window = c("2025", "2022-2025"),
   notes = c(
     paste(
-      "Metropolitan choropleth with separate BEN_REG 5",
-      "aggregate and unfilled DROM outlines."
+      "Metropolitan choropleth with publication and dissemination",
+      "renderings; combined overseas estimate is not mapped."
     ),
     paste(
       "Common-scale maps restricted to years with complete",
@@ -616,29 +602,48 @@ manifest_path <- update_maradian_figure_manifest(
   table_directory
 )
 
-primary_figure_paths <- save_maradian_plot(
-  primary_figure,
+primary_publication_paths <- save_maradian_plot(
+  primary_publication_figure,
   figure_directory,
-  primary_figure_stem,
+  paste0(primary_figure_stem, "_publication"),
   width = 12,
-  height = 9.5
+  height = 7.5
 )
 
-temporal_figure_paths <- save_maradian_plot(
-  temporal_figure,
+primary_dissemination_paths <- save_maradian_plot(
+  primary_dissemination_figure,
+  figure_directory,
+  paste0(primary_figure_stem, "_dissemination"),
+  width = 12,
+  height = 8.5
+)
+
+temporal_publication_paths <- save_maradian_plot(
+  temporal_publication_figure,
   supplement_directory,
-  temporal_figure_stem,
+  paste0(temporal_figure_stem, "_publication"),
+  width = 11,
+  height = 7.8
+)
+
+temporal_dissemination_paths <- save_maradian_plot(
+  temporal_dissemination_figure,
+  supplement_directory,
+  paste0(temporal_figure_stem, "_dissemination"),
   width = 11,
   height = 9
 )
 
 created_paths <- c(
   qc_path,
+  caption_path,
   primary_data_path,
   temporal_data_path,
   manifest_path,
-  primary_figure_paths,
-  temporal_figure_paths
+  primary_publication_paths,
+  primary_dissemination_paths,
+  temporal_publication_paths,
+  temporal_dissemination_paths
 )
 
 stopifnot(

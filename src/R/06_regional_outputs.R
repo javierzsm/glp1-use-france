@@ -446,37 +446,97 @@ stopifnot(
 
 regional_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Rates use average annual population denominators.",
     "Standardised rates use the 2025 France-wide age-sex",
-    "distribution. Regional group 93 combines Provence-Alpes-",
-    "Côte d'Azur and Corse; group 5 aggregates overseas regions",
-    "and departments. Analyses are descriptive."
+    "distribution. Provence-Alpes-Côte d'Azur and Corsica form",
+    "one analytical grouping. Overseas regions and departments",
+    "are available only as a combined grouping. Analyses are descriptive."
   )
 )
 
 regional_interval_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Standardised rates use the 2025 France-wide age-sex",
     "distribution. Vertical ranges in 2020-2021 represent",
     "disclosure-control uncertainty, not confidence intervals.",
-    "Regional group 93 combines Provence-Alpes-Côte d'Azur",
-    "and Corse; group 5 aggregates overseas regions and",
-    "departments. Analyses are descriptive."
+    "Provence-Alpes-Côte d'Azur and Corsica form one analytical",
+    "grouping. Overseas regions and departments are available",
+    "only as a combined grouping. Analyses are descriptive."
   )
 )
 
 change_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Changes are calculated from age-sex-standardised rates.",
     "All 13 regional groupings had point estimates from 2022.",
     "Analyses are descriptive and do not identify causes."
   )
+)
+
+regional_sources <- paste(
+  "Open Medic; French National Institute of Statistics and",
+  "Economic Studies (INSEE)."
+)
+
+regional_grouping_note <- paste(
+  "Provence-Alpes-Côte d'Azur and Corsica form a single analytical",
+  "grouping; overseas regions and departments are available only as a",
+  "combined grouping."
+)
+
+main_caption_entries <- data.frame(
+  figure_id = c("04", "04a", "04b", "04c", "04d", "04e", "04f"),
+  caption = c(
+    paste(
+      "Age- and sex-standardised rates of beneficiaries with reimbursed",
+      "GLP-1 receptor agonist dispensings per 100,000 residents across",
+      "regional analytical groupings in France, 2025, ranked by rate.",
+      regional_grouping_note
+    ),
+    paste(
+      "Age- and sex-standardised rates of beneficiaries with reimbursed",
+      "GLP-1 receptor agonist dispensings per 100,000 residents across",
+      "regional analytical groupings in France, 2025, ranked by rate.",
+      regional_grouping_note
+    ),
+    paste(
+      "Crude and age- and sex-standardised rates of beneficiaries with",
+      "reimbursed GLP-1 receptor agonist dispensings per 100,000 residents",
+      "across regional analytical groupings in France, 2025.",
+      regional_grouping_note
+    ),
+    paste(
+      "Year-on-year percentage change in age- and sex-standardised regional",
+      "beneficiary rates for reimbursed GLP-1 receptor agonist dispensings",
+      "in France, 2023–2025."
+    ),
+    paste(
+      "Crude rates of beneficiaries with reimbursed GLP-1 receptor agonist",
+      "dispensings per 100,000 residents across regional analytical",
+      "groupings in France, 2020–2025. Rows are ordered by the 2025",
+      "age- and sex-standardised rate."
+    ),
+    paste(
+      "Age- and sex-standardised regional beneficiary rates for reimbursed",
+      "GLP-1 receptor agonist dispensings per 100,000 residents in France,",
+      "2020–2025. Vertical ranges in 2020–2021 represent disclosure-control",
+      "bounds, not confidence intervals; all panels use a common scale."
+    ),
+    paste(
+      "Regional year-on-year change in beneficiaries with reimbursed GLP-1",
+      "receptor agonist dispensings in France, comparing 2023–2024 with",
+      "2024–2025. The diagonal denotes equal growth in both periods; point",
+      "labels identify the regional analytical groupings."
+    )
+  ),
+  sources = regional_sources,
+  stringsAsFactors = FALSE
 )
 
 rank_plot_data <- rank_2025 %>%
@@ -628,7 +688,12 @@ change_figure <- ggplot(
     high = maradian_colours[["teal"]],
     midpoint = 0,
     labels = label_percent(accuracy = 1, scale = 1),
-    name = "Annual change"
+    name = "Annual change",
+    guide = guide_colorbar(
+      barwidth = grid::unit(14, "cm"),
+      barheight = grid::unit(0.35, "cm"),
+      title.position = "top"
+    )
   ) +
   labs(
     title = "Annual change in standardised regional beneficiary rates",
@@ -638,7 +703,14 @@ change_figure <- ggplot(
     caption = change_caption
   ) +
   theme_maradian() +
-  theme(legend.position = "bottom")
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(
+      colour = maradian_colours[["navy"]],
+      face = "bold",
+      hjust = 0.5
+    )
+  )
 
 heatmap_order <- rank_2025 %>%
   arrange(desc(standardised_rate_per_100000)) %>%
@@ -670,7 +742,12 @@ heatmap_figure <- ggplot(
       maradian_colours[["violet"]]
     ),
     labels = label_number(accuracy = 1, big.mark = ","),
-    name = "Crude rate"
+    name = "Crude rate per 100,000",
+    guide = guide_colorbar(
+      barwidth = grid::unit(14, "cm"),
+      barheight = grid::unit(0.35, "cm"),
+      title.position = "top"
+    )
   ) +
   labs(
     title = "Regional variation in reimbursed beneficiary rates",
@@ -680,7 +757,14 @@ heatmap_figure <- ggplot(
     caption = regional_caption
   ) +
   theme_maradian() +
-  theme(legend.position = "bottom")
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(
+      colour = maradian_colours[["navy"]],
+      face = "bold",
+      hjust = 0.5
+    )
+  )
 
 trend_plot_data <- regional_standardised %>%
   mutate(
@@ -736,7 +820,7 @@ trend_figure <- ggplot(
   ) +
   scale_y_continuous(
     labels = label_number(
-      accuracy = 1,
+      accuracy = 0.1,
       scale_cut = cut_short_scale()
     ),
     expand = expansion(mult = c(0.05, 0.12))
@@ -967,6 +1051,7 @@ main_manifest_entries <- data.frame(
 age_sex_figure_data_paths <- character()
 age_sex_figure_paths <- character()
 age_sex_manifest_entries <- list()
+age_sex_caption_entries <- list()
 
 regional_codes <- sort(unique(regional_age_sex$region_code))
 
@@ -1056,7 +1141,7 @@ for (current_region_code in regional_codes) {
       y = "Beneficiaries per 100,000 residents",
       caption = wrap_maradian_text(
         c(
-          "Source: Open Medic and the French National Institute",
+          "Sources: Open Medic and the French National Institute",
           "of Statistics and Economic Studies.",
           "Vertical ranges represent disclosure-control uncertainty,",
           "not confidence intervals. Gold-filled markers denote",
@@ -1090,7 +1175,7 @@ for (current_region_code in regional_codes) {
     current_stem
   )
 
-  current_figure_paths <- save_maradian_plot(
+  current_figure_paths <- save_maradian_plot_variants(
     current_figure,
     supplement_figure_directory,
     current_stem,
@@ -1119,6 +1204,19 @@ for (current_region_code in regional_codes) {
     ),
     stringsAsFactors = FALSE
   )
+  age_sex_caption_entries[[current_region_code]] <- data.frame(
+    figure_id = paste0("S04-", current_region_code),
+    caption = paste(
+      "Age- and sex-specific rates of beneficiaries with reimbursed GLP-1",
+      "receptor agonist dispensings per 100,000 residents in",
+      paste0(current_region_name, ", 2020–2025."),
+      "Vertical ranges represent disclosure-control bounds, not confidence",
+      "intervals; gold-filled markers denote supported structural zeros;",
+      "age-group panels use independent vertical scales."
+    ),
+    sources = regional_sources,
+    stringsAsFactors = FALSE
+  )
 }
 
 manifest_entries <- bind_rows(
@@ -1131,50 +1229,56 @@ figure_manifest_path <- update_maradian_figure_manifest(
   table_directory
 )
 
+caption_table_path <- save_maradian_caption_table(
+  bind_rows(main_caption_entries, bind_rows(age_sex_caption_entries)),
+  table_directory,
+  "figure_captions_regional"
+)
+
 main_figure_paths <- c(
-  save_maradian_plot(
+  save_maradian_plot_variants(
     rank_figure,
     figure_directory,
     primary_figure_stem,
     width = 10,
     height = 7.5
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     rank_figure,
     candidate_figure_directory,
     candidate_figure_stems[["rank"]],
     width = 10,
     height = 7.5
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     dumbbell_figure,
     candidate_figure_directory,
     candidate_figure_stems[["crude_standardised"]],
     width = 10,
     height = 7.5
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     change_figure,
     candidate_figure_directory,
     candidate_figure_stems[["change"]],
     width = 10,
     height = 7.5
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     heatmap_figure,
     candidate_figure_directory,
     candidate_figure_stems[["heatmap"]],
     width = 10,
     height = 7.5
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     trend_figure,
     candidate_figure_directory,
     candidate_figure_stems[["trends"]],
     width = 11,
     height = 8.5
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     rebound_figure,
     candidate_figure_directory,
     candidate_figure_stems[["rebound"]],
@@ -1192,14 +1296,15 @@ created_paths <- c(
   age_sex_figure_data_paths,
   main_figure_paths,
   age_sex_figure_paths,
-  figure_manifest_path
+  figure_manifest_path,
+  caption_table_path
 )
 
 stopifnot(
   all(file.exists(created_paths)),
   all(file.info(created_paths)$size > 0),
   length(age_sex_figure_data_paths) == 13L,
-  length(age_sex_figure_paths) == 26L,
+  length(age_sex_figure_paths) == 52L,
   nrow(manifest_entries) == 20L
 )
 
@@ -1214,6 +1319,7 @@ for (path in age_sex_figure_data_paths) {
   cat("created ", path, "\n", sep = "")
 }
 cat("updated ", figure_manifest_path, "\n", sep = "")
+cat("created ", caption_table_path, "\n", sep = "")
 for (path in main_figure_paths) {
   cat("created ", path, "\n", sep = "")
 }

@@ -195,6 +195,83 @@ save_maradian_plot <- function(
   c(png_path, pdf_path)
 }
 
+save_maradian_plot_variants <- function(
+  plot,
+  directory,
+  filename_stem,
+  width = 9,
+  height = 7
+) {
+  publication_plot <- plot +
+    labs(
+      title = NULL,
+      subtitle = NULL,
+      caption = NULL
+    )
+
+  c(
+    save_maradian_plot(
+      publication_plot,
+      directory,
+      paste0(filename_stem, "_publication"),
+      width = width,
+      height = height
+    ),
+    save_maradian_plot(
+      plot,
+      directory,
+      paste0(filename_stem, "_dissemination"),
+      width = width,
+      height = height
+    )
+  )
+}
+
+save_maradian_caption_table <- function(
+  captions,
+  table_directory,
+  filename_stem
+) {
+  required_columns <- c("figure_id", "caption", "sources")
+  stopifnot(
+    is.data.frame(captions),
+    all(required_columns %in% names(captions)),
+    !anyDuplicated(captions$figure_id),
+    all(nzchar(captions$caption)),
+    all(nzchar(captions$sources))
+  )
+
+  caption_has_sources <- grepl(
+    "Sources?:",
+    captions$caption,
+    ignore.case = TRUE
+  )
+  captions$caption[!caption_has_sources] <- paste(
+    captions$caption[!caption_has_sources],
+    "Sources:",
+    captions$sources[!caption_has_sources]
+  )
+
+  dir.create(
+    table_directory,
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+
+  caption_path <- file.path(
+    table_directory,
+    paste0(filename_stem, ".csv")
+  )
+
+  readr::write_csv(captions, caption_path)
+  stopifnot(
+    file.exists(caption_path),
+    file.info(caption_path)$size > 0
+  )
+
+  caption_path
+}
+
 save_maradian_figure_data <- function(
   data,
   directory,

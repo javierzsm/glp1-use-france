@@ -45,11 +45,9 @@ current metropolitan administrative regions plus five individual DROM:
   code `93`, because the Open Medic grouping combines
   Provence-Alpes-Côte d'Azur and Corse;
 - Open Medic code `5` is available only as a combined overseas grouping;
-- the five DROM geometries (`01`, `02`, `03`, `04`, `06`) are therefore shown
-  as unfilled contextual outlines and are not assigned individual estimates;
-  and
-- the combined `BEN_REG = 5` estimate is displayed separately as an aggregate
-  value.
+- the five DROM geometries (`01`, `02`, `03`, `04`, `06`) are not mapped,
+  because no individual estimates are available; and
+- the combined `BEN_REG = 5` estimate is reported in the figure caption only.
 
 These rules prevent a combined overseas estimate from being visually
 misrepresented as five territory-specific rates.
@@ -73,8 +71,20 @@ The cartographic pipeline will:
 ### Main figure
 
 The main choropleth will show 2025 age-sex-standardised beneficiary rates for
-the metropolitan analytical groupings. It will include a separate card for the
-combined overseas estimate and contextual, unfilled outlines of the five DROM.
+the metropolitan analytical groupings. Neither a separate overseas card nor
+individual DROM outlines will be displayed. The combined `BEN_REG = 5`
+estimate will be stated in the caption and explicitly identified as not mapped.
+
+### Output variants
+
+Each map will be exported in two reproducible variants. The `publication`
+variant contains the visual encodings, panel labels, colour scale and units,
+but no embedded title or caption; its complete paper-style caption is stored
+in `output/tables/figure_captions_geospatial.csv`. The `dissemination` variant
+contains a concise title, subtitle, essential interpretive notes and abbreviated
+sources so that it remains understandable when circulated as a standalone
+image. Internal source-variable names will not appear in either public-facing
+variant.
 
 ### Temporal supplement
 

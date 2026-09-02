@@ -486,38 +486,69 @@ endpoint_change <- six_stratum_rates %>%
 
 demographic_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Rates use average annual population denominators.",
     "Unknown or masked age and sex categories were excluded",
-    "without redistribution or imputation.",
-    "Beneficiary analyses cover 2020-2025 under amendment 001."
+    "without redistribution or imputation."
   )
 )
 
 demographic_levels_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Rates use average annual population denominators.",
     "Unknown or masked age and sex categories were excluded",
     "without redistribution or imputation.",
-    "Age-group panels use independent vertical scales.",
-    "Beneficiary analyses cover 2020-2025 under amendment 001."
+    "Age-group panels use independent vertical scales."
   )
 )
 
 demographic_change_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Rates use average annual population denominators.",
     "Unknown or masked age and sex categories were excluded",
     "without redistribution or imputation.",
     "Large relative changes in ages 0-19 reflect low 2020",
-    "baseline rates.",
-    "Beneficiary analyses cover 2020-2025 under amendment 001."
+    "baseline rates."
   )
+)
+
+demographic_sources <- paste(
+  "Open Medic; French National Institute of Statistics and",
+  "Economic Studies (INSEE)."
+)
+
+demographic_caption_table <- data.frame(
+  figure_id = c("03", "03a", "03b", "03c"),
+  caption = c(
+    paste(
+      "Age- and sex-specific rates of beneficiaries with reimbursed GLP-1",
+      "receptor agonist dispensings per 100,000 residents in France,",
+      "2020–2025. Age-group panels use independent vertical scales."
+    ),
+    paste(
+      "Age- and sex-specific rates of beneficiaries with reimbursed GLP-1",
+      "receptor agonist dispensings per 100,000 residents in France,",
+      "2020–2025. Age-group panels use independent vertical scales."
+    ),
+    paste(
+      "Relative change in age- and sex-specific beneficiary rates for",
+      "reimbursed GLP-1 receptor agonist dispensings in France, 2020–2025,",
+      "indexed to 2020 = 100 within each age-sex stratum."
+    ),
+    paste(
+      "Percentage change from 2020 to 2025 in age- and sex-specific rates",
+      "of beneficiaries with reimbursed GLP-1 receptor agonist dispensings",
+      "in France. Large relative changes at ages 0–19 reflect low baseline",
+      "rates."
+    )
+  ),
+  sources = demographic_sources,
+  stringsAsFactors = FALSE
 )
 
 plot_six_strata <- six_stratum_rates %>%
@@ -773,26 +804,32 @@ figure_manifest_path <- update_maradian_figure_manifest(
   table_directory
 )
 
+caption_table_path <- save_maradian_caption_table(
+  demographic_caption_table,
+  table_directory,
+  "figure_captions_demographic"
+)
+
 figure_paths <- c(
-  save_maradian_plot(
+  save_maradian_plot_variants(
     levels_figure,
     figure_directory,
     primary_figure_stem,
     height = 8.2
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     levels_figure,
     candidate_figure_directory,
     candidate_figure_stems[["levels"]],
     height = 8.2
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     indexed_figure,
     candidate_figure_directory,
     candidate_figure_stems[["indexed"]],
     height = 8.2
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     change_figure,
     candidate_figure_directory,
     candidate_figure_stems[["change"]]
@@ -807,6 +844,7 @@ for (path in figure_data_paths) {
   cat("created ", path, "\n", sep = "")
 }
 cat("updated ", figure_manifest_path, "\n", sep = "")
+cat("created ", caption_table_path, "\n", sep = "")
 for (path in figure_paths) {
   cat("created ", path, "\n", sep = "")
 }

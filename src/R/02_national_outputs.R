@@ -280,13 +280,48 @@ stopifnot(
 
 national_caption <- wrap_maradian_text(
   c(
-    "Source: Open Medic and the French National Institute",
+    "Sources: Open Medic and the French National Institute",
     "of Statistics and Economic Studies.",
     "Beneficiaries had at least one reimbursed community",
     "dispensing during the calendar year.",
     "The 2019 class-level beneficiary count was not",
     "estimable because of a historical coding discontinuity."
   )
+)
+
+national_sources <- paste(
+  "Open Medic; French National Institute of Statistics and",
+  "Economic Studies (INSEE)."
+)
+
+national_caption_table <- data.frame(
+  figure_id = c("01", "01a", "01b", "01c"),
+  caption = c(
+    paste(
+      "Annual beneficiaries and beneficiary rates for reimbursed GLP-1",
+      "receptor agonist dispensings in France, 2020–2025. Panels use",
+      "independent vertical scales. Beneficiaries had at least one",
+      "reimbursed community dispensing during the calendar year."
+    ),
+    paste(
+      "Annual beneficiaries and beneficiary rates for reimbursed GLP-1",
+      "receptor agonist dispensings in France, 2020–2025. Panels use",
+      "independent vertical scales. Beneficiaries had at least one",
+      "reimbursed community dispensing during the calendar year."
+    ),
+    paste(
+      "Relative change in annual beneficiaries and beneficiary rates for",
+      "reimbursed GLP-1 receptor agonist dispensings in France, 2020–2025,",
+      "indexed to 2020 = 100 within each measure."
+    ),
+    paste(
+      "Year-on-year percentage change in annual beneficiaries and",
+      "beneficiary rates for reimbursed GLP-1 receptor agonist dispensings",
+      "in France, 2021–2025."
+    )
+  ),
+  sources = national_sources,
+  stringsAsFactors = FALSE
 )
 
 national_levels_figure <- ggplot(
@@ -521,23 +556,29 @@ figure_manifest_path <- update_maradian_figure_manifest(
   table_directory
 )
 
+caption_table_path <- save_maradian_caption_table(
+  national_caption_table,
+  table_directory,
+  "figure_captions_national"
+)
+
 figure_paths <- c(
-  save_maradian_plot(
+  save_maradian_plot_variants(
     national_levels_figure,
     figure_directory,
     primary_figure_stem
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     national_levels_figure,
     candidate_figure_directory,
     candidate_figure_stems[["levels"]]
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     national_indexed_figure,
     candidate_figure_directory,
     candidate_figure_stems[["indexed"]]
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     national_annual_change_figure,
     candidate_figure_directory,
     candidate_figure_stems[["annual_change"]]
@@ -550,6 +591,7 @@ for (path in figure_data_paths) {
   cat("created ", path, "\n", sep = "")
 }
 cat("updated ", figure_manifest_path, "\n", sep = "")
+cat("created ", caption_table_path, "\n", sep = "")
 for (path in figure_paths) {
   cat("created ", path, "\n", sep = "")
 }

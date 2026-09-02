@@ -12,4 +12,4 @@ metropolitan_choropleth,2025,76,Occitanie,76,Occitanie,79663,1279.4635128527357,
 metropolitan_choropleth,2025,84,Auvergne-Rhône-Alpes,84,Auvergne-Rhône-Alpes,95294,1149.9715898103204,1160.7348288101084,11,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
 metropolitan_choropleth,2025,93,Provence-Alpes-Côte d'Azur,93,Provence-Alpes-Côte d'Azur and Corse,83272,1469.758680846047,1379.966051352888,6,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
 metropolitan_choropleth,2025,94,Corse,93,Provence-Alpes-Côte d'Azur and Corse,83272,1469.758680846047,1379.966051352888,6,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
-overseas_aggregate_card,2025,,,5,Overseas regions and departments,48053,2106.386709332398,2435.865767444098,1,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003
+combined_overseas_caption_note,2025,,,5,Overseas regions and departments,48053,2106.386709332398,2435.865767444098,1,point_complete_observed,etalab_regions_2025_100m,003,sap-v1.0-amendments-001-002-003

@@ -349,10 +349,40 @@ active_caption <- wrap_maradian_text(
   c(
     "Source: Open Medic.",
     "Historical active-substance codes for 2019 were",
-    "harmonised according to protocol amendment 001.",
+    "harmonised to address a coding discontinuity.",
     "Boxes and expenditure are additive across substances;",
     "beneficiary counts are not summed to estimate class users."
   )
+)
+
+active_sources <- "Open Medic."
+
+active_caption_table <- data.frame(
+  figure_id = c("02", "02a", "02b", "02c"),
+  caption = c(
+    paste(
+      "Annual reimbursed boxes of GLP-1 receptor agonists by active",
+      "substance in France, 2019–2025. Historical 2019 substance codes",
+      "were harmonised according to protocol amendment 001."
+    ),
+    paste(
+      "Annual reimbursed boxes of GLP-1 receptor agonists by active",
+      "substance in France, 2019–2025. Historical 2019 substance codes",
+      "were harmonised according to protocol amendment 001."
+    ),
+    paste(
+      "Annual composition of reimbursed GLP-1 receptor agonist boxes by",
+      "active substance in France, 2019–2025. Shares sum to 100% within",
+      "each calendar year."
+    ),
+    paste(
+      "Active-substance contributions to the national annual change in",
+      "reimbursed GLP-1 receptor agonist boxes in France, 2023–2025.",
+      "Substance-specific changes sum to the displayed national net change."
+    )
+  ),
+  sources = active_sources,
+  stringsAsFactors = FALSE
 )
 
 trajectory_figure <- ggplot(
@@ -633,23 +663,29 @@ figure_manifest_path <- update_maradian_figure_manifest(
   table_directory
 )
 
+caption_table_path <- save_maradian_caption_table(
+  active_caption_table,
+  table_directory,
+  "figure_captions_active_substance"
+)
+
 figure_paths <- c(
-  save_maradian_plot(
+  save_maradian_plot_variants(
     trajectory_figure,
     figure_directory,
     primary_figure_stem
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     trajectory_figure,
     candidate_figure_directory,
     candidate_figure_stems[["trajectories"]]
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     composition_figure,
     candidate_figure_directory,
     candidate_figure_stems[["composition"]]
   ),
-  save_maradian_plot(
+  save_maradian_plot_variants(
     contribution_figure,
     candidate_figure_directory,
     candidate_figure_stems[["contributions"]]
@@ -663,6 +699,7 @@ for (path in figure_data_paths) {
   cat("created ", path, "\n", sep = "")
 }
 cat("updated ", figure_manifest_path, "\n", sep = "")
+cat("created ", caption_table_path, "\n", sep = "")
 for (path in figure_paths) {
   cat("created ", path, "\n", sep = "")
 }
