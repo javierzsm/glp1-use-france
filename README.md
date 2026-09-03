@@ -1,5 +1,16 @@
 # Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025
 
+## Interactive dashboard
+
+The repository includes a static, reproducible dashboard in [`dashboard/`](dashboard/).
+Its public data bundle is generated from versioned analytical tables with:
+
+```bash
+python src/python/build_dashboard_data.py
+```
+
+GitHub Pages deployment is defined in `.github/workflows/dashboard-pages.yml`.
+
 An open and reproducible drug-utilisation study developed by **Maradian Labs**, an independent research initiative exploring pharmacoepidemiology, real-world evidence and the secondary use of health data.
 
 > **Project status:** Protocol version 1.0 frozen; data preparation and technical implementation. No analytical results are currently available.

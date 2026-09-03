@@ -1,0 +1,50 @@
+name: Deploy interactive dashboard to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dashboard/**"
+      - "src/python/build_dashboard_data.py"
+      - "output/tables/**"
+      - "data/geography/france_regions_2025_100m.geojson"
+      - ".github/workflows/dashboard-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install analytical dependencies
+        run: pip install -r requirements.txt
+      - name: Rebuild public dashboard data
+        run: python src/python/build_dashboard_data.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
