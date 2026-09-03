@@ -1,6 +1,6 @@
 # Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025
 
-[![Dashboard](https://img.shields.io/badge/dashboard-GitHub%20Pages-147d86)](https://javierzsm.github.io/glp1-use-france/)
+[![Dashboard](https://img.shields.io/badge/dashboard-GitHub%20Pages-147d86)](https://rwe-maradian-labs.github.io/glp1-use-france/)
 [![Protocol](https://img.shields.io/badge/protocol-frozen-123149)](protocol/study_protocol.qmd)
 [![License: MIT](https://img.shields.io/badge/code-MIT-3487b9)](LICENSE)
 [![Documentation: CC BY 4.0](https://img.shields.io/badge/documentation-CC%20BY%204.0-7c62ad)](LICENSES.md)
@@ -15,7 +15,7 @@ The project was developed by **Maradian Labs** and is maintained by
 
 ## Explore the results
 
-- [Interactive dashboard](https://javierzsm.github.io/glp1-use-france/)
+- [Interactive dashboard](https://rwe-maradian-labs.github.io/glp1-use-france/)
 - [Frozen study protocol](protocol/study_protocol.qmd)
 - [Frozen statistical analysis plan](protocol/statistical_analysis_plan.qmd)
 - [Protocol amendments](protocol/amendments/)
@@ -49,7 +49,7 @@ safety, adherence, persistence or causal effects.
 | Source | Contribution | Provider |
 | --- | --- | --- |
 | Open Medic | Beneficiaries, reimbursed boxes, reimbursement base and reimbursed expenditure | [Assurance Maladie](https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments) |
-| Population estimates | National, demographic and regional denominators | [INSEE](https://www.insee.fr/) |
+| Population estimates | National, demographic and regional denominators | [INSEE](https://www.insee.fr/fr/statistiques/8721456) |
 | Administrative contours | Metropolitan regional geometries | [Etalab/data.gouv.fr](https://www.data.gouv.fr/datasets/contours-administratifs), derived from IGN ADMIN EXPRESS |
 | ATC classification | Operational medicine definitions | WHO Collaborating Centre for Drug Statistics Methodology |
 
@@ -189,7 +189,7 @@ Until then, cite the repository with its URL and the accessed release or commit:
 
 > Zorrilla de San Martin J. *Reimbursed Use of GLP-1 Receptor Agonists in
 > France, 2019–2025*. Maradian Labs. Available from:
-> https://github.com/javierzsm/glp1-use-france
+> https://github.com/rwe-maradian-labs/glp1-use-france
 
 ## Funding and competing interests
 

@@ -7,8 +7,8 @@ authors:
     given-names: "Javier"
     orcid: "https://orcid.org/0000-0003-2848-7482"
     email: "javierzsm@maradianlabs.org"
-repository-code: "https://github.com/javierzsm/glp1-use-france"
-url: "https://javierzsm.github.io/glp1-use-france/"
+repository-code: "https://github.com/rwe-maradian-labs/glp1-use-france"
+url: "https://rwe-maradian-labs.github.io/glp1-use-france/"
 license: MIT
 abstract: >-
   Reproducible code, analytical outputs and an interactive dashboard for a
