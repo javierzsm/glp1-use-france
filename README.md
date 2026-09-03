@@ -1,189 +1,226 @@
 # Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025
 
-## Interactive dashboard
+[![Dashboard](https://img.shields.io/badge/dashboard-GitHub%20Pages-147d86)](https://javierzsm.github.io/glp1-use-france/)
+[![Protocol](https://img.shields.io/badge/protocol-frozen-123149)](protocol/study_protocol.qmd)
+[![License: MIT](https://img.shields.io/badge/code-MIT-3487b9)](LICENSE)
+[![Documentation: CC BY 4.0](https://img.shields.io/badge/documentation-CC%20BY%204.0-7c62ad)](LICENSES.md)
 
-The repository includes a static, reproducible dashboard in [`dashboard/`](dashboard/).
-Its public data bundle is generated from versioned analytical tables with:
+An open and reproducible drug-utilisation study of reimbursed glucagon-like
+peptide-1 receptor agonist (GLP-1 RA) use in France. The study describes
+national, active-substance, demographic and regional patterns through 2025
+using aggregated administrative reimbursement data.
 
-```bash
-python src/python/build_dashboard_data.py
-```
+The project was developed by **Maradian Labs** and is maintained by
+[Javier Zorrilla de San Martin](https://github.com/javierzsm).
 
-GitHub Pages deployment is defined in `.github/workflows/dashboard-pages.yml`.
+## Explore the results
 
-An open and reproducible drug-utilisation study developed by **Maradian Labs**, an independent research initiative exploring pharmacoepidemiology, real-world evidence and the secondary use of health data.
-
-> **Project status:** Protocol version 1.0 frozen; data preparation and technical implementation. No analytical results are currently available.
-
-## Overview
-
-This project will describe how reimbursed community use of glucagon-like peptide-1 receptor agonists (GLP-1 RAs) evolved in France between 2019 and 2025.
-
-The study will use aggregated open data produced by the French National Health Insurance and population estimates from the French National Institute of Statistics and Economic Studies. It is designed as a transparent and reproducible demonstration of drug-utilisation research using French administrative healthcare data.
-
-The project is descriptive. It will not assess comparative effectiveness, safety, treatment adherence or causal effects.
+- [Interactive dashboard](https://javierzsm.github.io/glp1-use-france/)
+- [Frozen study protocol](protocol/study_protocol.qmd)
+- [Frozen statistical analysis plan](protocol/statistical_analysis_plan.qmd)
+- [Protocol amendments](protocol/amendments/)
+- [Figures](output/figures/)
+- [Tables and quality-control outputs](output/tables/)
+- [Figure-level reusable data](output/tables/figure_data/)
+- [Release and dissemination checklist](docs/release_checklist.md)
 
 ## Research question
 
-How did reimbursed community use of GLP-1 receptor agonists evolve in France from 2019 through 2025, nationally and according to age, sex and region of residence?
+How did reimbursed community use of GLP-1 receptor agonists evolve in France
+from 2019 through 2025, nationally and according to active substance, age, sex
+and region of residence?
 
-## Planned objectives
+## Design and scope
 
-1. Describe annual numbers and population rates of beneficiaries with at least one reimbursed community dispensing of a GLP-1 RA.
-2. Describe trends in reimbursed boxes, reimbursement base and reimbursed expenditure.
-3. Characterise utilisation according to age, sex and region of residence.
-4. Describe changes in the active-substance composition of the GLP-1 RA class.
-5. Quantify regional variation using crude and age-sex-standardised rates.
-6. Compare aggregate trends with previously published French studies using individual-level SNDS data.
-7. Document the strengths and limitations of open aggregated healthcare data for pharmacoepidemiological research.
+This is a repeated annual cross-sectional drug-utilisation study. It uses
+aggregated, open and disclosure-controlled data; no individual-level or
+personal health data are processed.
 
-## Study design
+The primary medicine definition follows WHO ATC class `A10BJ`. Tirzepatide
+(`A10BX16`) is outside the primary class definition. Open Medic beneficiary
+counts are non-additive across substances and regions, whereas boxes and
+expenditure are additive within the documented scope.
 
-The planned design is a repeated annual cross-sectional drug-utilisation study using aggregated administrative reimbursement data.
-
-The primary study period is 2019–2025. The geographical scope is France, with regional analyses where compatible data and denominators are available.
-
-The primary exposure definition will follow WHO ATC class `A10BJ`, which provides an operationally reproducible definition of GLP-1 analogues and allows class-level beneficiary counts to be obtained directly from Open Medic. Tirzepatide activates both the GIP and GLP-1 receptors but is classified separately as `A10BX16`; it will therefore not be included in the primary `A10BJ` estimates.
-
-If tirzepatide is represented in the reimbursement data, its utilisation will be described separately as a dual GIP/GLP-1 receptor agonist. Beneficiary counts for `A10BJ` and tirzepatide will not be summed because Open Medic does not allow individuals appearing in both categories to be deduplicated. Any expanded analysis of GLP-1 receptor-activating medicines will be prespecified, clearly labelled and limited to measures that can be validly combined.
+The analyses are descriptive. They do not estimate comparative effectiveness,
+safety, adherence, persistence or causal effects.
 
 ## Data sources
 
-### Open Medic
+| Source | Contribution | Provider |
+| --- | --- | --- |
+| Open Medic | Beneficiaries, reimbursed boxes, reimbursement base and reimbursed expenditure | [Assurance Maladie](https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments) |
+| Population estimates | National, demographic and regional denominators | [INSEE](https://www.insee.fr/) |
+| Administrative contours | Metropolitan regional geometries | [Etalab/data.gouv.fr](https://www.data.gouv.fr/datasets/contours-administratifs), derived from IGN ADMIN EXPRESS |
+| ATC classification | Operational medicine definitions | WHO Collaborating Centre for Drug Statistics Methodology |
 
-The primary data source will be the complementary Open Medic databases enriched with beneficiary counts, produced by the Caisse nationale de l’Assurance Maladie.
+Source URLs, acquisition dates, file sizes and checksums are recorded in
+version-controlled metadata. Raw and intermediate files are reconstructed from
+their official sources rather than redistributed indiscriminately.
 
-Open Medic contains aggregated information on medicines dispensed in community pharmacies and reimbursed by French mandatory health-insurance schemes. Planned measures include beneficiary counts, reimbursed boxes, reimbursement base and reimbursed expenditure.
+## Main analytical domains
 
-Official source: [Assurance Maladie — Open Medic complementary databases](https://www.assurance-maladie.ameli.fr/etudes-et-donnees/open-medic-depenses-beneficiaires-medicaments)
+- National beneficiaries and population rates, 2020–2025.
+- Reimbursed boxes and expenditure by active substance, 2019–2025.
+- Age- and sex-specific beneficiary rates, 2020–2025.
+- Crude and directly age-sex-standardised regional rates.
+- Regional change and age-sex profiles.
+- Aggregate audit of the combined overseas grouping.
+- Metropolitan choropleth maps and common-scale temporal maps.
 
-### Population denominators
+## Important geographic definitions
 
-Annual population estimates from INSEE will be used to calculate national, demographic and regional population rates.
+Open Medic grouping `93` combines Provence-Alpes-Côte d'Azur and Corse.
+Cartographic outputs therefore show two geometries with the same analytical
+estimate.
 
-Official source: [INSEE](https://www.insee.fr/)
-
-## Technical approach
-
-The project deliberately uses both Python and R, with distinct responsibilities.
-
-| Component                                        | Primary technology |
-| ------------------------------------------------ | ------------------ |
-| File acquisition and download manifest           | Python             |
-| Archive extraction and file verification         | Python             |
-| Schema harmonisation and initial quality control | Python             |
-| Shared analytical datasets                       | Parquet            |
-| Epidemiological and statistical analysis         | R                  |
-| Age-sex standardisation                          | R                  |
-| Tables, visualisations and maps                  | R                  |
-| White paper and portfolio publication            | Quarto             |
-| Selected independent validation checks           | Python and R       |
-
-Python and R will not be used to maintain two complete parallel pipelines. Selected results will be cross-checked across languages as part of quality assurance.
+Open Medic grouping `5` combines Guadeloupe, Martinique, French Guiana, La
+Réunion and Mayotte. Results cannot be attributed to any individual overseas
+territory, so individual overseas geometries are deliberately omitted from the
+maps. The denominator and 2023–2024 temporal pattern were independently
+audited in the quality-control pipeline.
 
 ## Repository structure
 
 ```text
 glp1-use-france/
-├── README.md
-├── protocol/
+├── dashboard/             # Static interactive dashboard
 ├── data/
-│   ├── raw/
-│   ├── interim/
-│   ├── processed/
-│   └── metadata/
-├── src/
-│   ├── python/
-│   └── R/
-├── tests/
-│   ├── python/
-│   └── R/
+│   ├── raw/               # Immutable downloads; not versioned
+│   ├── interim/           # Reproducible transformations; not versioned
+│   ├── processed/         # Analysis-ready data; not versioned
+│   ├── geography/         # Versioned public map geometry
+│   └── metadata/          # Provenance, checksums and dictionaries
 ├── output/
-│   ├── figures/
-│   └── tables/
-└── report/
+│   ├── figures/           # Publication and dissemination graphics
+│   └── tables/            # Results, QC and figure data
+├── protocol/              # Protocol, SAP and amendments
+├── report/                # Programmatic report sources
+├── src/
+│   ├── python/            # Acquisition, harmonisation and independent QC
+│   └── R/                 # Analysis, tables, figures and maps
+├── tests/                 # Automated validation
+├── renv.lock              # Frozen R dependencies
+└── requirements.txt       # Frozen Python dependencies
 ```
-
-* `protocol/`: protocol, statistical analysis plan and amendment history.
-* `data/raw/`: immutable source files downloaded from official providers.
-* `data/interim/`: intermediate transformed data.
-* `data/processed/`: frozen analysis-ready datasets.
-* `data/metadata/`: manifests, dictionaries, code lists and provenance records.
-* `src/python/`: acquisition, ingestion, harmonisation and initial quality-control code.
-* `src/R/`: statistical analysis, validation and visualisation code.
-* `tests/`: automated and independent validation checks.
-* `output/`: generated figures and tables.
-* `report/`: Quarto sources for the white paper and portfolio materials.
-
-Raw, intermediate and processed data are excluded from version control. Their provenance and reconstruction procedures will be documented.
 
 ## Reproducibility
 
-The project will record:
+### Requirements
 
-* source URLs and release dates;
-* download dates, file sizes and checksums;
-* data dictionaries and code mappings;
-* software and package versions;
-* data-processing decisions;
-* protocol amendments;
-* quality-control results;
-* commands required to reconstruct the analysis.
+- Python 3 with the packages pinned in `requirements.txt`;
+- R with `renv`;
+- Quarto for protocol and report rendering.
 
-Python dependencies will be isolated in a project-specific virtual environment. R dependencies will be managed with `renv`. Reports will be generated programmatically with Quarto.
+Create or restore the Python environment:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Restore the R environment:
+
+```bash
+Rscript -e 'renv::restore()'
+```
+
+The Python programs under `src/python/` acquire and harmonise source data,
+build population denominators, perform independent audits and create the public
+dashboard bundle. Use `python <script> --help` where a program accepts explicit
+source or year arguments.
+
+The principal R analysis sequence is:
+
+```bash
+Rscript src/R/01_build_analysis_datasets.R
+Rscript src/R/02_national_outputs.R
+Rscript src/R/03_active_substance_outputs.R
+Rscript src/R/04_demographic_outputs.R
+Rscript src/R/05_build_regional_datasets.R
+Rscript src/R/06_regional_outputs.R
+Rscript src/R/08_geospatial_outputs.R
+```
+
+Rebuild the public dashboard data after analytical outputs change:
+
+```bash
+python src/python/build_dashboard_data.py
+```
+
+Preview the dashboard locally:
+
+```bash
+python -m http.server 8000 --directory dashboard
+```
+
+Then open `http://localhost:8000`. GitHub Pages deployment is automated by
+`.github/workflows/dashboard-pages.yml`.
+
+## Governance and quality assurance
+
+The protocol and statistical analysis plan were frozen before examination of
+the primary analytical results. Post-freeze changes are retained as numbered
+amendments and are not retrospectively presented as prespecified.
+
+Quality assurance includes schema checks, source-file checksums, cross-language
+validation, reconciliation of additive measures, standardisation checks,
+geographic join controls and a dedicated overseas-grouping audit. Reporting
+follows the RECORD-PE framework; the completed checklist accompanies the study
+as supplementary information.
 
 ## Interpretation boundaries
 
-Open Medic records reimbursed community dispensings. It does not directly measure:
+Open Medic describes reimbursed community dispensings. It does not directly
+measure prescriptions written, medicines actually taken, clinical indication,
+initiation, switching, persistence, adherence, effectiveness, safety outcomes
+or non-reimbursed use.
 
-* prescriptions written;
-* medicines actually taken;
-* treatment indication;
-* treatment initiation;
-* switching or persistence;
-* adherence;
-* clinical effectiveness;
-* safety outcomes;
-* non-reimbursed use.
+Demographic and regional findings represent aggregate variation and must not be
+interpreted as individual-level associations. Disclosure-control bounds are not
+sampling-based confidence intervals. Boxes are dispensing units and are not
+necessarily clinically equivalent across products.
 
-Beneficiary counts from different active substances cannot be summed to estimate unique users of the complete class. Class-level beneficiary counts will therefore be obtained directly from ATC4 data.
+## Citation
 
-Regional or demographic differences will be interpreted as descriptive aggregate variation and not as individual-level or causal effects.
+Citation metadata are provided in [`CITATION.cff`](CITATION.cff). A versioned
+DOI will be added after the first stable GitHub release is archived in Zenodo.
+Until then, cite the repository with its URL and the accessed release or commit:
 
-## Planned outputs
+> Zorrilla de San Martin J. *Reimbursed Use of GLP-1 Receptor Agonists in
+> France, 2019–2025*. Maradian Labs. Available from:
+> https://github.com/javierzsm/glp1-use-france
 
-* Frozen study protocol.
-* Statistical analysis plan.
-* ATC code list.
-* Data manifest and dictionary.
-* Reproducible Python and R code.
-* Quality-control report.
-* Scientific white paper in English.
-* Executive summary in French.
-* Public portfolio page with selected figures and methods.
+## Funding and competing interests
 
-## Project progress
+This study was internally funded by Maradian Labs. No external commercial,
+institutional or grant funding was received.
 
-* [x] Local development environment initialised.
-* [x] Git version control configured.
-* [x] Isolated Python environment created.
-* [x] R and Python integration verified.
-* [x] Repository documentation completed.
-* [x] Reproducible dependency environments frozen.
-* [x] Protocol version 1.0 frozen.
-* [x] Data-source files selected.
-* [x] Pilot ingestion completed.
-* [ ] Primary analysis completed.
-* [ ] White paper released.
+The author declares no competing interests.
 
-## Governance and licensing
+## Licensing
 
-Only open, aggregated and disclosure-controlled data will be used. No individual-level or personal health data will be processed.
+Original source code is released under the [MIT License](LICENSE). Original
+documentation, figures and tables are released under
+[CC BY 4.0](LICENSES.md), unless otherwise stated. Third-party datasets and
+geographic materials remain subject to the licences and attribution terms of
+their respective providers.
 
-Code, documentation and report licensing will be defined before the first public release. Third-party source data remain subject to the licences and attribution requirements of their respective producers.
+## Project status
+
+- [x] Protocol and statistical analysis plan frozen.
+- [x] Primary and secondary analyses completed.
+- [x] Quality-control and geographic audits completed.
+- [x] Publication and dissemination figures generated.
+- [x] Interactive dashboard published with GitHub Pages.
+- [x] Manuscript draft completed and internally reviewed.
+- [ ] Final manuscript package prepared for medRxiv.
+- [ ] Stable repository release archived in Zenodo.
+- [ ] Repository transferred to the future Maradian Labs GitHub organisation.
 
 ## About Maradian Labs
 
-Maradian Labs is an independent research initiative exploring pharmacoepidemiology, real-world evidence and the secondary use of health data through open and reproducible studies.
-
-This repository is currently maintained by [Javier Zorrilla de San Martin](https://github.com/javierzsm).
+Maradian Labs is an independent research initiative specialising in
+pharmacoepidemiology, real-world evidence and the secondary use of health data.
+It develops transparent, reproducible studies and analytical tools for
+scientific and health-system decision-making.

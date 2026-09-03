@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the study and the archived software release."
+title: "Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025"
+type: software
+authors:
+  - family-names: "Zorrilla de San Martin"
+    given-names: "Javier"
+    orcid: "https://orcid.org/0000-0003-2848-7482"
+repository-code: "https://github.com/javierzsm/glp1-use-france"
+url: "https://javierzsm.github.io/glp1-use-france/"
+license: MIT
+abstract: >-
+  Reproducible code, analytical outputs and an interactive dashboard for a
+  repeated annual cross-sectional study of reimbursed GLP-1 receptor agonist
+  use in France from 2019 through 2025.
+keywords:
+  - pharmacoepidemiology
+  - drug utilisation
+  - real-world evidence
+  - GLP-1 receptor agonists
+  - Open Medic
+  - France
