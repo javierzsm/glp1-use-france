@@ -221,6 +221,12 @@ their respective providers.
 ## About Maradian Labs
 
 Maradian Labs is an independent research initiative specialising in
-pharmacoepidemiology, real-world evidence and the secondary use of health data.
+real-world evidence and the secondary use of health data.
 It develops transparent, reproducible studies and analytical tools for
 scientific and health-system decision-making.
+
+## Contact
+
+Javier Zorrilla de San Martin  
+Maradian Labs, Bordeaux, France  
+[javierzsm@maradianlabs.org](mailto:javierzsm@maradianlabs.org)
