@@ -6,6 +6,7 @@ authors:
   - family-names: "Zorrilla de San Martin"
     given-names: "Javier"
     orcid: "https://orcid.org/0000-0003-2848-7482"
+    email: "javierzsm@maradianlabs.org"
 repository-code: "https://github.com/javierzsm/glp1-use-france"
 url: "https://javierzsm.github.io/glp1-use-france/"
 license: MIT
