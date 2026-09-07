@@ -21,3 +21,13 @@ keywords:
   - GLP-1 receptor agonists
   - Open Medic
   - France
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Zorrilla de San Martin"
+      given-names: "Javier"
+      orcid: "https://orcid.org/0000-0003-2848-7482"
+  title: "Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025"
+  year: 2026
+  doi: "10.5281/zenodo.22650913"
+  url: "https://doi.org/10.5281/zenodo.22650913"

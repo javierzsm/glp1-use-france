@@ -2,6 +2,7 @@
 
 [![Dashboard](https://img.shields.io/badge/dashboard-GitHub%20Pages-147d86)](https://javierzsm.github.io/glp1-use-france/)
 [![Research report](https://img.shields.io/badge/report-PDF-7c62ad)](paper/reimbursed_glp1_use_france_2019_2025.pdf)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22650913.svg)](https://doi.org/10.5281/zenodo.22650913)
 [![Protocol](https://img.shields.io/badge/protocol-frozen-123149)](protocol/study_protocol.qmd)
 [![License: MIT](https://img.shields.io/badge/code-MIT-3487b9)](LICENSE)
 [![Documentation: CC BY 4.0](https://img.shields.io/badge/documentation-CC%20BY%204.0-7c62ad)](LICENSES.md)
@@ -187,12 +188,12 @@ necessarily clinically equivalent across products.
 ## Citation
 
 Citation metadata are provided in [`CITATION.cff`](CITATION.cff). A versioned
-DOI will be added after the first stable GitHub release is archived in Zenodo.
-Until then, cite the repository with its URL and the accessed release or commit:
+software DOI will be added after the first stable GitHub release is archived
+in Zenodo. The research report has the following DOI:
 
 > Zorrilla de San Martin J. *Reimbursed Use of GLP-1 Receptor Agonists in
-> France, 2019–2025*. Research report. Available from:
-> https://github.com/javierzsm/glp1-use-france
+> France, 2019–2025*. Research report. 2026.
+> https://doi.org/10.5281/zenodo.22650913
 
 ## Funding and competing interests
 
