@@ -11,8 +11,8 @@ Unless a file states otherwise, original documentation, protocol text,
 manuscript material, figures and tables created for this project are licensed
 under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
-Attribution should identify Javier Zorrilla de San Martin and Maradian Labs,
-name the study, and link to the repository or future DOI.
+Attribution should identify Javier Zorrilla de San Martin, name the study, and
+link to the repository or future DOI.
 
 ## Third-party data and materials
 

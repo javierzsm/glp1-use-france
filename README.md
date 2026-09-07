@@ -1,6 +1,7 @@
 # Reimbursed Use of GLP-1 Receptor Agonists in France, 2019–2025
 
-[![Dashboard](https://img.shields.io/badge/dashboard-GitHub%20Pages-147d86)](https://rwe-maradian-labs.github.io/glp1-use-france/)
+[![Dashboard](https://img.shields.io/badge/dashboard-GitHub%20Pages-147d86)](https://javierzsm.github.io/glp1-use-france/)
+[![Research report](https://img.shields.io/badge/report-PDF-7c62ad)](paper/reimbursed_glp1_use_france_2019_2025.pdf)
 [![Protocol](https://img.shields.io/badge/protocol-frozen-123149)](protocol/study_protocol.qmd)
 [![License: MIT](https://img.shields.io/badge/code-MIT-3487b9)](LICENSE)
 [![Documentation: CC BY 4.0](https://img.shields.io/badge/documentation-CC%20BY%204.0-7c62ad)](LICENSES.md)
@@ -10,12 +11,14 @@ peptide-1 receptor agonist (GLP-1 RA) use in France. The study describes
 national, active-substance, demographic and regional patterns through 2025
 using aggregated administrative reimbursement data.
 
-The project was developed by **Maradian Labs** and is maintained by
-[Javier Zorrilla de San Martin](https://github.com/javierzsm).
+The project was conceived, conducted and is maintained by
+[Javier Zorrilla de San Martin](https://github.com/javierzsm). It was
+internally funded by Maradian Labs.
 
 ## Explore the results
 
-- [Interactive dashboard](https://rwe-maradian-labs.github.io/glp1-use-france/)
+- [Research report (PDF)](paper/reimbursed_glp1_use_france_2019_2025.pdf)
+- [Interactive dashboard](https://javierzsm.github.io/glp1-use-france/)
 - [Frozen study protocol](protocol/study_protocol.qmd)
 - [Frozen statistical analysis plan](protocol/statistical_analysis_plan.qmd)
 - [Protocol amendments](protocol/amendments/)
@@ -188,8 +191,8 @@ DOI will be added after the first stable GitHub release is archived in Zenodo.
 Until then, cite the repository with its URL and the accessed release or commit:
 
 > Zorrilla de San Martin J. *Reimbursed Use of GLP-1 Receptor Agonists in
-> France, 2019–2025*. Maradian Labs. Available from:
-> https://github.com/rwe-maradian-labs/glp1-use-france
+> France, 2019–2025*. Research report. Available from:
+> https://github.com/javierzsm/glp1-use-france
 
 ## Funding and competing interests
 
@@ -214,19 +217,18 @@ their respective providers.
 - [x] Publication and dissemination figures generated.
 - [x] Interactive dashboard published with GitHub Pages.
 - [x] Manuscript draft completed and internally reviewed.
-- [ ] Final manuscript package prepared for medRxiv.
+- [x] Public research report added to the repository.
 - [ ] Stable repository release archived in Zenodo.
-- [ ] Repository transferred to the future Maradian Labs GitHub organisation.
 
-## About Maradian Labs
+## About the author
 
-Maradian Labs is an independent research initiative specialising in
-real-world evidence and the secondary use of health data.
-It develops transparent, reproducible studies and analytical tools for
-scientific and health-system decision-making.
+Javier Zorrilla de San Martin develops open, reproducible analytical projects
+at the intersection of biomedical research, drug utilisation and real-world
+health data. This repository documents the complete workflow behind the study
+and forms part of his public research and data-analysis portfolio.
 
 ## Contact
 
-Javier Zorrilla de San Martin  
-Maradian Labs, Bordeaux, France  
+Javier Zorrilla de San Martin<br>
+Bordeaux, France<br>
 [javierzsm@maradianlabs.org](mailto:javierzsm@maradianlabs.org)

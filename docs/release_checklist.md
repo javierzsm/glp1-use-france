@@ -20,23 +20,18 @@
 - [ ] Confirm hyperlinks to the supplementary figure appendix.
 - [ ] Confirm self-contained legends and data-source attribution.
 - [ ] Verify numerical reconciliation and independent-rounding notes.
-- [ ] Insert the Maradian Labs correspondence email.
+- [x] Confirm the author's correspondence email.
 - [ ] Confirm author affiliation and ORCID.
 - [ ] Confirm ethics, data-availability, code-availability and author-contribution statements.
 - [ ] Generate and visually inspect the final DOCX and PDF.
 
-## medRxiv submission
+## Public research report
 
-- [ ] Create or verify the submitting-author account.
-- [ ] Prepare title, abstract, keywords and subject category.
-- [ ] Upload the manuscript and supplementary files.
-- [ ] Enter author, affiliation and correspondence details.
-- [ ] Enter funding and competing-interests declarations.
-- [ ] Enter ethics and data/code availability declarations.
-- [ ] Add the public repository and dashboard links.
-- [ ] Select and record the preprint licence.
-- [ ] Review the generated submission proof before confirmation.
-- [ ] Record the submission identifier, date and subsequent DOI.
+- [x] Publish the research report PDF in the repository.
+- [x] Include author, ORCID and correspondence details.
+- [x] Include funding, competing-interests and ethics declarations.
+- [x] Include data, code, repository and dashboard links.
+- [ ] Create a stable GitHub release for the public report.
 
 ## Zenodo archive
 
@@ -47,11 +42,9 @@
 - [ ] Record both the version DOI and concept DOI.
 - [ ] Add the DOI badge and citation to `README.md`.
 - [ ] Add the DOI and release date to `CITATION.cff`.
-- [ ] Update the manuscript/preprint repository citation when appropriate.
+- [ ] Update the research-report repository citation when appropriate.
 
-## Future transfer to Maradian Labs
+## Future inclusion in the Maradian Labs portfolio
 
-- [ ] Create the Maradian Labs GitHub organisation.
-- [ ] Transfer the repository while preserving redirects and releases.
-- [ ] Update repository, dashboard, manuscript and Zenodo URLs where required.
-- [ ] Recheck GitHub Pages after the transfer.
+- [ ] Decide when the project is ready for inclusion in the Maradian Labs portfolio.
+- [ ] Add a portfolio link without changing the canonical personal repository.
