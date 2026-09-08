@@ -221,7 +221,7 @@ their respective providers.
 - [x] Manuscript draft completed and internally reviewed.
 - [x] Public research report added to the repository.
 - [x] Research report published on Zenodo.
-- [ ] Stable repository release archived in Zenodo.
+- [x] Stable repository release archived in Zenodo.
 
 ## About the author
 
