@@ -33,16 +33,23 @@
 - [x] Include data, code, repository and dashboard links.
 - [ ] Create a stable GitHub release for the public report.
 
-## Zenodo archive
+## Zenodo research-report publication
 
-- [ ] Connect the GitHub account to Zenodo.
-- [ ] Enable `javierzsm/glp1-use-france` in the Zenodo GitHub integration.
-- [ ] Create the GitHub `v1.0.0` release.
-- [ ] Verify successful ingestion and metadata in Zenodo.
-- [ ] Record both the version DOI and concept DOI.
-- [ ] Add the DOI badge and citation to `README.md`.
-- [ ] Add the DOI and release date to `CITATION.cff`.
-- [ ] Update the research-report repository citation when appropriate.
+- [x] Publish the research report on Zenodo.
+- [x] Verify the published record and metadata.
+- [x] Record the version DOI: `10.5281/zenodo.22658978`.
+- [x] Record the concept DOI: `10.5281/zenodo.22658977`.
+- [x] Add the DOI badge and citation to `README.md`.
+- [x] Add the definitive DOI to `CITATION.cff`.
+- [x] Embed the definitive DOI in the research-report PDF.
+- [x] Link the Zenodo publication from the repository.
+
+## Stable software release
+
+- [ ] Confirm the repository state intended for the stable release.
+- [ ] Tag the stable analytical release as `v1.0.0`.
+- [ ] Create the corresponding GitHub release.
+- [ ] Decide whether to archive the software release separately in Zenodo.
 
 ## Future inclusion in the Maradian Labs portfolio
 

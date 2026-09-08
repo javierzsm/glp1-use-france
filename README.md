@@ -19,6 +19,7 @@ internally funded by Maradian Labs.
 ## Explore the results
 
 - [Research report (PDF)](paper/reimbursed_glp1_use_france_2019_2025.pdf)
+- [Published research report on Zenodo](https://doi.org/10.5281/zenodo.22658978)
 - [Interactive dashboard](https://javierzsm.github.io/glp1-use-france/)
 - [Frozen study protocol](protocol/study_protocol.qmd)
 - [Frozen statistical analysis plan](protocol/statistical_analysis_plan.qmd)
@@ -189,7 +190,7 @@ necessarily clinically equivalent across products.
 
 Citation metadata are provided in [`CITATION.cff`](CITATION.cff). A versioned
 software DOI will be added after the first stable GitHub release is archived
-in Zenodo. The research report has the following DOI:
+in Zenodo. The research report is published on Zenodo with the following DOI:
 
 > Zorrilla de San Martin J. *Reimbursed Use of GLP-1 Receptor Agonists in
 > France, 2019–2025*. Research report. 2026.
@@ -219,6 +220,7 @@ their respective providers.
 - [x] Interactive dashboard published with GitHub Pages.
 - [x] Manuscript draft completed and internally reviewed.
 - [x] Public research report added to the repository.
+- [x] Research report published on Zenodo.
 - [ ] Stable repository release archived in Zenodo.
 
 ## About the author
